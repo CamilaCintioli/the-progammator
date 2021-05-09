@@ -9,3 +9,6 @@ func _ready():
 	for i in [35,105,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500]:
 		var turret = matrix_turret_scene.instance()
 		turret.initialize(self, Vector2(i, 0))
+
+func next_level():
+	get_tree().change_scene("res://Levels/Level2.tscn")

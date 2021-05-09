@@ -13,6 +13,7 @@ var velocity:Vector2 = Vector2.ZERO
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	add_to_group("player")
 
 func initialize(level_1):
 	container = level_1
@@ -41,3 +42,6 @@ func _physics_process(delta):
 	
 	var mouse_position:Vector2 = get_global_mouse_position()
 	arm.look_at(mouse_position)
+	
+func hit():
+	print("player hit")

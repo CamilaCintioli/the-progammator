@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Level2" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 164.0
+margin_top = 164.0
+margin_right = 833.0
+margin_bottom = 304.0
+rect_scale = Vector2( 5, 5 )
+text = "Level 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
