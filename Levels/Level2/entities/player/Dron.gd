@@ -3,9 +3,6 @@ extends KinematicBody2D
 var speed = 9
 
 var container
-var screen_size
-var x_direction_optimized
-var y_direction_optimized
 
 var velocity:Vector2 = Vector2.ZERO
 
