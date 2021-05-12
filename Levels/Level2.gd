@@ -10,3 +10,7 @@ func _ready():
 	
 func change_control():
 	control = !control
+	if control:
+		$Programmer/CameraProgramer.current = true
+	else:
+		$Dron/CameraDron.current = true

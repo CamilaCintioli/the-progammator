@@ -11,7 +11,8 @@ var is_player_projectile
 func _ready():
 	add_to_group("projectile")
 
-func initialize(_container, spawn_position:Vector2, _direction:Vector2, _is_player_projectile):
+func initialize(_container, spawn_position:Vector2,
+				 _direction:Vector2, _is_player_projectile):
 	self.container = _container
 	container.add_child(self) 
 	global_position = spawn_position
@@ -22,6 +23,8 @@ func initialize(_container, spawn_position:Vector2, _direction:Vector2, _is_play
 
 func _physics_process(delta):
 	position += direction * VELOCITY * delta
+	if is_player_projectile :
+		$AnimationRam.play("ramroll")
 	
 func _remove():
 	container.remove_child(self)

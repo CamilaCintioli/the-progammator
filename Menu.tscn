@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="Menu" type="ColorRect"]
 margin_right = 1280.0
@@ -12,13 +23,16 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_left = 316.177
-margin_top = 206.861
-margin_right = 456.177
-margin_bottom = 226.861
-rect_scale = Vector2( 5, 5 )
+margin_left = 268.355
+margin_top = 206.884
+margin_right = 642.355
+margin_bottom = 254.884
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.231373, 0.784314, 0.278431, 1 )
 text = "THE PROGRAMATOR"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,9 +42,9 @@ margin_left = 373.0
 margin_top = 442.0
 margin_right = 898.0
 margin_bottom = 561.0
+custom_fonts/font = SubResource( 2 )
 text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
