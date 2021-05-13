@@ -12,17 +12,17 @@ func _ready():
 func _on_For_body_entered(body):
 	if body.is_in_group("programmer"):
 		codes.append('for')
-		$For.hide()
+		$For.bye()
 		$CodesInfo/Label.text = "codes: " + str(codes)
 
 func _on_While_body_entered(body):
 	if body.is_in_group("programmer"):
 		codes.append('while')
-		$While.hide()
+		$While.bye()
 		$CodesInfo/Label.text = "codes: " + str(codes)
 
 func _on_If_body_entered(body):
 	if body.is_in_group("programmer"):
 		codes.append('if')
-		$If.hide()
+		$If.bye()
 		$CodesInfo/Label.text = "codes: " + str(codes)

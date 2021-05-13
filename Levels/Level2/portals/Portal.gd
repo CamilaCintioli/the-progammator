@@ -12,3 +12,10 @@ func _on_Portal_body_entered(body):
 func _on_Portal_body_exited(body):
 	if body.is_in_group("programmer"):
 		container.hide_dialog()
+		
+func _remove():
+	container.remove_child(self)
+	queue_free()
+	
+func bye():
+	call_deferred("_remove")

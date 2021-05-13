@@ -22,6 +22,32 @@ func change_control():
 
 func hide_dialog():
 	$DialogBox.visible = false
+	for c in $Codes.codes:
+		show_button(c, false)
 
 func show_dialog():
 	$DialogBox.visible = true
+	for c in $Codes.codes:
+		show_button(c, true)
+	
+func show_button(code, visible):
+	if code == 'while':
+		$Buttons/WhileButton.visible = visible
+	if code == 'if':
+		$Buttons/IfButton.visible = visible
+	if code == 'for':
+		$Buttons/ForButton.visible = visible
+
+func _on_ForButton_pressed():
+	pass
+
+func _on_WhileButton_pressed():
+	$Buttons/WhileButton.visible = false
+	$Buttons/ForButton.visible = false
+	$Buttons/IfButton.visible = false
+	$DialogBox.visible = false
+	$Codes/CodesInfo/Label.text = ""
+	portal.bye()
+
+func _on_IfButton_pressed():
+	pass
