@@ -34,7 +34,7 @@ func get_input():
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("change"):
 		container.change_control()
 	

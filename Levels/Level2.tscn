@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Level2/Dron.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/textures/background/fondo.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/MLTWNII_.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Levels/Level2/portals/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level2/codes/While.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level2/dialogs/DialogBox.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -62,6 +64,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 size = 30
 font_data = ExtResource( 6 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 64.2126, 20.6374 )
+
 [node name="Level2" type="Node"]
 script = ExtResource( 4 )
 
@@ -85,9 +90,10 @@ tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -6
 
 [node name="DialogBox" type="Control" parent="."]
 margin_left = 978.983
-margin_top = 289.492
+margin_top = 279.413
 margin_right = 2255.98
-margin_bottom = 631.492
+margin_bottom = 621.413
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -95,33 +101,49 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="DialogBox"]
 margin_left = 71.0
-margin_top = 27.0
+margin_top = -16.0
 margin_right = 1077.0
-margin_bottom = 185.0
+margin_bottom = 217.0
 color = Color( 0.811765, 0.792157, 0.576471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
-margin_left = 92.0
-margin_top = 41.0
-margin_right = 1072.0
-margin_bottom = 180.0
+margin_left = 91.0
+margin_top = -5.0
+margin_right = 1071.0
+margin_bottom = 216.0
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
-bbcode_text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition."
-text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition."
+bbcode_text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
+
+       SOLUTION HERE"
+text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
+
+       SOLUTION HERE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Solution" type="Area2D" parent="DialogBox"]
+position = Vector2( -978.983, -279.413 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogBox/Solution"]
+position = Vector2( 1446.47, 469.251 )
+shape = SubResource( 5 )
+
 [node name="Portal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1571.29, 608.858 )
+
+[node name="While" parent="." instance=ExtResource( 8 )]
+position = Vector2( 76.3675, 298.399 )
 
 [node name="Programmer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 156.355, 665.39 )
 
 [node name="Dron" parent="." instance=ExtResource( 2 )]
 position = Vector2( 157.443, 576.038 )
+
+[connection signal="area_entered" from="DialogBox/Solution" to="DialogBox" method="_on_Solution_area_entered"]
