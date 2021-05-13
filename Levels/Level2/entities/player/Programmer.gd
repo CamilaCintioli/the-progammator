@@ -44,3 +44,11 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+
+func _remove():
+	get_parent().remove_child(self)
+	queue_free()
+	
+func hit():
+	call_deferred("_remove")
+	container.change_control()

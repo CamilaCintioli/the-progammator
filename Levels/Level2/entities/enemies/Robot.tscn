@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Level2/entities/enemies/Robot.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/enemies/robosheet.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Level1/entities/Proyectile.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.7202, 40.3778 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.2141, 29.828 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.33102, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 189.664, 150.341 )
+
+[node name="Robot" type="StaticBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+projectile_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 10
+vframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.49493, -0.374573 )
+shape = SubResource( 1 )
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2( 3.13049, 9.739 )
+shape = SubResource( 2 )
+
+[node name="HeadArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
+position = Vector2( 6.54064, -30.7707 )
+shape = SubResource( 3 )
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2( 205.421, -111.113 )
+shape = SubResource( 4 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="FirePosition" type="Position2D" parent="."]
+position = Vector2( 10.0099, -29.5225 )
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
+[connection signal="body_entered" from="HeadArea" to="." method="_on_HeadArea_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

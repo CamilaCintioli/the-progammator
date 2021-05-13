@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Level2/Dron.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Levels/Level2/portals/If.gd" type="Script" id=9]
 [ext_resource path="res://Levels/Level2/portals/For.gd" type="Script" id=10]
 [ext_resource path="res://Levels/Level2/portals/While.gd" type="Script" id=11]
+[ext_resource path="res://Levels/Level2/entities/enemies/Robot.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -278,6 +279,9 @@ text = "if"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Robot" parent="." instance=ExtResource( 12 )]
+position = Vector2( 776.403, 279.697 )
 
 [connection signal="body_entered" from="Codes/While" to="Codes" method="_on_While_body_entered"]
 [connection signal="body_entered" from="Codes/For" to="Codes" method="_on_For_body_entered"]

@@ -14,7 +14,7 @@ func _ready():
 func initialize(_container, spawn_position:Vector2,
 				 _direction:Vector2, _is_player_projectile):
 	self.container = _container
-	container.add_child(self) 
+	_container.add_child(self) 
 	global_position = spawn_position
 	self.direction = _direction
 	self.is_player_projectile = _is_player_projectile
@@ -34,7 +34,7 @@ func _on_life_timer_timeout():
 	_remove()
 
 func _on_Proyectile_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") or body.is_in_group("programmer") or body.is_in_group("dron"):
 		body.hit()
 	if body.is_in_group("chrom"):
 		if is_player_projectile:

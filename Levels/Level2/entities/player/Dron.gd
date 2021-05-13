@@ -15,7 +15,6 @@ func initialize(level_2):
 	container = level_2
 	
 func get_input():
-	
 	var right := Input.is_action_pressed("move_right")
 	var left := Input.is_action_pressed("move_left")
 	velocity.x += lerp(float(right) - float(left), 0.2, 0.2) * speed 
@@ -29,3 +28,10 @@ func _physics_process(_delta):
 	if !container.control:
 		get_input()
 	velocity = move_and_slide(velocity, Vector2.ZERO)
+
+func _remove():
+	get_parent().remove_child(self)
+	queue_free()
+	
+func hit():
+	call_deferred("_remove")
