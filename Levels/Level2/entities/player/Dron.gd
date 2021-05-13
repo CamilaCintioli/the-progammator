@@ -25,7 +25,7 @@ func get_input():
 	velocity.y += lerp(float(down) - float(up), 0.2, 0.2) * speed 
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !container.control:
 		get_input()
 	velocity = move_and_slide(velocity, Vector2.ZERO)

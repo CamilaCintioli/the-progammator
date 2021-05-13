@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Level2/Dron.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/textures/background/fondo.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/MLTWNII_.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Levels/Level2/portals/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level2/portals/Codes.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -61,6 +62,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 36.912, 14.2949 )
 
 [node name="Level2" type="Node"]
 script = ExtResource( 4 )
@@ -120,8 +124,119 @@ __meta__ = {
 [node name="Portal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1571.29, 608.858 )
 
+[node name="Codes" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="While" type="Area2D" parent="Codes"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Codes/While"]
+margin_left = 20.3058
+margin_top = 268.653
+margin_right = 97.3058
+margin_bottom = 298.653
+color = Color( 0.411765, 0.592157, 0.121569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Codes/While"]
+position = Vector2( 59.1185, 283.583 )
+shape = SubResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Codes/While"]
+margin_left = 39.3471
+margin_top = 279.225
+margin_right = 105.347
+margin_bottom = 307.225
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "WHILE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="For" type="Area2D" parent="Codes"]
+position = Vector2( 583.519, 382.692 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Codes/For"]
+margin_left = 20.3058
+margin_top = 268.653
+margin_right = 97.3058
+margin_bottom = 298.653
+color = Color( 0.411765, 0.592157, 0.121569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Codes/For"]
+position = Vector2( 59.1185, 283.583 )
+shape = SubResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Codes/For"]
+margin_left = 39.3471
+margin_top = 279.225
+margin_right = 105.347
+margin_bottom = 307.225
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "FOR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="If" type="Area2D" parent="Codes"]
+position = Vector2( 1104.86, 16.83 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Codes/If"]
+margin_left = 20.3058
+margin_top = 268.653
+margin_right = 97.3058
+margin_bottom = 298.653
+color = Color( 0.411765, 0.592157, 0.121569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Codes/If"]
+position = Vector2( 59.1185, 283.583 )
+shape = SubResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Codes/If"]
+margin_left = 50.3595
+margin_top = 277.222
+margin_right = 116.36
+margin_bottom = 305.222
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "IF"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CodesInfo" type="CanvasLayer" parent="Codes"]
+
+[node name="Label" type="Label" parent="Codes/CodesInfo"]
+margin_left = 1048.0
+margin_top = 10.0
+margin_right = 1272.0
+margin_bottom = 44.0
+text = "codes: []"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Programmer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 156.355, 665.39 )
 
 [node name="Dron" parent="." instance=ExtResource( 2 )]
 position = Vector2( 157.443, 576.038 )
+
+[connection signal="body_entered" from="Codes/While" to="Codes" method="_on_While_body_entered"]
+[connection signal="body_entered" from="Codes/For" to="Codes" method="_on_For_body_entered"]
+[connection signal="body_entered" from="Codes/If" to="Codes" method="_on_If_body_entered"]
