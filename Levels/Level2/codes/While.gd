@@ -21,6 +21,9 @@ func pursue():
 func release():
 	set_process(false)
 	
-func bye():
+func _remove():
 	container.remove_child(self)
 	queue_free()
+	
+func bye():
+	call_deferred("_remove")
