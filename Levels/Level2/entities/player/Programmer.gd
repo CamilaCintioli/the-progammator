@@ -50,5 +50,6 @@ func _remove():
 	queue_free()
 	
 func hit():
-	call_deferred("_remove")
 	container.change_control()
+	container.bye()
+	call_deferred("_remove")

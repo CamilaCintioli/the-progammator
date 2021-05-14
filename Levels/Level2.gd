@@ -53,3 +53,6 @@ func _on_WhileButton_pressed():
 
 func _on_IfButton_pressed():
 	pass
+	
+func bye():
+	robot.target = null
