@@ -8,6 +8,7 @@ onready var robot = $Robot
 onready var movingFloor = $MovingFloor
 
 export (PackedScene) var interface_scene:PackedScene
+export (PackedScene) var matrix_turret_scene:PackedScene
 
 var control = true
 var is_game_over = false
@@ -85,6 +86,10 @@ func _on_WhileButton_pressed():
 	$DialogBox.visible = false
 	$Codes/CodesInfo/Label.text = ""
 	portal.bye()
+	var x_pos = $MovingFloor/EndPosition.global_position.x
+	for i in [0,100,200,400,500,600,800,1000,1100,1300]:
+		var turret = matrix_turret_scene.instance()
+		turret.initialize(self, Vector2(x_pos + i, 40))
 
 func _on_IfButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
