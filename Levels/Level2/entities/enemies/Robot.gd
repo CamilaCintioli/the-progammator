@@ -45,7 +45,7 @@ func shoot():
 	fire_timer.start()
 	
 func fire():
-	if can_shoot():
+	if !container.is_game_over and can_shoot():
 		shoot()
 		
 func can_shoot():
@@ -83,4 +83,3 @@ func _on_Position_timeout():
 		else:
 			$Sprite.offset.x -= 10
 	$PositionTimer.start()
-	

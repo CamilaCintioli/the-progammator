@@ -6,7 +6,12 @@ onready var portal = $Portal
 onready var codes = $Codes
 onready var robot = $Robot
 onready var movingFloor = $MovingFloor
+
+export (PackedScene) var interface_scene:PackedScene
+
 var control = true
+var is_game_over = false
+var interface
 
 func _ready():
 	programmer.initialize(self)
@@ -20,6 +25,9 @@ func _ready():
 	$Buttons/WhileButton.visible = false
 	$Buttons/ForButton.visible = false
 	$Buttons/IfButton.visible = false
+	interface = interface_scene.instance()
+	add_child(interface)
+	interface.initialize(self)
 	
 func change_control():
 	control = !control
@@ -48,6 +56,19 @@ func show_button(code, visible):
 		$Buttons/IfButton.visible = visible
 	if code == 'for':
 		$Buttons/ForButton.visible = visible
+		
+func livesDecrease():
+	interface.livesDecrease()
+	
+func game_over():
+	is_game_over = true
+	programmer.set_game_over()
+	dron.set_game_over()
+	interface.heartNum = 0
+	interface.game_over()
+	
+func restart():
+	get_tree().reload_current_scene()
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
@@ -65,25 +86,17 @@ func _on_IfButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
 
 func _on_Cooler_body_entered(body):
-	if body.is_in_group("programmer"):
-		programmer.hit()
-	if body.is_in_group("dron"):
-		dron.hit()
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		game_over()
 
 func _on_Cooler2_body_entered(body):
-	if body.is_in_group("programmer"):
-		programmer.hit()
-	if body.is_in_group("dron"):
-		dron.hit()
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		game_over()
 
 func _on_Cooler3_body_entered(body):
-	if body.is_in_group("programmer"):
-		programmer.hit()
-	if body.is_in_group("dron"):
-		dron.hit()
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		game_over()
 
 func _on_Cooler4_body_entered(body):
-	if body.is_in_group("programmer"):
-		programmer.hit()
-	if body.is_in_group("dron"):
-		dron.hit()
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		game_over()

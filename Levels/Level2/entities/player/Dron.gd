@@ -5,6 +5,7 @@ var speed = 9
 var FRICTION_WEIGHT:float = 0.1
 
 var container
+var game_over = false
 
 var velocity:Vector2 = Vector2.ZERO
 
@@ -24,13 +25,14 @@ func get_input():
 	velocity.y += lerp(float(down) - float(up), 0.2, 0.2) * speed 
 
 func _physics_process(_delta):
-	if !container.control:
-		get_input()
-	velocity = move_and_slide(velocity, Vector2.ZERO)
+	if !game_over:
+		if !container.control:
+			get_input()
+		velocity = move_and_slide(velocity, Vector2.ZERO)
 
-func _remove():
-	get_parent().remove_child(self)
-	queue_free()
-	
 func hit():
-	call_deferred("_remove")
+	container.livesDecrease()
+
+func set_game_over():
+	game_over = true
+	hide()

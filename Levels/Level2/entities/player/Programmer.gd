@@ -14,6 +14,7 @@ export (int) var jump_speed:float = 350
 var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 var container
+var game_over = false
 
 func _ready():
 	add_to_group("programmer")
@@ -41,19 +42,20 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("change"):
-		container.change_control()
-	
-	if container.control:
-		get_input()
-	else:
-		velocity = Vector2.ZERO
-	velocity.y += gravity
-	velocity = move_and_slide(velocity, FLOOR_NORMAL)
-
-func _remove():
-	get_parent().remove_child(self)
-	queue_free()
+	if !game_over:
+		if Input.is_action_just_pressed("change"):
+			container.change_control()
+		
+		if container.control:
+			get_input()
+		else:
+			velocity = Vector2.ZERO
+		velocity.y += gravity
+		velocity = move_and_slide(velocity, FLOOR_NORMAL)
 	
 func hit():
-	call_deferred("_remove")
+	container.livesDecrease()
+
+func set_game_over():
+	game_over = true
+	hide()
