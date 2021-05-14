@@ -102,7 +102,6 @@ __meta__ = {
 
 [node name="GameOverTimer" type="Timer" parent="."]
 one_shot = true
-
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="WinButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

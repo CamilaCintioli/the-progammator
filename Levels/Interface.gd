@@ -16,11 +16,11 @@ func initialize(theLevel):
 	$grayRect.show()
 	
 func livesDecrease():
-	heartNum -= 1
-	$grayRect/heartsNumber.text = str(heartNum)
-	if heartNum <= 0:
+	if(heartNum!=0):
+		heartNum -= 1
 		$grayRect/heartsNumber.text = str(heartNum)
-		game_over()
+		if heartNum <= 0:
+			game_over()
 
 func show_message():
 	$GameOver.show()
