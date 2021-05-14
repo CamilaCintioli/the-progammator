@@ -13,6 +13,8 @@ func _ready():
 	portal.initialize(self)
 	codes.initialize(self)
 	robot.initialize(self)
+	$Robot2.initialize(self)
+	$Robot3.initialize(self)
 	$DialogBox.visible = false
 	
 func change_control():

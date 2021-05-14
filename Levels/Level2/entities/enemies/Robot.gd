@@ -13,6 +13,7 @@ var shooting_right = false
 
 func _ready():
 	add_to_group("robot")
+	$PositionTimer.wait_time = rand_range(3, 7)
 	$PositionTimer.start()
 	$FireTimer.start()
 

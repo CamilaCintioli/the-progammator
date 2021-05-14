@@ -283,6 +283,12 @@ __meta__ = {
 [node name="Robot" parent="." instance=ExtResource( 12 )]
 position = Vector2( 776.403, 279.697 )
 
+[node name="Robot2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 281.956, 151.881 )
+
+[node name="Robot3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1051.69, 663.229 )
+
 [connection signal="body_entered" from="Codes/While" to="Codes" method="_on_While_body_entered"]
 [connection signal="body_entered" from="Codes/For" to="Codes" method="_on_For_body_entered"]
 [connection signal="body_entered" from="Codes/If" to="Codes" method="_on_If_body_entered"]

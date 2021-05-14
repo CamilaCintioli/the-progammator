@@ -34,10 +34,10 @@ func _on_life_timer_timeout():
 	_remove()
 
 func _on_Proyectile_body_entered(body):
-	if body.is_in_group("player") or body.is_in_group("programmer") or body.is_in_group("dron"):
+	if (body.is_in_group("player") and !is_player_projectile) or body.is_in_group("programmer") or body.is_in_group("dron"):
 		body.hit()
 	if body.is_in_group("chrom"):
 		if is_player_projectile:
 			container.next_level()
-		else:
-			call_deferred("_remove")
+	if !body.is_in_group("robot") and !body.is_in_group("turret") and !is_player_projectile:
+		call_deferred("_remove")
