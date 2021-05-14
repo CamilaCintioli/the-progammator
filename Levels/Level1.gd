@@ -3,8 +3,6 @@ extends Node
 onready var player = $Player
 onready var interface = $Interface
 
-onready var matrix = $MatrixTurret
-
 export (PackedScene) var matrix_turret_scene
 
 func _ready():

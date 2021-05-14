@@ -33,8 +33,14 @@ func get_input():
 		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
+	
+	_set_animation(h_movement_direction)
 
-func _physics_process(delta):
+func _set_animation(h_movement_direction):
+	if h_movement_direction != 0 and int(!$Sprite.flip_h) != h_movement_direction:
+		$Sprite.flip_h = h_movement_direction < 0
+
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("change"):
 		container.change_control()
 	
@@ -44,3 +50,10 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+
+func _remove():
+	get_parent().remove_child(self)
+	queue_free()
+	
+func hit():
+	call_deferred("_remove")

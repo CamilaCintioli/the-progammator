@@ -10,12 +10,12 @@ size = 38
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 34
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 3 )
 
@@ -63,7 +63,7 @@ margin_left = -125.0
 margin_top = -50.0
 margin_right = 125.0
 margin_bottom = 50.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,7 +78,7 @@ margin_left = -117.0
 margin_top = -20.5
 margin_right = 117.0
 margin_bottom = 20.5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,6 +86,6 @@ __meta__ = {
 
 [node name="GameOverTimer" type="Timer" parent="."]
 one_shot = true
-[connection signal="restart_game" from="." to="." method="_on_Interface_restart_game"]
+
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

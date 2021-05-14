@@ -8,7 +8,7 @@ func _ready():
 	add_to_group("chrom")
 	limit = get_viewport().size.x
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(! over):
 		$AnimationChrom.play("roll")
 		position.x += 6 * direction;
