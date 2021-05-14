@@ -35,9 +35,11 @@ func _on_life_timer_timeout():
 
 func _on_Proyectile_body_entered(body):
 	if body.is_in_group("player"):
-		body.hit()
+		if (! is_player_projectile):
+			body.hit()
 	if body.is_in_group("chrom"):
 		if is_player_projectile:
+			print("chrome hit")
 			container.next_level()
 		else:
 			call_deferred("_remove")

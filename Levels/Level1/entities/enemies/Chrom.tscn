@@ -4,10 +4,11 @@
 [ext_resource path="res://Levels/Level1/entities/enemies/Chrom.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 22.6522
+radius = 46.9035
 
 [sub_resource type="Animation" id=2]
 resource_name = "roll"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -27,7 +28,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
@@ -37,14 +38,14 @@ tracks/1/keys = {
 gravity_scale = 0.0
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.315334, 0.31534 )
-rotation = 6.28319
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.315334, 0.31534 )
+rotation = 1.74846e-07
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
 
 [node name="AnimationChrom" type="AnimationPlayer" parent="."]
 anims/roll = SubResource( 2 )
