@@ -4,7 +4,7 @@
 [ext_resource path="res://Levels/Level1/entities/enemies/Chrom.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 22.6522
+radius = 63.087
 
 [sub_resource type="Animation" id=2]
 resource_name = "roll"
@@ -33,13 +33,14 @@ tracks/1/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Chrom" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Chrom" type="KinematicBody2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.315334, 0.31534 )
-rotation = 6.28319
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 

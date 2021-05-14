@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 var direction = -1
 var limit

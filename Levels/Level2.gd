@@ -1,14 +1,15 @@
 extends Node
 
-onready var player = $Programmer
+onready var programmer = $Programmer
 onready var dron = $Dron
 onready var portal = $Portal
 onready var codes = $Codes
 onready var robot = $Robot
+onready var movingFloor = $MovingFloor
 var control = true
 
 func _ready():
-	player.initialize(self)
+	programmer.initialize(self)
 	dron.initialize(self)
 	portal.initialize(self)
 	codes.initialize(self)
@@ -62,3 +63,27 @@ func _on_WhileButton_pressed():
 
 func _on_IfButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
+
+func _on_Cooler_body_entered(body):
+	if body.is_in_group("programmer"):
+		programmer.hit()
+	if body.is_in_group("dron"):
+		dron.hit()
+
+func _on_Cooler2_body_entered(body):
+	if body.is_in_group("programmer"):
+		programmer.hit()
+	if body.is_in_group("dron"):
+		dron.hit()
+
+func _on_Cooler3_body_entered(body):
+	if body.is_in_group("programmer"):
+		programmer.hit()
+	if body.is_in_group("dron"):
+		dron.hit()
+
+func _on_Cooler4_body_entered(body):
+	if body.is_in_group("programmer"):
+		programmer.hit()
+	if body.is_in_group("dron"):
+		dron.hit()
