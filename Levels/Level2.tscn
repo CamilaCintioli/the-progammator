@@ -103,9 +103,9 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="DialogBox"]
 margin_left = 71.0
-margin_top = 27.0
+margin_top = 28.0
 margin_right = 1077.0
-margin_bottom = 185.0
+margin_bottom = 223.0
 color = Color( 0.811765, 0.792157, 0.576471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,7 +113,7 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
 margin_left = 92.0
-margin_top = 41.0
+margin_top = 29.0
 margin_right = 1072.0
 margin_bottom = 180.0
 custom_fonts/normal_font = SubResource( 4 )
@@ -121,6 +121,17 @@ custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
 bbcode_text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition."
 text = "A control flow statement that allows code to be executed repeatedly based on a given Boolean condition."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Solution" type="RichTextLabel" parent="DialogBox"]
+margin_left = 819.0
+margin_top = 180.0
+margin_right = 1078.0
+margin_bottom = 222.0
+custom_colors/default_color = Color( 0.12549, 0.2, 0.341176, 1 )
+text = "Choose the right option"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -248,40 +259,37 @@ position = Vector2( 157.443, 576.038 )
 [node name="Buttons" type="Node" parent="."]
 
 [node name="ForButton" type="Button" parent="Buttons"]
-visible = false
-margin_left = 1632.18
-margin_top = 484.327
-margin_right = 1783.18
-margin_bottom = 534.327
+margin_left = 1124.48
+margin_top = 453.921
+margin_right = 1275.48
+margin_bottom = 503.921
 text = "for"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WhileButton" type="Button" parent="Buttons"]
-visible = false
-margin_left = 1633.07
-margin_top = 545.799
-margin_right = 1784.07
-margin_bottom = 595.799
+margin_left = 1471.14
+margin_top = 453.875
+margin_right = 1622.14
+margin_bottom = 503.875
 text = "while"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IfButton" type="Button" parent="Buttons"]
-visible = false
-margin_left = 1633.07
-margin_top = 610.835
-margin_right = 1784.07
-margin_bottom = 660.835
+margin_left = 1298.61
+margin_top = 454.564
+margin_right = 1449.61
+margin_bottom = 504.564
 text = "if"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Robot" parent="." instance=ExtResource( 12 )]
-position = Vector2( 776.403, 279.697 )
+position = Vector2( 951.216, 279.697 )
 
 [node name="Robot2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 281.956, 151.881 )

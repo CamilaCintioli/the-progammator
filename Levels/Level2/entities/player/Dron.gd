@@ -22,7 +22,6 @@ func get_input():
 	var down := Input.is_action_pressed("move_down")
 	var up := Input.is_action_pressed("move_up")
 	velocity.y += lerp(float(down) - float(up), 0.2, 0.2) * speed 
-	
 
 func _physics_process(_delta):
 	if !container.control:
@@ -34,5 +33,4 @@ func _remove():
 	queue_free()
 	
 func hit():
-	container.bye()
 	call_deferred("_remove")

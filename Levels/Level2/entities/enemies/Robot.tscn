@@ -14,10 +14,13 @@ extents = Vector2( 14.2141, 29.828 )
 extents = Vector2( 5.33102, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 189.664, 150.341 )
+extents = Vector2( 189.664, 215.443 )
 
 [node name="Robot" type="StaticBody2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 projectile_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,13 +47,13 @@ shape = SubResource( 3 )
 [node name="DetectionAreaRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaRight"]
-position = Vector2( 205.421, -111.113 )
+position = Vector2( 207.944, -44.6822 )
 shape = SubResource( 4 )
 
 [node name="DetectionAreaLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaLeft"]
-position = Vector2( -202.477, -108.735 )
+position = Vector2( -202.477, -43.1451 )
 shape = SubResource( 4 )
 
 [node name="FireTimer" type="Timer" parent="."]

@@ -16,6 +16,9 @@ func _ready():
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
 	$DialogBox.visible = false
+	$Buttons/WhileButton.visible = false
+	$Buttons/ForButton.visible = false
+	$Buttons/IfButton.visible = false
 	
 func change_control():
 	control = !control
@@ -25,11 +28,14 @@ func change_control():
 		$Dron/CameraDron.current = true
 
 func hide_dialog():
+	$DialogBox/Solution.visible = false
 	$DialogBox.visible = false
 	for c in $Codes.codes:
 		show_button(c, false)
 
 func show_dialog():
+	$DialogBox/Solution.visible = true
+	$DialogBox/Solution.text = "Choose the right option"
 	$DialogBox.visible = true
 	for c in $Codes.codes:
 		show_button(c, true)
@@ -43,18 +49,16 @@ func show_button(code, visible):
 		$Buttons/ForButton.visible = visible
 
 func _on_ForButton_pressed():
-	pass
+	$DialogBox/Solution.text = "wrong answer"
 
 func _on_WhileButton_pressed():
 	$Buttons/WhileButton.visible = false
 	$Buttons/ForButton.visible = false
 	$Buttons/IfButton.visible = false
+	$DialogBox/Solution.visible = false
 	$DialogBox.visible = false
 	$Codes/CodesInfo/Label.text = ""
 	portal.bye()
 
 func _on_IfButton_pressed():
-	pass
-	
-func bye():
-	robot.target = null
+	$DialogBox/Solution.text = "wrong answer"
