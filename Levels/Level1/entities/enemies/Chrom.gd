@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 var direction = -1
 var limit
@@ -11,7 +11,7 @@ func _ready():
 func _physics_process(delta):
 	if(! over):
 		$AnimationChrom.play("roll")
-		position.x += 5 * direction;
+		position.x += 6 * direction;
 		position.x = wrapf(position.x, 0, limit)
 	
 func _on_Timer_timeout():

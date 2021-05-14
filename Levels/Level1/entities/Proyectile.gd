@@ -41,5 +41,5 @@ func _on_Proyectile_body_entered(body):
 		if is_player_projectile:
 			print("chrome hit")
 			container.next_level()
-		else:
-			call_deferred("_remove")
+		#else:
+			#call_deferred("_remove")

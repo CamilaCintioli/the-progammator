@@ -34,8 +34,7 @@ tracks/1/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Chrom" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Chrom" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
