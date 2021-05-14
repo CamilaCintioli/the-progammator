@@ -7,6 +7,7 @@ func _ready():
 	$grayRect.hide()
 	$GameOver.hide()
 	$RestartButton.hide()
+	$WinButton.hide()
 	
 func initialize(theLevel):
 	level = theLevel
@@ -41,3 +42,5 @@ func _on_GameOverTimer_timeout():
 	$GameOver.hide()
 	$GameOverTimer.stop()
 	
+func you_win():
+	$WinButton.show()

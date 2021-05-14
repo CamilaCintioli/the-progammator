@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Level2/Dron.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Levels/Level2/entities/env/MovingFloor.gd" type="Script" id=15]
 [ext_resource path="res://Levels/Level2/entities/env/Cel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Levels/Interface.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/textures/background/matrix.jpg" type="Texture" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -84,9 +85,20 @@ modulate = Color( 0.32549, 0.372549, 0.32549, 1 )
 self_modulate = Color( 0.741176, 0.913725, 0.74902, 1 )
 margin_left = -17.0
 margin_top = -17.0
-margin_right = 3015.0
+margin_right = 1583.0
 margin_bottom = 710.0
 texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 1562.0
+margin_top = -40.0
+margin_right = 3015.0
+margin_bottom = 767.0
+texture = ExtResource( 18 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -313,7 +325,7 @@ position = Vector2( 1992.92, 879.659 )
 position = Vector2( 2267.89, 879.659 )
 
 [node name="Cooler4" parent="MovingFloor" instance=ExtResource( 13 )]
-position = Vector2( 2546.87, 879.659 )
+position = Vector2( 2543.87, 879.659 )
 
 [node name="EndPosition" type="Position2D" parent="MovingFloor"]
 position = Vector2( 1680.86, 672 )

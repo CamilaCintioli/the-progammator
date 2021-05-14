@@ -19,6 +19,7 @@ func _ready():
 	portal.initialize(self)
 	codes.initialize(self)
 	robot.initialize(self)
+	movingFloor.initialize(self)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
 	$DialogBox.visible = false
@@ -66,6 +67,9 @@ func game_over():
 	dron.set_game_over()
 	interface.heartNum = 0
 	interface.game_over()
+	
+func you_win():
+	interface.you_win()
 	
 func restart():
 	get_tree().reload_current_scene()

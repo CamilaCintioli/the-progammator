@@ -69,6 +69,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="WinButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.335
+margin_top = -162.126
+margin_right = 123.665
+margin_bottom = -62.1265
+custom_fonts/font = SubResource( 2 )
+text = "YOU WIN"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
 [node name="GameOver" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -88,4 +104,5 @@ __meta__ = {
 one_shot = true
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="WinButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

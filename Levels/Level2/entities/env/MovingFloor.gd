@@ -10,8 +10,12 @@ onready var tween = $Platform/Tween
 onready var startPosition = $StartPosition
 onready var endPosition = $EndPosition
 
+var container
 var follow
 var start = false
+
+func initialize(level_2):
+	container = level_2
 
 func _ready():
 	follow = $StartPosition.global_position
@@ -26,6 +30,8 @@ func _physics_process(_delta):
 	platform.global_position = platform.global_position.linear_interpolate(follow, 0.075)
 
 func _on_Cel_body_entered(body):
+	if body.is_in_group("programmer"):
+		container.you_win()
 	if !start and body.is_in_group("dron"):
 		init_tween()
 		$Cel/On.visible = true
