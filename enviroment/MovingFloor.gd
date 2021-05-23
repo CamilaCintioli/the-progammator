@@ -30,8 +30,6 @@ func _physics_process(_delta):
 	platform.global_position = platform.global_position.linear_interpolate(follow, 0.075)
 
 func _on_Cel_body_entered(body):
-	if body.is_in_group("programmer"):
-		container.you_win()
 	if !start and body.is_in_group("dron"):
 		init_tween()
 		$Cel/On.visible = true

@@ -5,6 +5,8 @@ const SNAP_DIRECTION := Vector2.UP
 const SNAP_LENGHT := 32.0
 const SLOPE_THRESHOLD := deg2rad(46)
 
+onready var arm = $Arm
+
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 200.0
 export (float) var FRICTION_WEIGHT:float = 0.1
@@ -14,19 +16,21 @@ export (int) var jump_speed:float = 350
 var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 var container
-var game_over = false
 
 func _ready():
 	add_to_group("programmer")
 
 func initialize(_container):
 	self.container = _container
+	arm.container = _container
 
 func get_input():
 	# Jump action
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
-		
+	# Fire action
+	if Input.is_action_just_pressed("fire"):
+		arm._fire()
 	# Horizontal speed
 	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
@@ -42,20 +46,19 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _physics_process(_delta):
-	if !game_over:
-		if Input.is_action_just_pressed("change"):
-			container.change_control()
-		
-		if container.control:
-			get_input()
-		else:
-			velocity = Vector2.ZERO
-		velocity.y += gravity
-		velocity = move_and_slide(velocity, FLOOR_NORMAL)
+	if Input.is_action_just_pressed("change"):
+		container.change_control()
+	
+	if container.control:
+		get_input()
+	else:
+		velocity = Vector2.ZERO
+	velocity.y += gravity
+	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 	
 func hit():
 	container.livesDecrease()
 
 func set_game_over():
-	game_over = true
+	set_physics_process(false)
 	hide()

@@ -4,7 +4,7 @@
 [ext_resource path="res://enviroment/portals/For.gd" type="Script" id=2]
 [ext_resource path="res://enviroment/portals/Codes.gd" type="Script" id=3]
 [ext_resource path="res://assets/fonts/MLTWNII_.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://entities/env/MovingFloor.gd" type="Script" id=5]
+[ext_resource path="res://enviroment/MovingFloor.gd" type="Script" id=5]
 [ext_resource path="res://enviroment/portals/While.gd" type="Script" id=6]
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=7]
 [ext_resource path="res://Game.gd" type="Script" id=8]
@@ -13,10 +13,10 @@
 [ext_resource path="res://gui/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/textures/background/matrix.jpg" type="Texture" id=12]
 [ext_resource path="res://entities/player/Dron.tscn" type="PackedScene" id=13]
-[ext_resource path="res://entities/env/Cooler.tscn" type="PackedScene" id=14]
+[ext_resource path="res://enviroment/Cooler.tscn" type="PackedScene" id=14]
 [ext_resource path="res://enviroment/portals/Portal.tscn" type="PackedScene" id=15]
-[ext_resource path="res://entities/env/Cel.tscn" type="PackedScene" id=16]
-[ext_resource path="res://entities/env/Platform.tscn" type="PackedScene" id=17]
+[ext_resource path="res://enviroment/Cel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://enviroment/Platform.tscn" type="PackedScene" id=17]
 [ext_resource path="res://entities/player/Programmer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://entities/enemies/Chrom.tscn" type="PackedScene" id=19]
 [ext_resource path="res://entities/enemies/MatrixTurret.tscn" type="PackedScene" id=20]
@@ -353,10 +353,10 @@ position = Vector2( 2779.08, 630.605 )
 position = Vector2( 4141.38, 183.649 )
 
 [node name="Programmer" parent="." instance=ExtResource( 18 )]
-position = Vector2( 3152.97, 653.404 )
+position = Vector2( 148.475, 667.833 )
 
 [node name="Dron" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3148.06, 511.082 )
+position = Vector2( 148.014, 569.781 )
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]
 

@@ -115,6 +115,5 @@ func _on_Cooler4_body_entered(body):
 func next_level():
 	pass
 	
-func player_hit():
-	interface.livesDecrease()
-	print("leve1 player hit")
+#func player_hit():
+#	interface.livesDecrease()

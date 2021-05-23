@@ -30,6 +30,13 @@ func _on_Timer_timeout():
 func game_over():
 	over = true
 	hide()
+	
+func _remove():
+	container.remove_child(self)
+	queue_free()
+	
+func bye():
+	call_deferred("_remove")
 
 func _shoot():
 	var proj = matrix_projectile_scene.instance()
