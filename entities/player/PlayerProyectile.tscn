@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Levels/Level1/entities/Proyectile.gd" type="Script" id=1]
+[ext_resource path="res://entities/Proyectile.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player/ram.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.9304, 9.61826 )
 
 [sub_resource type="Animation" id=2]
@@ -39,7 +39,7 @@ script = ExtResource( 1 )
 VELOCITY = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0530193, 0.200449 )

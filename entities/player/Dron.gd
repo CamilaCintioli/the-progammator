@@ -30,9 +30,21 @@ func _physics_process(_delta):
 		if !container.control:
 			get_input()
 		else:
-			velocity.x = 0 if velocity.x < deacceleration and velocity.x > -deacceleration else velocity.x + deacceleration if velocity.x < 0 else velocity.x - deacceleration
-			velocity.y = 0 if velocity.y < deacceleration and velocity.y > -deacceleration else velocity.y + deacceleration if velocity.y < 0 else velocity.y - deacceleration
+			velocity.x = deaccelerate_x()
+			velocity.y = deaccelerate_y()
 		velocity = move_and_slide(velocity, Vector2.ZERO)
+
+func deaccelerate_x() -> float:
+	if velocity.x < deacceleration and velocity.x > -deacceleration:
+		return 0.0
+	else:
+		return velocity.x + deacceleration if velocity.x < 0 else velocity.x - deacceleration
+
+func deaccelerate_y() -> float:
+	if velocity.y < deacceleration and velocity.y > -deacceleration:
+		return 0.0
+	else:
+		return velocity.y + deacceleration if velocity.y < 0 else velocity.y - deacceleration
 
 func hit():
 	container.livesDecrease()

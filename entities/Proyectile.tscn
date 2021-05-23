@@ -1,18 +1,21 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/textures/green_circle.png" type="Texture" id=1]
-[ext_resource path="res://Levels/Level1/entities/Proyectile.gd" type="Script" id=2]
+[ext_resource path="res://entities/Proyectile.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/green_circle.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.1452
 
 [node name="Proyectile" type="Area2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0827395, -0.0225514 )
 scale = Vector2( 0.0490407, 0.0484938 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

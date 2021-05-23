@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/textures/enemies/chrome ansii.png" type="Texture" id=1]
-[ext_resource path="res://Levels/Level1/entities/enemies/Chrom.gd" type="Script" id=2]
+[ext_resource path="res://entities/enemies/Chrom.gd" type="Script" id=2]
+[ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.9035
@@ -39,6 +40,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+matrix_projectile_scene = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -56,4 +58,7 @@ anims/roll = SubResource( 2 )
 wait_time = 4.0
 autostart = true
 
+[node name="FireTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

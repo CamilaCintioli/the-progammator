@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Levels/Level2/entities/enemies/Robot.gd" type="Script" id=1]
+[ext_resource path="res://entities/enemies/Robot.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/enemies/robosheet.png" type="Texture" id=2]
-[ext_resource path="res://Levels/Level1/entities/Proyectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.89719, 30.1065 )

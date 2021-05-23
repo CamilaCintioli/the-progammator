@@ -1,16 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/textures/player/programmer.png" type="Texture" id=1]
-[ext_resource path="res://Levels/Level2/entities/player/Programmer.gd" type="Script" id=2]
+[ext_resource path="res://entities/player/Programmer.gd" type="Script" id=2]
+[ext_resource path="res://entities/player/Arm.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.2726, 26.983 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Programmer" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.0226559, 0.0262543 )
@@ -22,3 +20,9 @@ shape = SubResource( 1 )
 [node name="CameraProgramer" type="Camera2D" parent="."]
 offset = Vector2( 90, -135 )
 current = true
+
+[node name="Arm" type="Sprite" parent="."]
+script = ExtResource( 3 )
+
+[node name="FirePosition" type="Position2D" parent="Arm"]
+position = Vector2( 1.0392, -19.989 )
