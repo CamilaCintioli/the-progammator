@@ -26,7 +26,7 @@ func _on_HeadArea_body_entered(body):
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
-		call_deferred("_remove")
+		body.bye()
 
 func _remove():
 	container.remove_child(self)

@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/enemies/Robot.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/enemies/robosheet.png" type="Texture" id=2]
 [ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.89719, 30.1065 )
+extents = Vector2( 5.06356, 30.1065 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14.2141, 29.828 )
@@ -13,8 +13,11 @@ extents = Vector2( 14.2141, 29.828 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.33102, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 189.664, 215.443 )
+[sub_resource type="CircleShape2D" id=5]
+radius = 257.139
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 235.272
 
 [node name="Robot" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -47,13 +50,13 @@ shape = SubResource( 3 )
 [node name="DetectionAreaRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaRight"]
-position = Vector2( 207.944, -44.6822 )
-shape = SubResource( 4 )
+position = Vector2( 288.19, 0.674976 )
+shape = SubResource( 5 )
 
 [node name="DetectionAreaLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaLeft"]
-position = Vector2( -202.477, -43.1451 )
+position = Vector2( -259.118, -1.56768 )
 shape = SubResource( 4 )
 
 [node name="FireTimer" type="Timer" parent="."]

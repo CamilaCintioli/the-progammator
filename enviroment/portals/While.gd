@@ -6,3 +6,8 @@ func _remove():
 	
 func bye():
 	call_deferred("_remove")
+
+func _on_Bug_body_entered(body):
+	if body.is_in_group("programmer"):
+		get_parent().bug()
+		bye()
