@@ -13,10 +13,10 @@ extents = Vector2( 14.2141, 29.828 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.33102, 10 )
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 radius = 257.139
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 235.272
 
 [node name="Robot" type="StaticBody2D"]
@@ -51,16 +51,16 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaRight"]
 position = Vector2( 288.19, 0.674976 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="DetectionAreaLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaLeft"]
 position = Vector2( -259.118, -1.56768 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="FirePosition" type="Position2D" parent="."]

@@ -81,18 +81,22 @@ func _on_IfButton_pressed():
 
 func _on_Cooler_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()
 		game_over()
 
 func _on_Cooler2_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()
 		game_over()
 
 func _on_Cooler3_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()
 		game_over()
 
 func _on_Cooler4_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()
 		game_over()
 
 func there_are_bugs() -> int:

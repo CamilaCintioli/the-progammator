@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enviroment/endScene/Platform.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/env/ground_stone.png" type="Texture" id=2]
+
+[node name="Platform" type="StaticBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.490461, 0.396975 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -93.0732, -11.5138, -86.6161, -17.9709, 86.7805, -17.6559, 92.6076, -13.4037, 92.9226, -6.47411, 78.4335, 13.6846, -81.5765, 14.4721, -92.9157, -5.37168 )
+one_way_collision = true

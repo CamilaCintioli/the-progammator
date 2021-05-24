@@ -1,6 +1,5 @@
 extends Camera2D
 
-export(NodePath) var player_path # El export es utilizado para obtener la ruta del nodo
 var player
 
 func _ready():

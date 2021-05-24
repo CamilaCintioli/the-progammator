@@ -4,6 +4,7 @@ const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.UP
 const SNAP_LENGHT := 32.0
 const SLOPE_THRESHOLD := deg2rad(46)
+const BOUNCING_JUMP = 695
 
 onready var arm = $Arm
 
@@ -11,11 +12,12 @@ export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 200.0
 export (float) var FRICTION_WEIGHT:float = 0.1
 export (int) var gravity:float = 10
-export (int) var jump_speed:float = 350
+export (int) var jump_speed:float = 430
 
 var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 var container
+var bounce = 0
 
 func _ready():
 	add_to_group("programmer")
@@ -28,6 +30,19 @@ func get_input():
 	# Jump action
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
+	if Input.is_action_just_pressed("jump") and $RayCast2D.is_colliding() and bounce == 0:
+		bounce = 1
+		velocity.y = clamp(velocity.y - jump_speed, -jump_speed, jump_speed)
+		if $Sprite.flip_h:
+			velocity.x += BOUNCING_JUMP
+		else:
+			velocity.x -= BOUNCING_JUMP
+	if !is_on_floor() and $RayCast2D.is_colliding() and velocity.y > 0:
+		gravity = 1
+	else:
+		gravity = 10
+	if is_on_floor():
+		bounce = 0
 	# Fire action
 	if Input.is_action_just_pressed("fire"):
 		arm._fire()
