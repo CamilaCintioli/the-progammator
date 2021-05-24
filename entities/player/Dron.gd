@@ -49,6 +49,7 @@ func hit():
 
 func set_game_over():
 	set_physics_process(false)
+	$CollisionShape2D.disabled = true
 	hide()
 
 func bye():

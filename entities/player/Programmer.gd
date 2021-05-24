@@ -4,7 +4,7 @@ const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.UP
 const SNAP_LENGHT := 32.0
 const SLOPE_THRESHOLD := deg2rad(46)
-const BOUNCING_JUMP = 695
+const BOUNCING_JUMP = 155
 
 onready var arm = $Arm
 
@@ -28,6 +28,7 @@ func initialize(_container):
 
 func get_input():
 	# Jump action
+	var x_bounce = 0
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
 	if Input.is_action_just_pressed("jump") and $RayCast2D.is_colliding() and bounce == 0:
@@ -35,8 +36,10 @@ func get_input():
 		velocity.y = clamp(velocity.y - jump_speed, -jump_speed, jump_speed)
 		if $Sprite.flip_h:
 			velocity.x += BOUNCING_JUMP
+			x_bounce += BOUNCING_JUMP
 		else:
 			velocity.x -= BOUNCING_JUMP
+			x_bounce -= BOUNCING_JUMP
 	if !is_on_floor() and $RayCast2D.is_colliding() and velocity.y > 0:
 		gravity = 1
 	else:
@@ -50,7 +53,7 @@ func get_input():
 	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
 	if h_movement_direction != 0:
-		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
+		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT) + x_bounce
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
@@ -61,7 +64,7 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("change"):
+	if Input.is_action_just_pressed("change") and !container.end_game:
 		container.change_control()
 	
 	if container.control:

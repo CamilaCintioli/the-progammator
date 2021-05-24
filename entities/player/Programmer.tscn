@@ -19,7 +19,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="CameraProgramer" type="Camera2D" parent="."]
-offset = Vector2( 90, -230 )
+offset = Vector2( 90, -200 )
 current = true
 
 [node name="Arm" type="Sprite" parent="."]

@@ -35,3 +35,4 @@ func _on_Cel_body_entered(body):
 		$Cel/On.visible = true
 		$Cel/Off.visible = false
 		start = true
+		container.dron_bye()

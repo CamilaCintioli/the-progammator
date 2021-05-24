@@ -14,6 +14,7 @@ onready var endCamera = $EndCamera
 
 var control = true
 var is_game_over = false
+var end_game = false
 
 func _ready():
 	programmer.initialize(self)
@@ -43,6 +44,10 @@ func change_control():
 	else:
 		$Dron/CameraDron.current = true
 
+func in_end_game():
+	end_game = true
+	dron.bye()
+
 func hide_dialog():
 	$DialogBox.visible = false
 
@@ -59,8 +64,11 @@ func dead():
 func game_over():
 	is_game_over = true
 	programmer.set_game_over()
-	dron.set_game_over()
+	dron.bye()
 	chrom.game_over()
+	
+func dron_bye():
+	dron.bye()
 	
 func you_win():
 	interface.you_win()
@@ -117,3 +125,4 @@ func _on_EndArea_body_entered(body):
 	if body.is_in_group("programmer") and !endCamera.current:
 		endCamera.current = true
 		endCamera.set_process(true)
+		in_end_game()
