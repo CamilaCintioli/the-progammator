@@ -62,3 +62,8 @@ func hit():
 func set_game_over():
 	set_physics_process(false)
 	hide()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	if container.endCamera.current:
+		container.dead()
+		call_deferred("set_game_over")

@@ -10,6 +10,7 @@ onready var robot = $Robot
 onready var movingFloor = $MovingFloor
 onready var chrom = $Chrom
 onready var interface = $Interface
+onready var endCamera = $EndCamera
 
 var control = true
 var is_game_over = false
@@ -22,6 +23,7 @@ func _ready():
 	robot.initialize(self)
 	movingFloor.initialize(self)
 	chrom.initialize($ChromEndPosition, self)
+	endCamera.initialize(programmer)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
 	$DialogBox.visible = false
@@ -49,6 +51,10 @@ func show_dialog():
 		
 func livesDecrease():
 	interface.livesDecrease()
+	
+func dead():
+	is_game_over = true
+	interface.game_over()
 	
 func game_over():
 	is_game_over = true
@@ -102,3 +108,8 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("programmer"):
 		$Info.hide()
+
+func _on_EndArea_body_entered(body):
+	if body.is_in_group("programmer") and !endCamera.current:
+		endCamera.current = true
+		endCamera.set_process(true)
