@@ -46,9 +46,6 @@ func get_input():
 		gravity = 10
 	if is_on_floor():
 		bounce = 0
-	# Fire action
-	if Input.is_action_just_pressed("fire"):
-		arm._fire()
 	# Horizontal speed
 	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
@@ -65,7 +62,12 @@ func _set_animation(h_movement_direction):
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("change") and !container.end_game:
-		container.change_control()
+		if container.chrom_zone:
+			arm._fire()
+		elif container.change_zone:
+			container.change_platforms()
+		elif container.dron_zone:
+			container.change_control()
 	
 	if container.control:
 		get_input()

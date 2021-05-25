@@ -15,6 +15,10 @@ onready var endCamera = $EndCamera
 var control = true
 var is_game_over = false
 var end_game = false
+var dron_zone = false
+var change_zone = true
+var chrom_zone = false
+var change = true
 
 func _ready():
 	programmer.initialize(self)
@@ -27,6 +31,7 @@ func _ready():
 	endCamera.initialize(programmer)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
+	$Robot4.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
 	start_turrets()
@@ -75,6 +80,15 @@ func you_win():
 	
 func restart():
 	get_tree().reload_current_scene()
+	
+func change_platforms():
+	if change:
+		$ChangePlatform/Yellow.disable()
+		$ChangePlatform/Green.enable()
+	else:
+		$ChangePlatform/Yellow.enable()
+		$ChangePlatform/Green.disable()
+	change = !change
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
