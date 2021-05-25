@@ -11,13 +11,13 @@ onready var movingFloor = $MovingFloor
 onready var chrom = $Chrom
 onready var interface = $Interface
 onready var endCamera = $EndCamera
+onready var upCamera = $UpCamera
 
 var control = true
 var is_game_over = false
 var end_game = false
 var dron_zone = false
 var change_zone = true
-var chrom_zone = false
 var change = true
 
 func _ready():
@@ -73,6 +73,8 @@ func game_over():
 	chrom.game_over()
 	
 func dron_bye():
+	change_control()
+	end_game = true
 	dron.bye()
 	
 func you_win():
@@ -140,3 +142,28 @@ func _on_EndArea_body_entered(body):
 		endCamera.current = true
 		endCamera.set_process(true)
 		in_end_game()
+
+func _on_DronUp_body_entered(body):
+	if body.is_in_group("programmer"):
+		dron_zone = true
+		change_zone = false
+		control = !control
+
+func _on_Device_body_entered(body):
+	if body.is_in_group("dron"):
+		$ChangePlatform/UpPlatform.start()
+	if body.is_in_group("programmer"):
+		dron_zone = false
+
+func _on_ChangeCamera_body_entered(body):
+	if body.is_in_group("dron"):
+		$Dron/CameraDron.current = true
+		upCamera.stop()
+
+func _on_StartUpCamera_body_entered(body):
+	if body.is_in_group("programmer"):
+		upCamera.start()
+
+func _on_DeadArea_body_entered(body):
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()

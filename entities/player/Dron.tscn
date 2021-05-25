@@ -22,3 +22,9 @@ shape = SubResource( 1 )
 [node name="AccelerationTimer" type="Timer" parent="."]
 
 [node name="CameraDron" type="Camera2D" parent="."]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.0936397, -5.96046e-08 )
+scale = Vector2( 1.35585, 0.372584 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

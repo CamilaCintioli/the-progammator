@@ -27,7 +27,6 @@ func initialize(_container):
 	arm.container = _container
 
 func get_input():
-	# Jump action
 	var x_bounce = 0
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
@@ -61,15 +60,15 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("change") and !container.end_game:
-		if container.chrom_zone:
+	if Input.is_action_just_pressed("change"):
+		if container.end_game:
 			arm._fire()
 		elif container.change_zone:
 			container.change_platforms()
-		elif container.dron_zone:
+		elif !container.dron_zone:
 			container.change_control()
 	
-	if container.control:
+	if container.control and (!container.dron_zone or !container.change_zone):
 		get_input()
 	else:
 		velocity = Vector2.ZERO
@@ -84,6 +83,7 @@ func set_game_over():
 	hide()
 
 func _on_VisibilityNotifier2D_screen_exited():
-	if container.endCamera.current:
-		container.dead()
-		call_deferred("set_game_over")
+	if container.change:
+		if container.endCamera.current or (container.upCamera.current and container.change_zone):
+			container.dead()
+			call_deferred("set_game_over")
