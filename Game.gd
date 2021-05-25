@@ -150,14 +150,13 @@ func _on_DronUp_body_entered(body):
 		control = !control
 
 func _on_Device_body_entered(body):
-	if body.is_in_group("dron"):
-		$ChangePlatform/UpPlatform.start()
 	if body.is_in_group("programmer"):
 		dron_zone = false
 
 func _on_ChangeCamera_body_entered(body):
 	if body.is_in_group("dron"):
 		$Dron/CameraDron.current = true
+		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
 		upCamera.stop()
 
 func _on_StartUpCamera_body_entered(body):

@@ -27,4 +27,5 @@ shape = SubResource( 1 )
 position = Vector2( 0.0936397, -5.96046e-08 )
 scale = Vector2( 1.35585, 0.372584 )
 
+[connection signal="collided" from="." to="." method="_on_Dron_collided"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

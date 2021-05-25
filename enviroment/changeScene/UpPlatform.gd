@@ -3,11 +3,14 @@ extends StaticBody2D
 func _ready():
 	stop()
 
-func stop():
+func _stop():
 	set_process(false)
 	$CollisionShape2D.disabled = true
 	$CollisionShape2D2.disabled = true
 	$CollisionShape2D3.disabled = true
+	
+func stop():
+	call_deferred("_stop")
 
 func _start():
 	set_process(true)

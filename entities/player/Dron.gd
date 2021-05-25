@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal collided
+
 var speed = 11
 
 var deacceleration:float = 0.8
@@ -31,6 +33,11 @@ func _physics_process(_delta):
 		velocity.x = deaccelerate_x()
 		velocity.y = deaccelerate_y()
 	velocity = move_and_slide(velocity, Vector2.ZERO)
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			emit_signal('collided', collision)
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:
@@ -57,5 +64,10 @@ func bye():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	if !container.change and container.upCamera.current:
+		container.dead()
+		call_deferred("set_game_over")
+
+func _on_Dron_collided(collision):
+	if collision.collider is TileMap:
 		container.dead()
 		call_deferred("set_game_over")

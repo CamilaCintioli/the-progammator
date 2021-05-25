@@ -77,6 +77,9 @@ func _physics_process(_delta):
 	
 func hit():
 	container.livesDecrease()
+	
+func update_position(pos):
+	global_position = pos
 
 func set_game_over():
 	set_physics_process(false)
