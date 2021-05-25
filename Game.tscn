@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://enviroment/portals/While.gd" type="Script" id=6]
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=7]
 [ext_resource path="res://Game.gd" type="Script" id=8]
-[ext_resource path="res://assets/textures/background/fondo.png" type="Texture" id=9]
 [ext_resource path="res://entities/enemies/Robot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/textures/background/matrix.jpg" type="Texture" id=12]
@@ -140,97 +139,15 @@ extents = Vector2( 2460.9, 114.283 )
 script = ExtResource( 8 )
 turret_scene = ExtResource( 20 )
 
-[node name="Background" type="Node" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Background"]
-modulate = Color( 0.32549, 0.372549, 0.32549, 1 )
-self_modulate = Color( 0.741176, 0.913725, 0.74902, 1 )
-margin_left = 671.838
-margin_top = 9.71667
-margin_right = 2271.84
-margin_bottom = 736.717
-texture = ExtResource( 9 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1000, 750 )
 
-[node name="TextureRect2" type="TextureRect" parent="Background"]
-margin_left = 2060.13
-margin_top = -15.1827
-margin_right = 3513.13
-margin_bottom = 791.817
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 647.71, 367.696 )
+scale = Vector2( 1.05303, 1.07857 )
 texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect4" type="TextureRect" parent="Background"]
-margin_left = 611.11
-margin_top = -16.9585
-margin_right = 2064.11
-margin_bottom = 790.042
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect3" type="TextureRect" parent="Background"]
-margin_left = 3513.01
-margin_top = -26.7972
-margin_right = 4966.01
-margin_bottom = 780.203
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect5" type="TextureRect" parent="Background"]
-margin_left = -839.485
-margin_top = -19.1442
-margin_right = 613.515
-margin_bottom = 787.856
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect6" type="TextureRect" parent="Background"]
-margin_left = 4940.31
-margin_top = -18.7261
-margin_right = 6393.31
-margin_bottom = 788.274
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect7" type="TextureRect" parent="Background"]
-margin_left = 6054.31
-margin_top = -36.7261
-margin_right = 7507.31
-margin_bottom = 770.274
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect8" type="TextureRect" parent="Background"]
-margin_left = 6050.51
-margin_top = -840.077
-margin_right = 7503.51
-margin_bottom = -33.0764
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 688.838, 26.7167 )
