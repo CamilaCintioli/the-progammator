@@ -38,6 +38,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_turrets()
+#	start_checkpoint(3)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
@@ -45,6 +46,15 @@ func start_turrets():
 		var turret = turret_scene.instance()
 		turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
 	
+func start_checkpoint(nro):
+	if nro > 1:
+		checkpoints.checkpoint(nro)
+		restart()
+	if nro == 4:
+		dron_zone = false
+		change_zone = false
+		end_game = false
+
 func change_control():
 	control = !control
 	if control:
