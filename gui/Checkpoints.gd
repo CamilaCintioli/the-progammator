@@ -47,12 +47,9 @@ func check3():
 	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
 	
 func check4():
-	dron_enable = true
+	dron_enable = false
 	check = 4
 	programmer_position = $Checkpoint4/CollisionShape2D.global_position
-	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
-	if is_check4 == 1:
-		dron_enable = false
 		
 func check5():
 	dron_enable = false

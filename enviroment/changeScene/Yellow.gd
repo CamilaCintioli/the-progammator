@@ -15,7 +15,7 @@ func disable():
 	p4.disabled = true
 	p5.disabled = true
 	p6.disabled = true
-	
+
 func enable():
 	show()
 	p1.disabled = false
