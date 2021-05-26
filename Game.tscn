@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://enviroment/portals/While.gd" type="Script" id=6]
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=7]
 [ext_resource path="res://Game.gd" type="Script" id=8]
+[ext_resource path="res://gui/Checkpoints.gd" type="Script" id=9]
 [ext_resource path="res://entities/enemies/Robot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/textures/background/matrix.jpg" type="Texture" id=12]
@@ -134,6 +135,9 @@ extents = Vector2( 69.8297, 94.8601 )
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 2460.9, 114.283 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 17.7595, 37.5613 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 8 )
@@ -412,7 +416,7 @@ position = Vector2( -1028.96, 1970.12 )
 position = Vector2( -2481.71, 2770.91 )
 
 [node name="Dron" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1451.09, 1517.81 )
+position = Vector2( -1477.82, 1515.13 )
 
 [node name="PlayerEnemy" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2764.19, 565.629 )
@@ -565,6 +569,77 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 28 )
 
+[node name="Checkpoints" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Checkpoint1" type="Area2D" parent="Checkpoints"]
+position = Vector2( -680.768, -2.66992 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
+position = Vector2( -1849.76, 2804.61 )
+shape = SubResource( 15 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint1"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="Checkpoint2" type="Area2D" parent="Checkpoints"]
+position = Vector2( 816.3, -1279.67 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
+position = Vector2( -1849.76, 2804.61 )
+shape = SubResource( 15 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint2"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="Checkpoint3" type="Area2D" parent="Checkpoints"]
+position = Vector2( 1412.46, -2115.46 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
+position = Vector2( -1849.76, 2804.61 )
+shape = SubResource( 15 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint3"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="Checkpoint4" type="Area2D" parent="Checkpoints"]
+position = Vector2( 4182.28, -2111.33 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
+position = Vector2( -1849.76, 2804.61 )
+shape = SubResource( 15 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint4"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="Checkpoint5" type="Area2D" parent="Checkpoints"]
+position = Vector2( 8319.87, -2114.29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
+position = Vector2( -1849.76, 2804.61 )
+shape = SubResource( 15 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="DronStartPosition" type="Position2D" parent="Checkpoints"]
+position = Vector2( -1482.8, 1516.74 )
+
 [connection signal="body_entered" from="Info/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Info/Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
@@ -581,3 +656,8 @@ script = ExtResource( 28 )
 [connection signal="body_entered" from="ChangePlatform/ChangeCamera" to="." method="_on_ChangeCamera_body_entered"]
 [connection signal="body_entered" from="ChangePlatform/StartUpCamera" to="." method="_on_StartUpCamera_body_entered"]
 [connection signal="body_entered" from="ChangePlatform/DeadArea" to="." method="_on_DeadArea_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint1" to="Checkpoints" method="_on_Checkpoint1_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints" method="_on_Checkpoint2_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint3" to="Checkpoints" method="_on_Checkpoint3_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint4" to="Checkpoints" method="_on_Checkpoint4_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint5" to="Checkpoints" method="_on_Checkpoint5_body_entered"]

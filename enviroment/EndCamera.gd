@@ -9,7 +9,7 @@ func initialize(_programmer):
 	player = _programmer
 
 func _process(_delta):
-	var playerPositionY = player.global_position.y -100
+	var playerPositionY = player.global_position.y - 100
 	
 	if playerPositionY < position.y:
 		position = Vector2(position.x, playerPositionY)

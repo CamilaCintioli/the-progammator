@@ -12,7 +12,9 @@ onready var chrom = $Chrom
 onready var interface = $Interface
 onready var endCamera = $EndCamera
 onready var upCamera = $UpCamera
+onready var checkpoints = $Checkpoints
 
+var init_end_camera
 var control = true
 var is_game_over = false
 var end_game = false
@@ -34,6 +36,7 @@ func _ready():
 	$Robot4.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
+	init_end_camera = endCamera.global_position
 	start_turrets()
 	
 func start_turrets():
@@ -51,7 +54,6 @@ func change_control():
 
 func in_end_game():
 	end_game = true
-	dron.bye()
 
 func hide_dialog():
 	$DialogBox.visible = false
@@ -70,7 +72,6 @@ func game_over():
 	is_game_over = true
 	programmer.set_game_over()
 	dron.bye()
-	chrom.game_over()
 	
 func dron_bye():
 	change_control()
@@ -79,9 +80,35 @@ func dron_bye():
 	
 func you_win():
 	interface.you_win()
-	
+
 func restart():
-	get_tree().reload_current_scene()
+	if checkpoints.check > 1:
+		programmer.global_position = checkpoints.programmer_position
+		programmer.set_physics_process(true)
+		programmer.show()
+		control = true
+		is_game_over = false
+		interface.set_on()
+		programmer.velocity = Vector2.ZERO
+		if checkpoints.dron_enable:
+			dron.set_game_on()
+			dron.global_position = checkpoints.dron_position
+		if checkpoints.check == 2:
+			upCamera.current = true
+			upCamera.set_process(true)
+			upCamera.global_position.y = checkpoints.programmer_position.y
+			control = false
+			dron_zone = true
+			change_zone = false
+		if checkpoints.check == 3:
+			control = false
+			$Dron/CameraDron.current = true
+		if checkpoints.check == 5:
+			$Programmer/CameraProgramer.current = true
+			endCamera.global_position = init_end_camera
+			control = true
+	else:
+		get_tree().reload_current_scene()
 	
 func change_platforms():
 	if change:
@@ -155,6 +182,7 @@ func _on_Device_body_entered(body):
 
 func _on_ChangeCamera_body_entered(body):
 	if body.is_in_group("dron"):
+		checkpoints.check3()
 		$Dron/CameraDron.current = true
 		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
 		upCamera.stop()

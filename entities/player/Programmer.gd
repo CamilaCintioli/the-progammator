@@ -86,7 +86,7 @@ func set_game_over():
 	hide()
 
 func _on_VisibilityNotifier2D_screen_exited():
-	if container.change:
+	if container.control:
 		if container.endCamera.current or (container.upCamera.current and container.change_zone):
 			container.dead()
 			call_deferred("set_game_over")

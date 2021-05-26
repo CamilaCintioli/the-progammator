@@ -53,10 +53,17 @@ func deaccelerate_y() -> float:
 
 func hit():
 	container.livesDecrease()
+	
+func set_game_on():
+	set_physics_process(true)
+	$CollisionShape2D.disabled = false
+	show()
+	visible = true
 
 func set_game_over():
 	set_physics_process(false)
 	$CollisionShape2D.disabled = true
+	velocity = Vector2.ZERO
 	hide()
 
 func bye():
