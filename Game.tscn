@@ -289,7 +289,7 @@ margin_top = 279.225
 margin_right = 105.347
 margin_bottom = 307.225
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "BUG"
+text = "   };"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -321,7 +321,7 @@ margin_top = 279.225
 margin_right = 105.347
 margin_bottom = 307.225
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "BUG"
+text = "  and"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -353,7 +353,7 @@ margin_top = 279.225
 margin_right = 105.347
 margin_bottom = 307.225
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "BUG"
+text = " true"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -413,7 +413,7 @@ position = Vector2( 1196.37, 690.524 )
 position = Vector2( -1028.96, 1970.12 )
 
 [node name="Programmer" parent="." instance=ExtResource( 18 )]
-position = Vector2( -2481.71, 2770.91 )
+position = Vector2( -2485.95, 2806.27 )
 
 [node name="Dron" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1477.82, 1515.13 )
@@ -573,7 +573,7 @@ script = ExtResource( 28 )
 script = ExtResource( 9 )
 
 [node name="Checkpoint1" type="Area2D" parent="Checkpoints"]
-position = Vector2( -680.768, -2.66992 )
+position = Vector2( 7.95404, -1.25586 )
 __meta__ = {
 "_edit_group_": true
 }

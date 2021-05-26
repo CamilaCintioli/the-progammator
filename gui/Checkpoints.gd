@@ -47,11 +47,13 @@ func check3():
 	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
 	
 func check4():
+	print("nro 4")
 	dron_enable = false
 	check = 4
 	programmer_position = $Checkpoint4/CollisionShape2D.global_position
 		
 func check5():
+	print("nro 5")
 	dron_enable = false
 	check = 5
 	programmer_position = $Checkpoint5/CollisionShape2D.global_position

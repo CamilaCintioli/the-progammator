@@ -38,7 +38,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_turrets()
-#	start_checkpoint(2)
+	start_checkpoint(1)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
@@ -47,7 +47,7 @@ func start_turrets():
 		turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
 	
 func start_checkpoint(nro):
-	if nro > 1:
+	if nro > 0:
 		checkpoints.checkpoint(nro)
 		restart()
 
@@ -88,7 +88,7 @@ func you_win():
 	interface.you_win()
 
 func restart():
-	if checkpoints.check > 1:
+	if checkpoints.check > 0:
 		programmer.global_position = checkpoints.programmer_position
 		programmer.set_physics_process(true)
 		programmer.show()
@@ -108,12 +108,15 @@ func restart():
 			change_zone = false
 			change = false
 		if checkpoints.check == 3:
+			change_zone = false
+			end_game = false
 			control = false
 			$Dron/CameraDron.current = true
 		if checkpoints.check == 4 or checkpoints.check == 5:
 			$Programmer/CameraProgramer.current = true
 			endCamera.global_position = init_end_camera
 			control = true
+			end_game = true
 	else:
 		get_tree().reload_current_scene()
 	
