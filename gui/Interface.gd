@@ -30,7 +30,7 @@ func show_message():
 	$GameOverTimer.start()
 	
 func game_over():
-	$grayRect/heart.set_modulate(Color.darkgreen)
+	$grayRect/greenHeart.set_modulate(Color.darkgreen)
 	show_message()
 	yield($GameOverTimer, "timeout")
 	$RestartButton.show()

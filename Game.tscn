@@ -506,6 +506,7 @@ position = Vector2( 6935.54, 532.474 )
 
 [node name="MovingPlatform" parent="endEnviroment" instance=ExtResource( 22 )]
 position = Vector2( 6429.88, 389.717 )
+
 [connection signal="body_entered" from="Info/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Info/Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
