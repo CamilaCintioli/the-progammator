@@ -38,7 +38,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_turrets()
-	start_checkpoint(1)
+#	start_checkpoint(1)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
@@ -99,6 +99,10 @@ func restart():
 		if checkpoints.dron_enable:
 			dron.set_game_on()
 			dron.global_position = checkpoints.dron_position
+		if checkpoints.check == 1:
+			dron.set_game_on()
+			$Programmer/CameraProgramer.current = true
+			upCamera.global_position.y = checkpoints.programmer_position.y
 		if checkpoints.check == 2:
 			upCamera.current = true
 			upCamera.set_process(true)
@@ -205,3 +209,6 @@ func _on_StartUpCamera_body_entered(body):
 func _on_DeadArea_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
 		dead()
+
+func _on_Timer_timeout():
+	change_platforms()

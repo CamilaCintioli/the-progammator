@@ -63,9 +63,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("change"):
 		if container.end_game:
 			arm._fire()
-		elif container.change_zone:
-			container.change_platforms()
-		elif !container.dron_zone:
+		elif !container.change_zone and !container.dron_zone:
 			container.change_control()
 	
 	if container.control and (!container.dron_zone or !container.change_zone):
