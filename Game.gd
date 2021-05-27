@@ -29,16 +29,18 @@ func _ready():
 	bugs.initialize(self)
 	robot.initialize(self)
 	movingFloor.initialize(self)
+	checkpoints.initialize(self)
 	chrom.initialize($ChromEndPosition, self)
 	endCamera.initialize(programmer)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
 	$Robot4.initialize(self)
+	$Robot5.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_turrets()
-#	start_checkpoint(1)
+#	start_checkpoint(3)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
@@ -81,6 +83,10 @@ func game_over():
 	
 func dron_bye():
 	change_control()
+	end_game = true
+	dron.bye()
+	
+func dron_bye2():
 	end_game = true
 	dron.bye()
 	
