@@ -8,6 +8,8 @@ var container
 
 func _ready():
 	add_to_group("turret")
+	
+	
 
 func initialize(_container, turret_pos):
 	self.container = _container
@@ -16,9 +18,15 @@ func initialize(_container, turret_pos):
 	fire_timer.wait_time = rand_range(1,5)
 	fire_timer.start()
 	
+	#Conectando la señal de game para parar los disparos 
+	container.connect("stop_shooting", self, "_on_stop_shooting")
+	
 func _shoot():
 	var proj = matrix_projectile_scene.instance()
 	proj.initialize(container, global_position, Vector2.DOWN, false)
 
 func _on_Timer_timeout():
 	_shoot()
+	
+func _on_stop_shooting():
+	fire_timer.stop()

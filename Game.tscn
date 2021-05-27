@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -23,10 +23,6 @@
 [ext_resource path="res://enviroment/endScene/BreakablePlatform.tscn" type="PackedScene" id=21]
 [ext_resource path="res://enviroment/endScene/MovingPlatform.tscn" type="PackedScene" id=22]
 [ext_resource path="res://entities/enemies/PlayerEnemy.tscn" type="PackedScene" id=23]
-[ext_resource path="res://enviroment/changeScene/YellowPlatform.tscn" type="PackedScene" id=24]
-[ext_resource path="res://enviroment/changeScene/GreenPlatform.tscn" type="PackedScene" id=25]
-[ext_resource path="res://enviroment/changeScene/Yellow.gd" type="Script" id=26]
-[ext_resource path="res://enviroment/changeScene/Green.gd" type="Script" id=27]
 [ext_resource path="res://enviroment/DronUpCamera.gd" type="Script" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -122,21 +118,6 @@ extents = Vector2( 36.912, 14.2949 )
 extents = Vector2( 14.917, 108.313 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 30.8895, 8.41223 )
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 191.923, 217.584 )
-
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 1209.59, 71.3357 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 69.8297, 94.8601 )
-
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 2460.9, 114.283 )
-
-[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 109.876, 99.9192 )
 
 [node name="Game" type="Node"]
@@ -486,113 +467,6 @@ position = Vector2( 6935.54, 532.474 )
 [node name="MovingPlatform" parent="endEnviroment" instance=ExtResource( 22 )]
 position = Vector2( 6429.88, 389.717 )
 
-[node name="ChangePlatform" type="Node" parent="."]
-
-[node name="Yellow" type="Node2D" parent="ChangePlatform"]
-script = ExtResource( 26 )
-
-[node name="YellowPlatform" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -2027.14, 2817.18 )
-
-[node name="YellowPlatform2" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1585.88, 2641.6 )
-
-[node name="YellowPlatform3" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1535.02, 2475.97 )
-
-[node name="YellowPlatform4" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1416.25, 2272.34 )
-
-[node name="YellowPlatform5" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1400.9, 2127.51 )
-
-[node name="YellowPlatform6" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1581.92, 1934.65 )
-
-[node name="YellowPlatform7" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -1248.72, 1667.38 )
-
-[node name="YellowPlatform8" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -3947.75, 2682.64 )
-
-[node name="YellowPlatform9" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -2705.75, 2798.64 )
-
-[node name="YellowPlatform10" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -2674.49, 2583.36 )
-
-[node name="YellowPlatform11" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -2315.64, 2558.38 )
-
-[node name="Green" type="Node2D" parent="ChangePlatform"]
-script = ExtResource( 27 )
-
-[node name="GreenPlatform" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -2208.12, 2822.9 )
-
-[node name="GreenPlatform2" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1592.03, 2754.1 )
-
-[node name="GreenPlatform3" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1406.22, 2577.05 )
-
-[node name="GreenPlatform4" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1443.17, 2377.29 )
-
-[node name="GreenPlatform5" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1138.56, 2083.78 )
-
-[node name="GreenPlatform6" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1587.06, 2051.78 )
-
-[node name="GreenPlatform7" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -1595.18, 1772.44 )
-
-[node name="GreenPlatform8" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -4115.27, 2765.72 )
-
-[node name="GreenPlatform9" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -3069.27, 2665.72 )
-
-[node name="GreenPlatform10" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -2771.6, 2583.82 )
-
-[node name="GreenPlatform11" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -2419.09, 2560.41 )
-
-[node name="DronUp" type="Area2D" parent="ChangePlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/DronUp"]
-position = Vector2( -959.046, 1548.01 )
-shape = SubResource( 10 )
-
-[node name="Device" type="Area2D" parent="ChangePlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/Device"]
-position = Vector2( -211.049, 563.247 )
-shape = SubResource( 11 )
-
-[node name="ChangeCamera" type="Area2D" parent="ChangePlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/ChangeCamera"]
-position = Vector2( -1330.22, 143.201 )
-shape = SubResource( 12 )
-
-[node name="StartUpCamera" type="Area2D" parent="ChangePlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/StartUpCamera"]
-position = Vector2( -1748.83, 2748.86 )
-shape = SubResource( 13 )
-
-[node name="DeadArea" type="Area2D" parent="ChangePlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/DeadArea"]
-position = Vector2( -2338, 3231.14 )
-shape = SubResource( 14 )
-
-[node name="ProgrammerPosition" type="Position2D" parent="ChangePlatform"]
-position = Vector2( -252, 652 )
-
 [node name="UpCamera" type="Camera2D" parent="."]
 position = Vector2( -1374.62, 2908.74 )
 editor_draw_limits = true
@@ -610,7 +484,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1852.01, 2777.27 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1849.94, 2816.38 )
@@ -623,7 +497,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.2, 2775.43 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.94, 2816.38 )
@@ -636,7 +510,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1860.37, 2752.28 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1849.94, 2816.38 )
@@ -649,7 +523,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1870.4, 2752.23 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1849.94, 2816.38 )
@@ -662,7 +536,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1853.33, 2753.47 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1849.94, 2816.38 )
@@ -685,11 +559,6 @@ autostart = true
 [connection signal="body_entered" from="MovingFloor/Cooler4" to="." method="_on_Cooler4_body_entered"]
 [connection signal="body_entered" from="MovingFloor/Cel" to="MovingFloor" method="_on_Cel_body_entered"]
 [connection signal="body_entered" from="EndArea" to="." method="_on_EndArea_body_entered"]
-[connection signal="body_entered" from="ChangePlatform/DronUp" to="." method="_on_DronUp_body_entered"]
-[connection signal="body_entered" from="ChangePlatform/Device" to="." method="_on_Device_body_entered"]
-[connection signal="body_entered" from="ChangePlatform/ChangeCamera" to="." method="_on_ChangeCamera_body_entered"]
-[connection signal="body_entered" from="ChangePlatform/StartUpCamera" to="." method="_on_StartUpCamera_body_entered"]
-[connection signal="body_entered" from="ChangePlatform/DeadArea" to="." method="_on_DeadArea_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint1" to="Checkpoints" method="_on_Checkpoint1_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints" method="_on_Checkpoint2_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint3" to="Checkpoints" method="_on_Checkpoint3_body_entered"]

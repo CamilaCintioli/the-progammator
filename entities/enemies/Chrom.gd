@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (PackedScene) var matrix_projectile_scene
 
 onready var fire_timer = $FireTimer
+onready var anim_chrom = $AnimationChrom
 
 var container
 var direction = -1
@@ -18,7 +19,7 @@ func initialize(_limit, _container):
 	fire_timer.start()
 
 func _physics_process(_delta):
-	$AnimationChrom.play("roll")
+	anim_chrom.play("roll")
 	position.x += 4 * direction;
 	position.x = wrapf(position.x, 0, limit)
 	
@@ -27,6 +28,8 @@ func _on_Timer_timeout():
 	
 func game_over():
 	set_physics_process(false)
+	anim_chrom.play("remove")
+	yield(anim_chrom, "animation_finished")
 	hide()
 	
 func _remove():
@@ -34,7 +37,9 @@ func _remove():
 	queue_free()
 	
 func bye():
-	call_deferred("game_over")
+	$chromSprite.scale = $chromSprite.scale * 1.2
+	container.chrom_hit()
+	#call_deferred("game_over") # se llama con game e interface
 
 func _shoot():
 	var proj = matrix_projectile_scene.instance()

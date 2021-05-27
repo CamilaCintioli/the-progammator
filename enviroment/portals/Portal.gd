@@ -2,6 +2,14 @@ extends Area2D
 
 var container
 
+onready var anim = $AnimationPlayer
+onready var anim2 = $AnimationPlayer2
+
+func _ready():
+	anim.play("portal-spin")
+
+	anim2.play("light-portal")
+
 func initialize(level_2):
 	container = level_2
 

@@ -14,6 +14,8 @@ onready var endCamera = $EndCamera
 onready var upCamera = $UpCamera
 onready var checkpoints = $Checkpoints
 
+signal stop_shooting
+
 var init_end_camera
 var control = true
 var is_game_over = false
@@ -71,6 +73,13 @@ func show_dialog():
 		
 func livesDecrease():
 	interface.livesDecrease()
+	
+func chrom_hit():
+	interface.chrom_hit()
+	
+func chrom_finished():
+	emit_signal("stop_shooting")
+	chrom.game_over()
 	
 func dead():
 	is_game_over = true
