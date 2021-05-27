@@ -122,7 +122,7 @@ extents = Vector2( 36.912, 14.2949 )
 extents = Vector2( 14.917, 108.313 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 32.0681, 78.5155 )
+extents = Vector2( 51.424, 78.5155 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 184.568, 307.933 )
@@ -563,8 +563,7 @@ position = Vector2( -2419.09, 2560.41 )
 [node name="DronUp" type="Area2D" parent="ChangePlatform"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/DronUp"]
-position = Vector2( -917.424, 1484.98 )
-rotation = 1.28346
+position = Vector2( -887.424, 1483.98 )
 shape = SubResource( 10 )
 
 [node name="Device" type="Area2D" parent="ChangePlatform"]

@@ -42,7 +42,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_turrets()
-#	start_checkpoint(1)
+	start_checkpoint(CheckpointsMenu.check)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
