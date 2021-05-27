@@ -11,12 +11,18 @@ onready var movingFloor = $MovingFloor
 onready var chrom = $Chrom
 onready var interface = $Interface
 onready var endCamera = $EndCamera
+onready var upCamera = $UpCamera
+onready var checkpoints = $Checkpoints
 
 signal stop_shooting
 
+var init_end_camera
 var control = true
 var is_game_over = false
 var end_game = false
+var dron_zone = false
+var change_zone = true
+var change = true
 
 func _ready():
 	programmer.initialize(self)
@@ -25,13 +31,18 @@ func _ready():
 	bugs.initialize(self)
 	robot.initialize(self)
 	movingFloor.initialize(self)
+	checkpoints.initialize(self)
 	chrom.initialize($ChromEndPosition, self)
 	endCamera.initialize(programmer)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
+	$Robot4.initialize(self)
+	$Robot5.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
+	init_end_camera = endCamera.global_position
 	start_turrets()
+#	start_checkpoint(1)
 	
 func start_turrets():
 	var x_pos = $ChromEndPosition.global_position.x
@@ -39,6 +50,11 @@ func start_turrets():
 		var turret = turret_scene.instance()
 		turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
 	
+func start_checkpoint(nro):
+	if nro > 0:
+		checkpoints.checkpoint(nro)
+		restart()
+
 func change_control():
 	control = !control
 	if control:
@@ -48,7 +64,6 @@ func change_control():
 
 func in_end_game():
 	end_game = true
-	dron.bye()
 
 func hide_dialog():
 	$DialogBox.visible = false
@@ -74,16 +89,64 @@ func game_over():
 	is_game_over = true
 	programmer.set_game_over()
 	dron.bye()
-	chrom.game_over()
 	
 func dron_bye():
+	change_control()
+	end_game = true
+	dron.bye()
+	
+func dron_bye2():
+	end_game = true
 	dron.bye()
 	
 func you_win():
 	interface.you_win()
-	
+
 func restart():
-	get_tree().reload_current_scene()
+	if checkpoints.check > 0:
+		programmer.global_position = checkpoints.programmer_position
+		programmer.set_physics_process(true)
+		programmer.show()
+		control = true
+		is_game_over = false
+		interface.set_on()
+		programmer.velocity = Vector2.ZERO
+		if checkpoints.dron_enable:
+			dron.set_game_on()
+			dron.global_position = checkpoints.dron_position
+		if checkpoints.check == 1:
+			dron.set_game_on()
+			$Programmer/CameraProgramer.current = true
+			upCamera.global_position.y = checkpoints.programmer_position.y
+		if checkpoints.check == 2:
+			upCamera.current = true
+			upCamera.set_process(true)
+			upCamera.global_position.y = checkpoints.programmer_position.y
+			control = false
+			dron_zone = true
+			change_zone = false
+			change = false
+		if checkpoints.check == 3:
+			change_zone = false
+			end_game = false
+			control = false
+			$Dron/CameraDron.current = true
+		if checkpoints.check == 4 or checkpoints.check == 5:
+			$Programmer/CameraProgramer.current = true
+			endCamera.global_position = init_end_camera
+			control = true
+			end_game = true
+	else:
+		get_tree().reload_current_scene()
+	
+func change_platforms():
+	if change:
+		$ChangePlatform/Yellow.disable()
+		$ChangePlatform/Green.enable()
+	else:
+		$ChangePlatform/Yellow.enable()
+		$ChangePlatform/Green.disable()
+	change = !change
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
@@ -135,3 +198,32 @@ func _on_EndArea_body_entered(body):
 		endCamera.current = true
 		endCamera.set_process(true)
 		in_end_game()
+
+func _on_DronUp_body_entered(body):
+	if body.is_in_group("programmer"):
+		dron_zone = true
+		change_zone = false
+		control = !control
+		change = false
+
+func _on_Device_body_entered(body):
+	if body.is_in_group("programmer"):
+		dron_zone = false
+
+func _on_ChangeCamera_body_entered(body):
+	if body.is_in_group("dron"):
+		checkpoints.check3()
+		$Dron/CameraDron.current = true
+		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
+		upCamera.stop()
+
+func _on_StartUpCamera_body_entered(body):
+	if body.is_in_group("programmer"):
+		upCamera.start()
+
+func _on_DeadArea_body_entered(body):
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		dead()
+
+func _on_Timer_timeout():
+	change_platforms()

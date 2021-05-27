@@ -28,11 +28,15 @@ func init_tween():
 	
 func _physics_process(_delta):
 	platform.global_position = platform.global_position.linear_interpolate(follow, 0.075)
+	
+func set_cel_on():
+	init_tween()
+	$Cel/On.visible = true
+	$Cel/Off.visible = false
+	start = true
+	container.checkpoints.check_4()
 
 func _on_Cel_body_entered(body):
 	if !start and body.is_in_group("dron"):
-		init_tween()
-		$Cel/On.visible = true
-		$Cel/Off.visible = false
-		start = true
+		set_cel_on()
 		container.dron_bye()

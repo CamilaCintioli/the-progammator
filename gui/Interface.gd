@@ -29,6 +29,12 @@ func show_message():
 	$GameOver.show()
 	$GameOverTimer.start()
 	
+func set_on():
+	heartNum = 3
+	$grayRect/heartsNumber.text = str(heartNum)
+	$grayRect/greenHeart.set_modulate(Color.green)
+	
+	
 func game_over():
 	$grayRect/greenHeart.set_modulate(Color.darkgreen)
 	show_message()
