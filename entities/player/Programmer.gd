@@ -69,7 +69,7 @@ func _physics_process(_delta):
 	if container.control and (!container.dron_zone or !container.change_zone):
 		get_input()
 	else:
-		velocity = Vector2.ZERO
+		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 	

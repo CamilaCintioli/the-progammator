@@ -39,4 +39,4 @@ func set_cel_on():
 func _on_Cel_body_entered(body):
 	if !start and body.is_in_group("dron"):
 		set_cel_on()
-		container.dron_bye()
+#		container.dron_bye()

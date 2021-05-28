@@ -211,6 +211,7 @@ func _on_ChangeCamera_body_entered(body):
 
 func _on_StartUpCamera_body_entered(body):
 	if body.is_in_group("programmer"):
+		upCamera.global_position.y = checkpoints.programmer_position.y
 		upCamera.start()
 
 func _on_DeadArea_body_entered(body):

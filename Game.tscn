@@ -112,28 +112,28 @@ points = PoolVector2Array( 0, 32, 32, 0, 32, 32 )
 size = 30
 font_data = ExtResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 36.912, 14.2949 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 14.917, 108.313 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 51.424, 78.5155 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 184.568, 307.933 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 837.04, 53.7982 )
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 25.33, 37.6475 )
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 58.6429, 52.1387 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 2656.72, 33.9617 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 109.876, 99.9192 )
 
 [node name="Game" type="Node"]
@@ -352,7 +352,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bugs/Bug"]
 position = Vector2( 59.1185, 283.583 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bugs/Bug"]
 margin_left = 39.3471
@@ -384,7 +384,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bugs/Bug2"]
 position = Vector2( 59.1185, 283.583 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bugs/Bug2"]
 margin_left = 39.3471
@@ -416,7 +416,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bugs/Bug3"]
 position = Vector2( 59.1185, 283.583 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bugs/Bug3"]
 margin_left = 39.3471
@@ -526,7 +526,7 @@ position = Vector2( 6209.93, 71.9716 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
 position = Vector2( 576.621, 549.127 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="endEnviroment" type="Node2D" parent="."]
 
@@ -623,31 +623,31 @@ position = Vector2( -3069.27, 2665.72 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/DronUp"]
 position = Vector2( -887.424, 1483.98 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Device" type="Area2D" parent="ChangePlatform"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/Device"]
 position = Vector2( -203.914, 422.921 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="ChangeCamera" type="Area2D" parent="ChangePlatform"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/ChangeCamera"]
 position = Vector2( -961.943, 151.138 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="StartUpCamera" type="Area2D" parent="ChangePlatform"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/StartUpCamera"]
-position = Vector2( -1754.17, 2806.26 )
-shape = SubResource( 13 )
+position = Vector2( -1737.91, 2790 )
+shape = SubResource( 12 )
 
 [node name="DeadArea" type="Area2D" parent="ChangePlatform"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/DeadArea"]
 position = Vector2( -2338, 3231.14 )
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 
 [node name="ProgrammerPosition" type="Position2D" parent="ChangePlatform"]
 position = Vector2( -252, 652 )
@@ -669,7 +669,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1852.01, 2777.27 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1849.94, 2816.38 )
@@ -682,7 +682,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.2, 2775.43 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.94, 2816.38 )
@@ -695,7 +695,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1860.37, 2752.28 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1849.94, 2816.38 )
@@ -708,7 +708,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1870.4, 2752.23 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1849.94, 2816.38 )
@@ -721,7 +721,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1853.33, 2753.47 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1849.94, 2816.38 )
