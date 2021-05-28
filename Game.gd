@@ -185,14 +185,6 @@ func there_are_bugs() -> int:
 func bye_portal():
 	$Portal.bye()
 
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("programmer"):
-		$Info.show()
-
-func _on_Area2D_body_exited(body):
-	if body.is_in_group("programmer"):
-		$Info.hide()
-
 func _on_EndArea_body_entered(body):
 	if body.is_in_group("programmer") and !endCamera.current:
 		endCamera.current = true

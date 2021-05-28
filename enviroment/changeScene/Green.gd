@@ -9,8 +9,6 @@ onready var p6 = $GreenPlatform6/CollisionPolygon2D
 onready var p7 = $GreenPlatform7/CollisionPolygon2D
 onready var p8 = $GreenPlatform8/CollisionPolygon2D
 onready var p9 = $GreenPlatform9/CollisionPolygon2D
-onready var p10 = $GreenPlatform10/CollisionPolygon2D
-onready var p11 = $GreenPlatform11/CollisionPolygon2D
 
 func _ready():
 	disable()
@@ -26,8 +24,6 @@ func disable():
 	p7.disabled = true
 	p8.disabled = true
 	p9.disabled = true
-	p10.disabled = true
-	p11.disabled = true
 	
 func enable():
 	show()
@@ -40,5 +36,3 @@ func enable():
 	p7.disabled = false
 	p8.disabled = false
 	p9.disabled = false
-	p10.disabled = false
-	p11.disabled = false
