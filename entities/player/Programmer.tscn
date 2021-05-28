@@ -29,6 +29,9 @@ projectile_scene = ExtResource( 4 )
 [node name="FirePosition" type="Position2D" parent="Arm"]
 position = Vector2( -0.143185, -19.0698 )
 
+[node name="FireTimer" type="Timer" parent="Arm"]
+one_shot = true
+
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 0.117984, 0.0589943 )
 scale = Vector2( 0.480869, 2.66948 )
@@ -39,4 +42,5 @@ rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 
+[connection signal="timeout" from="Arm/FireTimer" to="Arm" method="_on_Timer_timeout"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

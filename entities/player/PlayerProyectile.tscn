@@ -50,4 +50,5 @@ wait_time = 5.0
 
 [node name="AnimationRam" type="AnimationPlayer" parent="."]
 anims/ramroll = SubResource( 2 )
+
 [connection signal="body_entered" from="." to="." method="_on_Proyectile_body_entered"]

@@ -28,6 +28,7 @@ func _on_Timer_timeout():
 	
 func game_over():
 	set_physics_process(false)
+	fire_timer.stop()
 	anim_chrom.play("remove")
 	yield(anim_chrom, "animation_finished")
 	hide()

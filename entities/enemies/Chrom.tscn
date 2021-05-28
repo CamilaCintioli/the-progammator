@@ -88,8 +88,8 @@ shape = SubResource( 1 )
 [node name="explosion" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
-vframes = 6
 hframes = 8
+vframes = 6
 
 [node name="chromSprite" type="Sprite" parent="."]
 position = Vector2( 0.315334, 0.31534 )
@@ -105,5 +105,6 @@ wait_time = 4.0
 autostart = true
 
 [node name="FireTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
