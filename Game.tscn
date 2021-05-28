@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://enviroment/changeScene/Yellow.gd" type="Script" id=26]
 [ext_resource path="res://enviroment/changeScene/Green.gd" type="Script" id=27]
 [ext_resource path="res://enviroment/DronUpCamera.gd" type="Script" id=28]
+[ext_resource path="res://entities/enemies/EndEnemy.tscn" type="PackedScene" id=29]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -134,6 +135,9 @@ extents = Vector2( 58.6429, 52.1387 )
 extents = Vector2( 2656.72, 33.9617 )
 
 [sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 2681.08, 55.9348 )
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 109.876, 99.9192 )
 
 [node name="Game" type="Node"]
@@ -492,6 +496,9 @@ position = Vector2( -4391.42, 2809.63 )
 [node name="Dron" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1477.82, 1515.13 )
 
+[node name="EndEnemy" parent="." instance=ExtResource( 29 )]
+position = Vector2( 7405.25, 116.312 )
+
 [node name="PlayerEnemy" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2764.19, 565.629 )
 
@@ -513,7 +520,7 @@ position = Vector2( 3332.7, 374.71 )
 [node name="Interface" parent="." instance=ExtResource( 11 )]
 
 [node name="ChromEndPosition" type="Position2D" parent="."]
-position = Vector2( 4889.42, 56.1526 )
+position = Vector2( 4831.46, 83.8708 )
 
 [node name="EndCamera" type="Camera2D" parent="."]
 position = Vector2( 6866.51, 410.767 )
@@ -652,6 +659,12 @@ shape = SubResource( 13 )
 [node name="ProgrammerPosition" type="Position2D" parent="ChangePlatform"]
 position = Vector2( -252, 652 )
 
+[node name="Floor" type="StaticBody2D" parent="ChangePlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/Floor"]
+position = Vector2( -2385.65, 3346.48 )
+shape = SubResource( 14 )
+
 [node name="UpCamera" type="Camera2D" parent="."]
 position = Vector2( -1374.62, 2908.74 )
 editor_draw_limits = true
@@ -669,7 +682,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1852.01, 2777.27 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1849.94, 2816.38 )
@@ -682,7 +695,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.2, 2775.43 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.94, 2816.38 )
@@ -695,7 +708,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1860.37, 2752.28 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1849.94, 2816.38 )
@@ -708,7 +721,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1870.4, 2752.23 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1849.94, 2816.38 )
@@ -721,7 +734,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1853.33, 2753.47 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1849.94, 2816.38 )

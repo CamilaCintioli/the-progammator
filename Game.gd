@@ -13,6 +13,7 @@ onready var interface = $Interface
 onready var endCamera = $EndCamera
 onready var upCamera = $UpCamera
 onready var checkpoints = $Checkpoints
+onready var endEnemy = $EndEnemy
 
 signal stop_shooting
 
@@ -23,6 +24,7 @@ var end_game = false
 var dron_zone = false
 var change_zone = true
 var change = true
+var init_turrets = true
 
 func _ready():
 	programmer.initialize(self)
@@ -38,17 +40,19 @@ func _ready():
 	$Robot3.initialize(self)
 	$Robot4.initialize(self)
 	$Robot5.initialize(self)
+	endEnemy.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
-	start_turrets()
 	start_checkpoint(CheckpointsMenu.check)
 	
 func start_turrets():
-	var x_pos = $ChromEndPosition.global_position.x
-	for i in [0,100,200,400,500,600,800,1000]:
-		var turret = turret_scene.instance()
-		turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
+	if init_turrets:
+		init_turrets = false
+		var x_pos = $ChromEndPosition.global_position.x
+		for i in [0,100,200,400,500,600,800,900]:
+			var turret = turret_scene.instance()
+			turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
 	
 func start_checkpoint(nro):
 	if nro > 0:
@@ -80,6 +84,9 @@ func chrom_hit():
 func chrom_finished():
 	emit_signal("stop_shooting")
 	chrom.game_over()
+	
+func chrom_start():
+	chrom.start()
 	
 func dead():
 	is_game_over = true
@@ -190,12 +197,13 @@ func _on_EndArea_body_entered(body):
 		endCamera.current = true
 		endCamera.set_process(true)
 		in_end_game()
+		endEnemy.start()
 
 func _on_DronUp_body_entered(body):
 	if body.is_in_group("programmer"):
 		dron_zone = true
 		change_zone = false
-		control = !control
+		control = false
 		change = false
 
 func _on_Device_body_entered(body):

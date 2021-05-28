@@ -70,7 +70,7 @@ func bye():
 	call_deferred("set_game_over")
 
 func _on_VisibilityNotifier2D_screen_exited():
-	if !container.change and container.upCamera.current:
+	if (!container.change or container.dron_zone) and container.upCamera.current:
 		container.dead()
 		call_deferred("set_game_over")
 

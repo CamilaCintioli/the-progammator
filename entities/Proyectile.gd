@@ -26,6 +26,7 @@ func _physics_process(delta):
 		$AnimationRam.play("ramroll")
 	
 func _remove():
+	set_physics_process(false)
 	container.remove_child(self)
 	queue_free()
 

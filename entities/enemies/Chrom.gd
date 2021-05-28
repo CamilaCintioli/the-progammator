@@ -15,7 +15,9 @@ func _ready():
 func initialize(_limit, _container):
 	limit = _limit.global_position.x
 	container = _container
-	fire_timer.wait_time = 2 #rand_range(1,5)
+	
+func start():
+	fire_timer.wait_time = 0.8
 	fire_timer.start()
 
 func _physics_process(_delta):

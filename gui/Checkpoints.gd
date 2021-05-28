@@ -26,6 +26,8 @@ func _on_Checkpoint4_body_entered(body):
 	if body.is_in_group("programmer"):
 		check4()
 		container.dron_bye2()
+		container.start_turrets()
+		container.chrom_start()
 
 func check_4():
 	is_check4 = 1
