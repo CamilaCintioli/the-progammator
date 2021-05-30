@@ -25,6 +25,12 @@ func livesDecrease():
 		if heartNum <= 0:
 			game_over()
 
+
+func livesIncrease():
+	if(heartNum < 3):
+		heartNum += 1
+		$grayRect/heartsNumber.text = str(heartNum)
+	
 func show_message():
 	$GameOver.show()
 	$GameOverTimer.start()

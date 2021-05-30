@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://enviroment/changeScene/Green.gd" type="Script" id=27]
 [ext_resource path="res://enviroment/DronUpCamera.gd" type="Script" id=28]
 [ext_resource path="res://entities/enemies/EndEnemy.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Coffee.tscn" type="PackedScene" id=30]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -746,6 +747,23 @@ position = Vector2( -1482.8, 1516.74 )
 wait_time = 1.7
 autostart = true
 
+[node name="Coffee" parent="." instance=ExtResource( 30 )]
+position = Vector2( -942.337, 1515.43 )
+
+[node name="Coffee2" parent="." instance=ExtResource( 30 )]
+position = Vector2( -1876, 1767.46 )
+
+[node name="Coffee3" parent="." instance=ExtResource( 30 )]
+position = Vector2( 746.771, 596.323 )
+
+[node name="Coffee4" parent="." instance=ExtResource( 30 )]
+position = Vector2( 5901.12, 560.404 )
+
+[node name="Coffee5" parent="." instance=ExtResource( 30 )]
+position = Vector2( 5294.57, 558.876 )
+
+[node name="Coffee6" parent="." instance=ExtResource( 30 )]
+position = Vector2( 1869.23, 461.627 )
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

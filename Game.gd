@@ -14,6 +14,7 @@ onready var endCamera = $EndCamera
 onready var upCamera = $UpCamera
 onready var checkpoints = $Checkpoints
 onready var endEnemy = $EndEnemy
+onready var coffee = $Coffee
 
 signal stop_shooting
 
@@ -34,6 +35,12 @@ func _ready():
 	robot.initialize(self)
 	movingFloor.initialize(self)
 	checkpoints.initialize(self)
+	coffee.initialize(self)
+	$Coffee2.initialize(self)
+	$Coffee3.initialize(self)
+	$Coffee4.initialize(self)
+	$Coffee5.initialize(self)
+	$Coffee6.initialize(self)
 	chrom.initialize($ChromEndPosition, self)
 	endCamera.initialize(programmer)
 	$Robot2.initialize(self)
@@ -77,7 +84,10 @@ func show_dialog():
 		
 func livesDecrease():
 	interface.livesDecrease()
-	
+
+func livesIncrease():
+	interface.livesIncrease()
+
 func chrom_hit():
 	interface.chrom_hit()
 	
