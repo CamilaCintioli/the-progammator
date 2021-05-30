@@ -32,27 +32,33 @@ func _ready():
 	dron.initialize(self)
 	portal.initialize(self)
 	bugs.initialize(self)
-	robot.initialize(self)
 	movingFloor.initialize(self)
 	checkpoints.initialize(self)
+	_initialize_coffee_health_packs()
+	_initialize_robots()
+	chrom.initialize($ChromEndPosition, self)
+	endCamera.initialize(programmer)
+	endEnemy.initialize(self)
+	$DialogBox.visible = false
+	interface.initialize(self)
+	init_end_camera = endCamera.global_position
+	start_checkpoint(CheckpointsMenu.check)
+
+func _initialize_coffee_health_packs():
 	coffee.initialize(self)
 	$Coffee2.initialize(self)
 	$Coffee3.initialize(self)
 	$Coffee4.initialize(self)
 	$Coffee5.initialize(self)
 	$Coffee6.initialize(self)
-	chrom.initialize($ChromEndPosition, self)
-	endCamera.initialize(programmer)
+	
+func _initialize_robots():
+	robot.initialize(self)
 	$Robot2.initialize(self)
 	$Robot3.initialize(self)
 	$Robot4.initialize(self)
 	$Robot5.initialize(self)
-	endEnemy.initialize(self)
-	$DialogBox.visible = false
-	interface.initialize(self)
-	init_end_camera = endCamera.global_position
-	start_checkpoint(CheckpointsMenu.check)
-	
+
 func start_turrets():
 	if init_turrets:
 		init_turrets = false
