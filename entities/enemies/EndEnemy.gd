@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var fire_timer = $FireTimer
 
+export (PackedScene) var matrix_projectile_scene
+
 var container
 var direction = -1
 var limit
@@ -30,7 +32,10 @@ func _physics_process(_delta):
 		fire = false
 
 func _fire():
-	pass
+	print("fire")
+	var proj = matrix_projectile_scene.instance()
+	proj.initialize(container, position, Vector2.DOWN, false)
+
 
 func start():
 	set_physics_process(true)

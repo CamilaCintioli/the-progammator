@@ -28,6 +28,7 @@ func _on_Checkpoint4_body_entered(body):
 		container.dron_bye2()
 		container.start_turrets()
 		container.chrom_start()
+		container.interface.set_chrome_bar()
 
 func check_4():
 	is_check4 = 1

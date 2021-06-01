@@ -15,6 +15,8 @@ func initialize(theLevel):
 	level = theLevel
 	$grayRect/heartsNumber.text = str(heartNum)
 	$grayRect.show()
+	
+func set_chrome_bar():
 	$blackRect/livesNumber.text = str(heartNum)
 	$blackRect.show()
 	

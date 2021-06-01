@@ -14,8 +14,11 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="Menu" type="ColorRect"]
-margin_right = 1280.0
-margin_bottom = 768.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_right = 10.0
+margin_bottom = -5.0
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -23,81 +26,98 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_left = 268.355
-margin_top = 206.884
-margin_right = 642.355
-margin_bottom = 254.884
-rect_scale = Vector2( 2, 2 )
+anchor_left = 0.217239
+anchor_top = 0.297273
+anchor_right = 0.780179
+anchor_bottom = 0.297273
+margin_top = -19.5
+margin_right = -189.57
+margin_bottom = 19.5
+rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.231373, 0.784314, 0.278431, 1 )
 text = "THE PROGRAMATOR"
 align = 1
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Start" type="Button" parent="."]
-margin_left = 373.0
-margin_top = 442.0
-margin_right = 898.0
-margin_bottom = 561.0
+anchor_right = 1.0
+margin_left = 368.476
+margin_top = 251.37
+margin_right = -380.524
+margin_bottom = 305.37
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button1" type="Button" parent="."]
-margin_left = 410.251
-margin_top = 639.971
-margin_right = 480.251
-margin_bottom = 709.971
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.558
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -0.126007
+margin_right = -3.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 122.0
+margin_right = 1010.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 447.0
+margin_right = 467.0
+margin_bottom = 20.0
 text = "1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="."]
-margin_left = 502.033
-margin_top = 641.214
-margin_right = 572.033
-margin_bottom = 711.214
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 471.0
+margin_right = 491.0
+margin_bottom = 20.0
 text = "2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="."]
-margin_left = 594.955
-margin_top = 641.317
-margin_right = 664.955
-margin_bottom = 711.317
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 495.0
+margin_right = 515.0
+margin_bottom = 20.0
 text = "3"
 
-[node name="Button4" type="Button" parent="."]
-margin_left = 684.139
-margin_top = 640.962
-margin_right = 754.139
-margin_bottom = 710.962
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 519.0
+margin_right = 539.0
+margin_bottom = 20.0
 text = "4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button5" type="Button" parent="."]
-margin_left = 769.877
-margin_top = 641.406
-margin_right = 839.877
-margin_bottom = 711.406
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 543.0
+margin_right = 563.0
+margin_bottom = 20.0
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
-[connection signal="pressed" from="Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button5" to="." method="_on_Button5_pressed"]

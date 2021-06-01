@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://enviroment/endScene/Platform.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/env/ground_stone.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/env/Tiles/BGTile (2).png" type="Texture" id=2]
 
 [node name="Platform" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -10,7 +10,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.490461, 0.396975 )
+position = Vector2( 0.333717, 0 )
+scale = Vector2( 0.717, 0.1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

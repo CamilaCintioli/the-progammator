@@ -8,6 +8,8 @@ const BOUNCING_JUMP = 155
 
 onready var arm = $Arm
 
+onready var animation = $AnimationPlayer
+
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 200.0
 export (float) var FRICTION_WEIGHT:float = 0.1
@@ -39,6 +41,8 @@ func get_input():
 		else:
 			velocity.x -= BOUNCING_JUMP
 			x_bounce -= BOUNCING_JUMP
+		
+		animation.play("jump")
 	if !is_on_floor() and $RayCast2D.is_colliding() and velocity.y > 0:
 		gravity = 1
 	else:
@@ -49,8 +53,12 @@ func get_input():
 	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
 	if h_movement_direction != 0:
+		if is_on_floor():
+			animation.play("walk")
 		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT) + x_bounce
+	
 	else:
+		animation.play("idle")
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
 	_set_animation(h_movement_direction)

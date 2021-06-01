@@ -1,6 +1,6 @@
 extends Camera2D
 
-var velocity = 55
+var velocity = 45
 
 func _ready():
 	stop()
