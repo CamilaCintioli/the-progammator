@@ -27,8 +27,11 @@ func _physics_process(delta):
 	
 func _remove():
 	set_physics_process(false)
-	container.remove_child(self)
-	queue_free()
+	$CollisionShape2D.disabled = true
+	hide()
+#	set_physics_process(false)
+#	container.remove_child(self)
+#	queue_free()
 
 func _on_life_timer_timeout():
 	_remove()
