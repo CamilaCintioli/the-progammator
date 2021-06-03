@@ -27,6 +27,7 @@ func get_input():
 	velocity.y += clamp(float(down) - float(up), -FRICTION_WEIGHT, FRICTION_WEIGHT) * speed
 
 func _physics_process(_delta):
+	print(!container.control)
 	if !container.control:
 		get_input()
 	else:
@@ -54,17 +55,23 @@ func deaccelerate_y() -> float:
 func hit():
 	container.livesDecrease()
 	
+func come_back():
+	call_deferred("set_game_on")
+	
 func set_game_on():
 	set_physics_process(true)
 	$CollisionShape2D.disabled = false
-	show()
 	visible = true
 
 func set_game_over():
 	set_physics_process(false)
 	$CollisionShape2D.disabled = true
 	velocity = Vector2.ZERO
-	hide()
+	visible = false
+	
+func end_position(pos):
+	global_position = pos
+	bye()
 
 func bye():
 	call_deferred("set_game_over")

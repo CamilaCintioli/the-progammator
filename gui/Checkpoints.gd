@@ -60,7 +60,7 @@ func check4():
 	programmer_position = $Checkpoint4/CollisionShape2D.global_position
 		
 func check5():
-	dron_enable = false
+	dron_enable = true
 	check = 5
 	programmer_position = $Checkpoint5/CollisionShape2D.global_position
 	

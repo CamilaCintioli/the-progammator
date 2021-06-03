@@ -120,7 +120,7 @@ func dron_bye():
 	
 func dron_bye2():
 	end_game = true
-	dron.bye()
+	dron.end_position($DronEndPosition.global_position)
 	
 func you_win():
 	interface.you_win()
@@ -136,7 +136,8 @@ func restart():
 		programmer.velocity = Vector2.ZERO
 		if checkpoints.dron_enable:
 			dron.set_game_on()
-			dron.global_position = checkpoints.dron_position
+			if checkpoints.dron_position:
+				dron.global_position = checkpoints.dron_position
 		if checkpoints.check == 1:
 			dron.set_game_on()
 			$Programmer/CameraProgramer.current = true
@@ -159,6 +160,7 @@ func restart():
 			endCamera.global_position = init_end_camera
 			control = true
 			end_game = true
+			dron_bye2()
 	else:
 		get_tree().reload_current_scene()
 	
@@ -244,3 +246,11 @@ func _on_DeadArea_body_entered(body):
 
 func _on_Timer_timeout():
 	change_platforms()
+
+func _on_EndProgrammerArea_body_entered(body):
+	if body.is_in_group("programmer"):
+		$Dron/CameraDron.current = true
+		control = false
+		endEnemy.dron = true
+		dron.come_back()
+		programmer.set_game_over()

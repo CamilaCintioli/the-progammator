@@ -8,8 +8,11 @@ var container
 var direction = -1
 var limit
 var init_limit
-var velocity = 1.5
+var max_velocity = 1.5
 var fire = true
+var dron = false
+var velocity = Vector2.ZERO
+var speed = 4000
 
 func _ready():
 	add_to_group("endEnemy")
@@ -21,18 +24,22 @@ func initialize(_container):
 	container = _container
 	fire_timer.start()
 
-func _physics_process(_delta):
-	position.x -= clamp(position.x - container.programmer.global_position.x, -velocity, velocity)
-	position.x = clamp(position.x, init_limit + 60, limit - 25)
-	var new_position_y = container.programmer.global_position.y - 350
-	position.y = new_position_y if new_position_y < position.y else position.y
-	if fire:
-		_fire()
-		fire_timer.start()
-		fire = false
+func _physics_process(delta):
+	if dron:
+		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
+		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
+		velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+	else:
+		position.x -= clamp(position.x - container.programmer.global_position.x, -max_velocity, max_velocity)
+		position.x = clamp(position.x, init_limit + 60, limit - 25)
+		var new_position_y = container.programmer.global_position.y - 350
+		position.y = new_position_y if new_position_y < position.y else position.y
+		if fire:
+			_fire()
+			fire_timer.start()
+			fire = false
 
 func _fire():
-	print("fire")
 	var proj = matrix_projectile_scene.instance()
 	proj.initialize(container, position, Vector2.DOWN, false)
 
