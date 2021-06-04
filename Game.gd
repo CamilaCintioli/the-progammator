@@ -51,6 +51,10 @@ func _initialize_coffee_health_packs():
 	$Coffee4.initialize(self)
 	$Coffee5.initialize(self)
 	$Coffee6.initialize(self)
+	$Coffee7.initialize(self)
+	$Coffee8.initialize(self)
+	$Coffee9.initialize(self)
+	$Coffee10.initialize(self)
 	
 func _initialize_robots():
 	robot.initialize(self)

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal collided
 
+onready var animation = $AnimationPlayer
+
 var speed = 11
 
 var deacceleration:float = 0.8
@@ -76,7 +78,8 @@ func end_position(pos):
 	bye()
 	
 func hit_end_enemy():
-	print("rayo play")
+	animation.play("rayo")
+#	yield($AnimationPlayer, "animation_finished")
 
 func bye():
 	call_deferred("set_game_over")

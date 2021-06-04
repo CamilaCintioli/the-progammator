@@ -22,6 +22,8 @@ func initialize(_container):
 
 func _on_HeadArea_body_entered(body):
 	if body.is_in_group("dron"):
+		body.hit_end_enemy()
+		yield(body.animation, "animation_finished")
 		call_deferred("_remove")
 
 func _on_HitArea_body_entered(body):

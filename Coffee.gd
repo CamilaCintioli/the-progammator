@@ -7,10 +7,11 @@ func initialize(_container):
 	container = _container
 
 func _on_PickUpArea_body_entered(body):
-	print ("coffee")
 	if body.is_in_group("programmer"):
 		takecoffesound.play()
 		body.pickUpCoffee()
+		hide()
+		yield(takecoffesound, "finished")
 		call_deferred("_remove")
 
 func _remove():
