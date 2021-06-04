@@ -99,6 +99,7 @@ func chrom_hit():
 	
 func chrom_finished():
 	emit_signal("stop_shooting")
+	interface.hide_chrome_bar()
 	chrom.game_over()
 	
 func chrom_start():

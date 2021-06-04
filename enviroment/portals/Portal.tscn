@@ -67,8 +67,8 @@ __meta__ = {
 [node name="portal-lights" type="Sprite" parent="."]
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
-hframes = 4
 vframes = 4
+hframes = 4
 frame = 4
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -93,6 +93,5 @@ anims/light-portal = SubResource( 4 )
 stream = ExtResource( 4 )
 autoplay = true
 bus = "Effects"
-
 [connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Portal_body_exited"]

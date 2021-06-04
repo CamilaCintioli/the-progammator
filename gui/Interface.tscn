@@ -26,18 +26,19 @@ heartNum = 3
 chromLives = 3
 
 [node name="grayRect" type="ColorRect" parent="."]
-margin_right = 176.0
-margin_bottom = 71.0
+margin_right = 131.0
+margin_bottom = 53.0
 color = Color( 0.47451, 0.47451, 0.47451, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="heartsNumber" type="Label" parent="grayRect"]
-margin_left = 70.9706
-margin_top = 12.0
-margin_right = 166.971
-margin_bottom = 58.0
+margin_left = 56.1331
+margin_top = 11.1402
+margin_right = 152.133
+margin_bottom = 57.1402
+rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.027451, 0.0588235, 0.0117647, 1 )
 align = 1
@@ -47,31 +48,32 @@ __meta__ = {
 }
 
 [node name="greenHeart" type="TextureRect" parent="grayRect"]
-margin_left = 19.799
-margin_top = 15.5564
-margin_right = 859.799
-margin_bottom = 894.556
-rect_scale = Vector2( 0.05, 0.05 )
+margin_left = 24.799
+margin_top = 13.5564
+margin_right = 864.799
+margin_bottom = 892.556
+rect_scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="blackRect" type="ColorRect" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -176.0
-margin_bottom = 71.0
-color = Color( 0.101961, 0.0941176, 0.0941176, 1 )
+margin_left = 1149.0
+margin_top = 2.0
+margin_right = 1280.0
+margin_bottom = 55.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="livesNumber" type="Label" parent="blackRect"]
-margin_left = 70.9706
-margin_top = 12.0
-margin_right = 166.971
-margin_bottom = 58.0
+margin_left = 61.689
+margin_top = 9.55283
+margin_right = 157.689
+margin_bottom = 55.5528
+rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
@@ -80,12 +82,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="chromHeart" type="TextureRect" parent="blackRect"]
+[node name="chromHeart2" type="TextureRect" parent="blackRect"]
 modulate = Color( 0.054902, 1, 0, 1 )
-margin_left = 19.799
-margin_top = 15.5564
-margin_right = 859.799
-margin_bottom = 894.556
+margin_left = 15.7988
+margin_top = 3.5564
+margin_right = 855.799
+margin_bottom = 882.556
 rect_scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 5 )
 expand = true
