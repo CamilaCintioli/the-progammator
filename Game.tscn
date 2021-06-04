@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://assets/textures/env/Tiles/Tile (8).png" type="Texture" id=40]
 [ext_resource path="res://Coffee.tscn" type="PackedScene" id=41]
 [ext_resource path="res://BGs.gd" type="Script" id=42]
+[ext_resource path="res://enviroment/portals/ChromPortal.gd" type="Script" id=43]
 
 [sub_resource type="Animation" id=1]
 resource_name = "matrix-fade"
@@ -313,6 +314,9 @@ extents = Vector2( 2681.08, 55.9348 )
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 109.876, 99.9192 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 16.6465, 93.2645 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 8 )
@@ -1131,6 +1135,13 @@ shape = SubResource( 22 )
 
 [node name="EndEnemyPosition" type="Position2D" parent="."]
 position = Vector2( 7264.58, 125.716 )
+
+[node name="ChromPortal" type="StaticBody2D" parent="."]
+script = ExtResource( 43 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortal"]
+position = Vector2( 5005.29, 635.068 )
+shape = SubResource( 23 )
 
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]

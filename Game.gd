@@ -105,6 +105,7 @@ func chrom_finished():
 	emit_signal("stop_shooting")
 	interface.hide_chrome_bar()
 	chrom.game_over()
+	$ChromPortal.bye(self)
 	
 func pc_finished():
 	endEnemy.game_over()

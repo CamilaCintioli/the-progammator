@@ -10,9 +10,12 @@ extents = Vector2( 5.88141, 5.10664 )
 
 [node name="EndEnemyProjectile" type="KinematicBody2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.0275578, 0.0279764 )
+scale = Vector2( 0.0294165, 0.031429 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
