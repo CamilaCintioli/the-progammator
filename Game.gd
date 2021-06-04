@@ -162,6 +162,8 @@ func restart():
 			dron_zone = true
 			change_zone = false
 			change = false
+			$InfoDrone.visible = true
+			$InfoDron.visible = true
 		if checkpoints.check == 3:
 			change_zone = false
 			end_game = false
@@ -240,6 +242,8 @@ func _on_DronUp_body_entered(body):
 		change_zone = false
 		control = false
 		change = false
+		$InfoDrone.visible = true
+		$InfoDron.visible = true
 
 func _on_Device_body_entered(body):
 	if body.is_in_group("programmer"):
