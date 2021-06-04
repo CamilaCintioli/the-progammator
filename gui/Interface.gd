@@ -19,6 +19,9 @@ func initialize(theLevel):
 func set_chrome_bar():
 	$blackRect/livesNumber.text = str(heartNum)
 	$blackRect.show()
+
+func hide_chrome_bar():
+	$blackRect.hide()
 	
 func livesDecrease():
 	if(heartNum!=0):
@@ -29,7 +32,7 @@ func livesDecrease():
 
 
 func livesIncrease():
-	if(heartNum < 3):
+	#if(heartNum < 3):
 		heartNum += 1
 		$grayRect/heartsNumber.text = str(heartNum)
 	
