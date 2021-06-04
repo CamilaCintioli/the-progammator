@@ -107,6 +107,8 @@ func chrom_start():
 func dead():
 	is_game_over = true
 	interface.game_over()
+	endEnemy.set_drone(false)
+	endEnemy.restart($EndEnemyPosition.global_position)
 	
 func game_over():
 	is_game_over = true
@@ -121,6 +123,7 @@ func dron_bye():
 func dron_bye2():
 	end_game = true
 	dron.end_position($DronEndPosition.global_position)
+	dron.set_game_over()
 	
 func you_win():
 	interface.you_win()
@@ -172,6 +175,9 @@ func change_platforms():
 		$ChangePlatform/Yellow.enable()
 		$ChangePlatform/Green.disable()
 	change = !change
+	
+func dron_hit_end_enemy():
+	dron.hit_end_enemy()
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
@@ -251,6 +257,6 @@ func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
 		$Dron/CameraDron.current = true
 		control = false
-		endEnemy.dron = true
+		endEnemy.set_drone(true)
 		dron.come_back()
 		programmer.set_game_over()

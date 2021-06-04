@@ -1071,6 +1071,9 @@ position = Vector2( 6328.47, -268.504 )
 position = Vector2( 1.29443, -14.6241 )
 shape = SubResource( 22 )
 
+[node name="EndEnemyPosition" type="Position2D" parent="."]
+position = Vector2( 7264.58, 125.716 )
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

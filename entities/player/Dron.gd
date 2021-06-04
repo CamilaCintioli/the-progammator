@@ -27,7 +27,6 @@ func get_input():
 	velocity.y += clamp(float(down) - float(up), -FRICTION_WEIGHT, FRICTION_WEIGHT) * speed
 
 func _physics_process(_delta):
-	print(!container.control)
 	if !container.control:
 		get_input()
 	else:
@@ -72,6 +71,9 @@ func set_game_over():
 func end_position(pos):
 	global_position = pos
 	bye()
+	
+func hit_end_enemy():
+	print("rayo play")
 
 func bye():
 	call_deferred("set_game_over")
