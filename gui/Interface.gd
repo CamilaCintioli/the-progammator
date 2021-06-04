@@ -48,11 +48,11 @@ func game_over():
 	show_message()
 	yield($GameOverTimer, "timeout")
 	$RestartButton.show()
-	
 	level.game_over()
 
 func _on_RestartButton_pressed():
 	$RestartButton.hide()
+	$WinButton.hide()
 	level.restart()
 
 func _on_GameOverTimer_timeout():
@@ -68,3 +68,17 @@ func chrom_hit():
 		$blackRect/livesNumber.text = str(chromLives)
 		if chromLives <= 0:
 			level.chrom_finished()
+			
+func set_end_enemy_bar():
+	$blackRect.show()
+	chromLives = 3
+	$blackRect/livesNumber.text = str(chromLives)
+	set_on()
+	
+func end_enemy_hit():
+	if(chromLives!=0):
+		chromLives -= 1
+		$blackRect/livesNumber.text = str(chromLives)
+		if chromLives <= 0:
+			level.pc_finished()
+			you_win()

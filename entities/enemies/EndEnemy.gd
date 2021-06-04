@@ -63,6 +63,11 @@ func restart(start_pos):
 
 func _on_FireTimer_timeout():
 	fire = true
+	
+func game_over():
+	set_physics_process(false)
+	set_process(false)
+	hide()
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):

@@ -61,12 +61,15 @@ func set_game_on():
 	set_physics_process(true)
 	$CollisionShape2D.disabled = false
 	visible = true
-
+	
+func bye_collision():
+	$CollisionShape2D.disabled = true
+	
 func set_game_over():
 	set_physics_process(false)
-	$CollisionShape2D.disabled = true
 	velocity = Vector2.ZERO
 	visible = false
+	call_deferred("bye_collision")
 	
 func end_position(pos):
 	global_position = pos

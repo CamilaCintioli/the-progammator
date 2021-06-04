@@ -101,6 +101,9 @@ func chrom_finished():
 	emit_signal("stop_shooting")
 	chrom.game_over()
 	
+func pc_finished():
+	endEnemy.game_over()
+	
 func chrom_start():
 	chrom.start()
 	
@@ -178,6 +181,7 @@ func change_platforms():
 	
 func dron_hit_end_enemy():
 	dron.hit_end_enemy()
+	interface.end_enemy_hit()
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
@@ -222,6 +226,7 @@ func _on_EndArea_body_entered(body):
 		endCamera.set_process(true)
 		in_end_game()
 		endEnemy.start()
+		interface.set_end_enemy_bar()
 
 func _on_DronUp_body_entered(body):
 	if body.is_in_group("programmer"):
