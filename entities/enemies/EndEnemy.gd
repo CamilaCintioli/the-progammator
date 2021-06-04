@@ -42,7 +42,7 @@ func _physics_process(_delta):
 
 func _fire():
 	var proj = matrix_projectile_scene.instance()
-	proj.initialize(container, position, Vector2.DOWN, false)
+	proj.initialize(container, $ProjectilePosition.global_position)
 	
 func set_drone(condition):
 	dron = condition

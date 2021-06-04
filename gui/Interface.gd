@@ -85,3 +85,6 @@ func end_enemy_hit():
 		if chromLives <= 0:
 			level.pc_finished()
 			you_win()
+
+func _on_WinButton_pressed():
+	get_tree().change_scene("res://Game.tscn")
