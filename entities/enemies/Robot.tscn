@@ -60,7 +60,7 @@ position = Vector2( -259.118, -1.56768 )
 shape = SubResource( 5 )
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.35
 one_shot = true
 
 [node name="FirePosition" type="Position2D" parent="."]

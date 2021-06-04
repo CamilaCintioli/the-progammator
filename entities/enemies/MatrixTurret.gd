@@ -23,6 +23,7 @@ func initialize(_container, turret_pos):
 	
 func _shoot():
 	var proj = matrix_projectile_scene.instance()
+	proj.add_to_group("turret_proj")
 	proj.initialize(container, global_position, Vector2.DOWN, false)
 
 func _on_Timer_timeout():

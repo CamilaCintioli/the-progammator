@@ -24,6 +24,8 @@ func _physics_process(delta):
 	position += direction * VELOCITY * delta
 	if is_player_projectile:
 		$AnimationRam.play("ramroll")
+	if !is_player_projectile and is_in_group("turret_proj"):
+		$MatrixAnimProjectile.play("fall")
 	
 func _remove():
 	set_physics_process(false)
