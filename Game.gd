@@ -40,6 +40,7 @@ func _ready():
 	chrom.initialize($ChromEndPosition, self)
 	endCamera.initialize(programmer)
 	endEnemy.initialize(self)
+	upCamera.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
