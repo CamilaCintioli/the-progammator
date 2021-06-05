@@ -68,7 +68,7 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("change"):
+	if Input.is_action_just_pressed("change") and !container.chrom_dead:
 		if container.end_game:
 			arm._fire()
 		elif !container.change_zone and !container.dron_zone:

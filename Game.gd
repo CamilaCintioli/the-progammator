@@ -107,7 +107,7 @@ func chrom_finished():
 	interface.hide_chrome_bar()
 	chrom.game_over()
 	$ChromPortal.bye(self)
-	$ChromPortalStart.bye(self)
+#	$ChromPortalStart.bye(self)
 	
 func pc_finished():
 	endEnemy.game_over()
