@@ -106,5 +106,9 @@ autostart = true
 
 [node name="FireTimer" type="Timer" parent="."]
 
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

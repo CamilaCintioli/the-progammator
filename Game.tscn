@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Coffee.tscn" type="PackedScene" id=41]
 [ext_resource path="res://BGs.gd" type="Script" id=42]
 [ext_resource path="res://enviroment/portals/ChromPortal.gd" type="Script" id=43]
+[ext_resource path="res://enviroment/portals/ChromPortalStart.gd" type="Script" id=44]
 
 [sub_resource type="Animation" id=1]
 resource_name = "matrix-fade"
@@ -318,6 +319,12 @@ extents = Vector2( 109.876, 99.9192 )
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 16.6465, 93.2645 )
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 5.10254, 92.6412 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 21.0298, 99.5102 )
+
 [node name="Game" type="Node"]
 script = ExtResource( 8 )
 turret_scene = ExtResource( 20 )
@@ -550,15 +557,15 @@ __meta__ = {
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Info"]
-margin_left = 2931.15
-margin_top = 146.474
-margin_right = 3456.15
-margin_bottom = 251.474
+margin_left = 2943.42
+margin_top = 172.903
+margin_right = 3468.42
+margin_bottom = 277.903
 custom_fonts/normal_font = SubResource( 13 )
 custom_colors/default_color = Color( 0.811765, 0.792157, 0.576471, 1 )
 bbcode_enabled = true
-bbcode_text = "Shif o space para disparar memoria ram"
-text = "Shif o space para disparar memoria ram"
+bbcode_text = "Shift para disparar memoria ram"
+text = "Shift para disparar memoria ram"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -799,7 +806,7 @@ position = Vector2( 3299.59, 698.717 )
 position = Vector2( 3467.92, 657.322 )
 
 [node name="Chrom" parent="." instance=ExtResource( 19 )]
-position = Vector2( 4804.72, 293.575 )
+position = Vector2( 3895.06, 185.222 )
 
 [node name="Robot" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1589.11, 305.796 )
@@ -844,7 +851,7 @@ position = Vector2( 2444.58, 438.35 )
 position = Vector2( 3332.7, 374.71 )
 
 [node name="ChromEndPosition" type="Position2D" parent="."]
-position = Vector2( 4881.86, 83.8708 )
+position = Vector2( 4864.4, 93.3952 )
 
 [node name="EndCamera" type="Camera2D" parent="."]
 position = Vector2( 6866.51, 458.335 )
@@ -1163,6 +1170,23 @@ script = ExtResource( 43 )
 position = Vector2( 5005.29, 635.068 )
 shape = SubResource( 23 )
 
+[node name="ChromPortalStart" type="StaticBody2D" parent="."]
+script = ExtResource( 44 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortalStart"]
+position = Vector2( 3734.02, 636.058 )
+shape = SubResource( 25 )
+
+[node name="ChromCamera" type="Camera2D" parent="."]
+position = Vector2( 4373.28, 418.574 )
+
+[node name="ChromCameraStart" type="Area2D" parent="."]
+position = Vector2( 4231.22, 563.363 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChromCameraStart"]
+position = Vector2( -428.483, 67.4095 )
+shape = SubResource( 24 )
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]
@@ -1183,4 +1207,6 @@ shape = SubResource( 23 )
 [connection signal="body_entered" from="Checkpoints/Checkpoint4" to="Checkpoints" method="_on_Checkpoint4_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint5" to="Checkpoints" method="_on_Checkpoint5_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="BGMusicStreamPlayer" to="." method="_on_BGMusicStreamPlayer_finished"]
 [connection signal="body_entered" from="EndProgrammerArea" to="." method="_on_EndProgrammerArea_body_entered"]
+[connection signal="body_entered" from="ChromCameraStart" to="." method="_on_ChromCameraStart_body_entered"]

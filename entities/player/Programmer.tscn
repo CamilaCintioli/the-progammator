@@ -64,15 +64,15 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
-vframes = 3
 hframes = 6
+vframes = 3
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="CameraProgramer" type="Camera2D" parent="."]
-offset = Vector2( 90, -180 )
+offset = Vector2( 90, -40 )
 current = true
 
 [node name="Arm" type="Sprite" parent="."]
@@ -99,5 +99,6 @@ enabled = true
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 3 )
 anims/walk = SubResource( 4 )
+
 [connection signal="timeout" from="Arm/FireTimer" to="Arm" method="_on_Timer_timeout"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

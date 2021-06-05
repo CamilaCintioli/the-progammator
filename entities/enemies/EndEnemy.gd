@@ -71,7 +71,10 @@ func game_over():
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
+		body.hit_end_enemy()
+		yield(body.animation, "animation_finished")
 		container.dron_hit_end_enemy()
+#		call_deferred("_remove")
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("dron"):

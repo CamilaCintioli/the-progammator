@@ -26,6 +26,7 @@ var dron_zone = false
 var change_zone = true
 var change = true
 var init_turrets = true
+var chrom_dead = false
 
 func _ready():
 	programmer.initialize(self)
@@ -106,12 +107,14 @@ func chrom_finished():
 	interface.hide_chrome_bar()
 	chrom.game_over()
 	$ChromPortal.bye(self)
+	$ChromPortalStart.bye(self)
 	
 func pc_finished():
 	endEnemy.game_over()
 	
 func chrom_start():
-	chrom.start()
+	if !chrom_dead:
+		chrom.start()
 	
 func dead():
 	is_game_over = true
@@ -175,6 +178,8 @@ func restart():
 			control = true
 			end_game = true
 			dron_bye2()
+		if checkpoints.check == 5:
+			end_game = false
 	else:
 		get_tree().reload_current_scene()
 	
@@ -188,8 +193,8 @@ func change_platforms():
 	change = !change
 	
 func dron_hit_end_enemy():
-	dron.hit_end_enemy()
 	interface.end_enemy_hit()
+#	dron.hit_end_enemy()
 
 func _on_ForButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
@@ -201,6 +206,11 @@ func _on_WhileButton_pressed():
 	
 func _on_IfButton_pressed():
 	$DialogBox/Solution.text = "wrong answer"
+
+func set_camera_player():
+	$Programmer/CameraProgramer.current = true
+	chrom_dead = true
+	end_game = false
 
 func _on_Cooler_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
@@ -235,6 +245,7 @@ func _on_EndArea_body_entered(body):
 		in_end_game()
 		endEnemy.start()
 		interface.set_end_enemy_bar()
+		end_game = false
 
 func _on_DronUp_body_entered(body):
 	if body.is_in_group("programmer"):
@@ -275,3 +286,11 @@ func _on_EndProgrammerArea_body_entered(body):
 		endEnemy.set_drone(true)
 		dron.come_back()
 		programmer.set_game_over()
+
+func _on_BGMusicStreamPlayer_finished():
+	$BGMusicStreamPlayer.play()
+
+func _on_ChromCameraStart_body_entered(body):
+	if !chrom_dead and body.is_in_group("programmer"):
+		$ChromCamera.current = true
+		$ChromPortalStart.set_on()
