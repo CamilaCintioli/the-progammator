@@ -182,6 +182,8 @@ func restart():
 			dron_bye2()
 		if checkpoints.check == 5:
 			end_game = false
+			endEnemy.set_drone(false)
+			endEnemy.restart($EndEnemyPosition.global_position)
 	else:
 		get_tree().reload_current_scene()
 	
@@ -283,11 +285,12 @@ func _on_Timer_timeout():
 
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
-		$Dron/CameraDron.current = true
+		$EndEnemyCamera.current = true
 		control = false
 		endEnemy.set_drone(true)
 		dron.come_back()
 		programmer.set_game_over()
+		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
 
 func _on_BGMusicStreamPlayer_finished():
 	$BGMusicStreamPlayer.play()

@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal collided
 
 onready var animation = $AnimationPlayer
+onready var animation2 = $AnimationPlayer2
 
 var speed = 11
 
@@ -12,7 +13,7 @@ var FRICTION_WEIGHT:float = 0.3
 var container
 
 var velocity:Vector2 = Vector2.ZERO
-var VELOCITY_TO_CRASH = 90.0
+var VELOCITY_TO_CRASH = 140.0
 var v_x = 0.0
 var v_y = 0.0
 var upOrDown = false
@@ -49,14 +50,16 @@ func collision_with_tile_map(vel_x, vel_y, up_or_down):
 		var tile: bool = get_slide_collision(i).collider is TileMap
 		if tile and (abs(vel_x) > VELOCITY_TO_CRASH or abs(vel_y) > VELOCITY_TO_CRASH):
 			emit_signal('collided')
-		elif tile and up_or_down:
-			velocity.y = vel_y * -1
-			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
-			animation.play("sparks")
-		elif tile and !up_or_down:
-			velocity.x = vel_x * -1
-			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
-			animation.play("sparks")
+		else:
+			hit(tile, vel_x, vel_y, up_or_down)
+#		elif tile and up_or_down:
+#			velocity.y = vel_y * -1
+#			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+#			animation.play("sparks")
+#		elif tile and !up_or_down:
+#			velocity.x = vel_x * -1
+#			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+#			animation.play("sparks")
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:
@@ -70,8 +73,16 @@ func deaccelerate_y() -> float:
 	else:
 		return velocity.y + deacceleration if velocity.y < 0 else velocity.y - deacceleration
 
-func hit():
+func hit(tile = false, vel_x = v_x, vel_y = v_y, up_or_down = upOrDown):
 	container.livesDecrease()
+	if tile and up_or_down:
+		velocity.y = vel_y * -1
+		$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+		animation.play("sparks")
+	elif tile and !up_or_down:
+		velocity.x = vel_x * -1
+		$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+		animation.play("sparks")
 	
 func come_back():
 	call_deferred("set_game_on")
@@ -101,7 +112,7 @@ func end_position(pos):
 	bye()
 	
 func hit_end_enemy():
-	animation.play("rayo")
+	animation2.play("rayo")
 #	yield($AnimationPlayer, "animation_finished")
 
 func bye():

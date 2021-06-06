@@ -80,5 +80,5 @@ func _on_HitArea_body_entered(body):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("dron"):
-		body.bye()
-		container.dead()
+		body.hit(true)
+#		container.dead()
