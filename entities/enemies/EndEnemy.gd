@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var fire_timer = $FireTimer
+onready var animation = $Animation
 
 export (PackedScene) var matrix_projectile_scene
 
@@ -29,6 +30,7 @@ func _process(delta):
 	velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
 	velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
 	velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+	animation.play("antenna")
 		
 func _physics_process(_delta):
 	position.x -= clamp(position.x - container.programmer.global_position.x, -max_velocity, max_velocity)
