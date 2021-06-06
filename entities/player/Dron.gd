@@ -12,6 +12,10 @@ var FRICTION_WEIGHT:float = 0.3
 var container
 
 var velocity:Vector2 = Vector2.ZERO
+var VELOCITY_TO_CRASH = 90.0
+var v_x = 0.0
+var v_y = 0.0
+var upOrDown = false
 
 func _ready():
 	add_to_group("dron")
@@ -34,12 +38,20 @@ func _physics_process(_delta):
 	else:
 		velocity.x = deaccelerate_x()
 		velocity.y = deaccelerate_y()
+	v_x = velocity.x + 0.0
+	v_y = velocity.y + 0.0
 	velocity = move_and_slide(velocity, Vector2.ZERO)
+	collision_with_tile_map(v_x, v_y, upOrDown)
 	
+func collision_with_tile_map(vel_x, vel_y, up_or_down):
 	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision:
-			emit_signal('collided', collision)
+		var tile: bool = get_slide_collision(i).collider is TileMap
+		if tile and (abs(vel_x) > VELOCITY_TO_CRASH or abs(vel_y) > VELOCITY_TO_CRASH):
+			emit_signal('collided')
+		elif tile and up_or_down:
+			velocity.y = vel_y * -1
+		elif tile and !up_or_down:
+			velocity.x = vel_x * -1
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:
@@ -89,7 +101,14 @@ func _on_VisibilityNotifier2D_screen_exited():
 		container.dead()
 		call_deferred("set_game_over")
 
-func _on_Dron_collided(collision):
-	if collision.collider is TileMap:
-		container.dead()
-		call_deferred("set_game_over")
+func _on_Dron_collided():
+	container.dead()
+	call_deferred("set_game_over")
+
+func _on_UpDown_body_entered(body):
+	if body is TileMap:
+		upOrDown = true
+
+func _on_UpDown_body_exited(body):
+	if body is TileMap:
+		upOrDown = false

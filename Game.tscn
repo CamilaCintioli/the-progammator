@@ -319,10 +319,10 @@ extents = Vector2( 71.0125, 99.9192 )
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 16.6465, 93.2645 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 5.10254, 92.6412 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 21.0298, 99.5102 )
 
 [node name="Game" type="Node"]
@@ -1175,7 +1175,7 @@ script = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortalStart"]
 position = Vector2( 3734.02, 636.058 )
-shape = SubResource( 25 )
+shape = SubResource( 24 )
 
 [node name="ChromCamera" type="Camera2D" parent="."]
 position = Vector2( 4373.28, 418.574 )
@@ -1185,7 +1185,7 @@ position = Vector2( 4231.22, 563.363 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromCameraStart"]
 position = Vector2( -428.483, 67.4095 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
