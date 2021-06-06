@@ -150,6 +150,7 @@ func restart():
 		is_game_over = false
 		interface.set_on()
 		programmer.velocity = Vector2.ZERO
+		dron.restart()
 		if checkpoints.dron_enable:
 			dron.set_game_on()
 			if checkpoints.dron_position:

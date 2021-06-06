@@ -50,8 +50,10 @@ func collision_with_tile_map(vel_x, vel_y, up_or_down):
 			emit_signal('collided')
 		elif tile and up_or_down:
 			velocity.y = vel_y * -1
+			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
 		elif tile and !up_or_down:
 			velocity.x = vel_x * -1
+			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:
@@ -84,6 +86,12 @@ func set_game_over():
 	velocity = Vector2.ZERO
 	visible = false
 	call_deferred("bye_collision")
+	
+func restart():
+	v_x = 0.0
+	v_y = 0.0
+	upOrDown = false
+	$Sprite.rotation_degrees = 0
 	
 func end_position(pos):
 	global_position = pos
