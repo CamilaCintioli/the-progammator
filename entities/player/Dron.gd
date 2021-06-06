@@ -40,6 +40,7 @@ func _physics_process(_delta):
 		velocity.y = deaccelerate_y()
 	v_x = velocity.x + 0.0
 	v_y = velocity.y + 0.0
+	velocity.y -= $Sprite.rotation_degrees/10
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	collision_with_tile_map(v_x, v_y, upOrDown)
 	
@@ -51,9 +52,11 @@ func collision_with_tile_map(vel_x, vel_y, up_or_down):
 		elif tile and up_or_down:
 			velocity.y = vel_y * -1
 			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+			animation.play("sparks")
 		elif tile and !up_or_down:
 			velocity.x = vel_x * -1
 			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
+			animation.play("sparks")
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:
