@@ -42,6 +42,7 @@ func _on_life_timer_timeout():
 func _on_Proyectile_body_entered(body):
 	if (body.is_in_group("programmer") and !is_player_projectile) or (body.is_in_group("dron") and !is_player_projectile):
 		body.hit()
+		container.livesDecrease()
 	if !body.is_in_group("robot") and !body.is_in_group("chrom") and !body.is_in_group("turret") and !body.is_in_group("endEnemy") and !is_player_projectile:
 		call_deferred("_remove")
 	if body.is_in_group("chrom") and is_player_projectile:
