@@ -35,7 +35,6 @@ func _on_HitArea_body_entered(body):
 		call_deferred("_remove")
 
 func _remove():
-	print("yyyyyy")
 	container.remove_child(self)
 	queue_free()
 
