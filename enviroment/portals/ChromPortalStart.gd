@@ -15,3 +15,9 @@ func set_on():
 	
 func start_collision():
 	$CollisionShape2D.disabled = false
+	
+func stop_collision():
+	call_deferred("stop_c")
+	
+func stop_c():
+	$CollisionShape2D.disabled = true

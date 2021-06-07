@@ -114,6 +114,7 @@ func pc_finished():
 	endEnemy.game_over()
 	
 func chrom_start():
+	$ChromPortalStart.stop_collision()
 	if !chrom_dead:
 		chrom.start()
 	

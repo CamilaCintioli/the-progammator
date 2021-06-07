@@ -23,7 +23,7 @@ func initialize(_container):
 func _on_HeadArea_body_entered(body):
 	if body.is_in_group("dron"):
 		body.hit_end_enemy()
-		yield(body.animation, "animation_finished")
+		yield(body.animation2, "animation_finished")
 		call_deferred("_remove")
 	if body.is_in_group("programmer"):
 		container.dead()
@@ -35,6 +35,7 @@ func _on_HitArea_body_entered(body):
 		call_deferred("_remove")
 
 func _remove():
+	print("yyyyyy")
 	container.remove_child(self)
 	queue_free()
 
