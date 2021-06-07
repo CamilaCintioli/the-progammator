@@ -217,26 +217,6 @@ func set_camera_player():
 	chrom_dead = true
 	end_game = false
 
-func _on_Cooler_body_entered(body):
-	if body.is_in_group("programmer") or body.is_in_group("dron"):
-		dead()
-		game_over()
-
-func _on_Cooler2_body_entered(body):
-	if body.is_in_group("programmer") or body.is_in_group("dron"):
-		dead()
-		game_over()
-
-func _on_Cooler3_body_entered(body):
-	if body.is_in_group("programmer") or body.is_in_group("dron"):
-		dead()
-		game_over()
-
-func _on_Cooler4_body_entered(body):
-	if body.is_in_group("programmer") or body.is_in_group("dron"):
-		dead()
-		game_over()
-
 func there_are_bugs() -> int:
 	return $Bugs.bugs > 0
 	
@@ -278,7 +258,7 @@ func _on_StartUpCamera_body_entered(body):
 		upCamera.start()
 
 func _on_DeadArea_body_entered(body):
-	if body.is_in_group("programmer") or body.is_in_group("dron"):
+	if body.is_in_group("programmer"):
 		dead()
 
 func _on_Timer_timeout():

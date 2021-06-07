@@ -43,7 +43,6 @@ __meta__ = {
 }
 
 [node name="Saw" type="Sprite" parent="."]
-rotation = 0.124185
 scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 2 )
 
