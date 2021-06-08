@@ -69,7 +69,7 @@ func start_turrets():
 	if init_turrets:
 		init_turrets = false
 		var x_pos = $ChromEndPosition.global_position.x
-		for i in [0,100,200,400,500,600,800,900]:
+		for i in [0,100,200,300,400,500,600,700,800,900,1000]:
 			var turret = turret_scene.instance()
 			turret.initialize(self, Vector2(x_pos - i, $ChromEndPosition.global_position.y))
 	

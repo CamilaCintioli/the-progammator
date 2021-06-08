@@ -47,19 +47,12 @@ func _physics_process(_delta):
 	
 func collision_with_tile_map(vel_x, vel_y, up_or_down):
 	for i in get_slide_count():
-		var tile: bool = get_slide_collision(i).collider is TileMap
+		var collision = get_slide_collision(i)
+		var tile: bool = collision.collider is TileMap or collision.collider.name == "EndEnemy"
 		if tile and (abs(vel_x) > VELOCITY_TO_CRASH or abs(vel_y) > VELOCITY_TO_CRASH):
 			emit_signal('collided')
 		else:
 			hit(tile, vel_x, vel_y, up_or_down)
-#		elif tile and up_or_down:
-#			velocity.y = vel_y * -1
-#			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
-#			animation.play("sparks")
-#		elif tile and !up_or_down:
-#			velocity.x = vel_x * -1
-#			$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
-#			animation.play("sparks")
 
 func deaccelerate_x() -> float:
 	if velocity.x < deacceleration and velocity.x > -deacceleration:

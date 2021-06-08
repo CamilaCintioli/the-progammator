@@ -310,22 +310,22 @@ extents = Vector2( 19.8209, 117.87 )
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 2656.72, 33.9617 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 587.668, 292.158 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 2683.05, 55.9348 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 71.0125, 99.9192 )
 
-[sub_resource type="RectangleShape2D" id=23]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 16.6465, 93.2645 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 5.10254, 92.6412 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 21.0298, 99.5102 )
 
 [node name="Game" type="Node"]
@@ -1173,7 +1173,7 @@ shape = SubResource( 20 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ChangePlatform/DeadArea"]
 position = Vector2( 2871.67, 1110.44 )
-shape = SubResource( 26 )
+shape = SubResource( 21 )
 
 [node name="ProgrammerPosition" type="Position2D" parent="ChangePlatform"]
 position = Vector2( -252, 652 )
@@ -1182,7 +1182,7 @@ position = Vector2( -252, 652 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangePlatform/Floor"]
 position = Vector2( -2392.65, 3357.31 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="UpCamera" type="Camera2D" parent="."]
 position = Vector2( -1374.62, 2908.74 )
@@ -1202,7 +1202,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1852.01, 2777.27 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint1"]
 position = Vector2( -1849.94, 2816.38 )
@@ -1216,7 +1216,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.2, 2775.43 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2( -1849.94, 2816.38 )
@@ -1230,7 +1230,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1860.37, 2752.28 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2( -1849.94, 2816.38 )
@@ -1244,7 +1244,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1870.4, 2752.23 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1849.94, 2816.38 )
@@ -1258,7 +1258,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1853.33, 2753.47 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2( -1849.94, 2816.38 )
@@ -1314,8 +1314,8 @@ position = Vector2( 6328.47, -268.504 )
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProgrammerArea"]
-position = Vector2( -125.17, -414.988 )
-shape = SubResource( 22 )
+position = Vector2( -125.879, -414.517 )
+shape = SubResource( 23 )
 
 [node name="EndEnemyPosition" type="Position2D" parent="."]
 position = Vector2( 7264.58, 125.716 )
@@ -1352,7 +1352,7 @@ script = ExtResource( 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortal"]
 position = Vector2( 5005.29, 635.068 )
-shape = SubResource( 23 )
+shape = SubResource( 24 )
 
 [node name="ChromPortalStart" type="StaticBody2D" parent="."]
 collision_mask = 7
@@ -1360,7 +1360,7 @@ script = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortalStart"]
 position = Vector2( 3734.02, 636.058 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="ChromCamera" type="Camera2D" parent="."]
 position = Vector2( 4373.28, 418.574 )
@@ -1371,7 +1371,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromCameraStart"]
 position = Vector2( -428.483, 67.4095 )
-shape = SubResource( 25 )
+shape = SubResource( 26 )
 
 [node name="EndEnemyCamera" type="Camera2D" parent="."]
 position = Vector2( 6863.78, -1574.44 )
