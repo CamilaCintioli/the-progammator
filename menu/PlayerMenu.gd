@@ -12,8 +12,8 @@ func _ready():
 
 func _process(delta):
 	sections += 1
-	material.set_shader_param("tearing", 0.025)
-	material.set_shader_param("sections", float(sections) * 0.02)
+	material.set_shader_param("tearing", 0.015)
+	material.set_shader_param("sections", float(sections) * 0.01)
 
 func _on_Timer_timeout():
 	on = !on

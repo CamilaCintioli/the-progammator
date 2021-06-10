@@ -5,7 +5,6 @@ onready var start_button = $Start
 var container
 
 func _ready():
-	start_button.hide()
 	play()
 
 func _process(_delta):
@@ -14,9 +13,6 @@ func _process(_delta):
 
 func initialize(_container):
 	container = _container
-
-func _on_Start_pressed():
-	container.start_level_1()
 
 func _on_Button1_pressed():
 	CheckpointsMenu.set_check(1)

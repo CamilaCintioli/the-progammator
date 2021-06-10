@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/videos/output.webm" type="VideoStream" id=4]
 [ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
@@ -9,11 +8,6 @@
 [sub_resource type="DynamicFont" id=1]
 size = 45
 font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
-use_filter = true
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 25
@@ -51,20 +45,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Start" type="Button" parent="."]
-visible = false
-anchor_right = 1.0
-margin_left = 485.224
-margin_top = 305.0
-margin_right = -482.776
-margin_bottom = 359.0
-custom_fonts/font = SubResource( 2 )
-toggle_mode = true
-text = "START"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 0.558
 anchor_right = 1.0
@@ -84,8 +64,6 @@ margin_bottom = 171.0
 alignment = 1
 
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer3"]
-anchor_top = 6.05
-anchor_bottom = 6.05
 margin_left = 590.0
 margin_right = 610.0
 margin_bottom = 20.0
@@ -95,8 +73,6 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3"]
-anchor_top = 6.05
-anchor_bottom = 6.05
 margin_left = 614.0
 margin_right = 634.0
 margin_bottom = 20.0
@@ -106,16 +82,12 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3"]
-anchor_top = 6.05
-anchor_bottom = 6.05
 margin_left = 638.0
 margin_right = 658.0
 margin_bottom = 20.0
 text = "3"
 
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer3"]
-anchor_top = 6.05
-anchor_bottom = 6.05
 margin_left = 662.0
 margin_right = 682.0
 margin_bottom = 20.0
@@ -125,8 +97,6 @@ __meta__ = {
 }
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer3"]
-anchor_top = 6.05
-anchor_bottom = 6.05
 margin_left = 686.0
 margin_right = 706.0
 margin_bottom = 20.0
@@ -148,7 +118,6 @@ __meta__ = {
 }
 
 [connection signal="finished" from="." to="." method="_on_Menu_finished"]
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button3" to="." method="_on_Button3_pressed"]
