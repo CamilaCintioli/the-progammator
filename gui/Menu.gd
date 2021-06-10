@@ -1,11 +1,6 @@
 extends VideoPlayer
 
-onready var start_button = $Start
-
 var container
-
-func _ready():
-	play()
 
 func _process(_delta):
 	if Input.is_action_pressed("start"):
@@ -13,6 +8,7 @@ func _process(_delta):
 
 func initialize(_container):
 	container = _container
+	play()
 
 func _on_Button1_pressed():
 	CheckpointsMenu.set_check(1)

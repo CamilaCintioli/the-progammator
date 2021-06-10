@@ -9,7 +9,7 @@
 size = 45
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 25
 font_data = ExtResource( 5 )
 
@@ -110,7 +110,7 @@ margin_left = 429.616
 margin_top = 395.341
 margin_right = 878.616
 margin_bottom = 429.341
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "ENTER PARA COMENZAR"
 __meta__ = {
