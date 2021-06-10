@@ -20,7 +20,7 @@ func _on_Timer_timeout():
 	times += 1
 	if times == 7:
 		set_process(false)
-		get_tree().change_scene("res://menu/DroneMenu.tscn")
+		get_tree().change_scene("res://Game.tscn")
 	set_process(on)
 	if on:
 		material.set_shader_param("sections", float(sections) * 0.02)

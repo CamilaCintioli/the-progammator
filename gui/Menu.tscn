@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/videos/output.webm" type="VideoStream" id=4]
+[ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 45
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -13,13 +15,19 @@ size = 40
 use_filter = true
 font_data = ExtResource( 2 )
 
-[node name="Menu" type="ColorRect"]
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 5 )
+
+[node name="Menu" type="VideoPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -2.0
-margin_right = 10.0
-margin_bottom = -5.0
-color = Color( 0, 0, 0, 1 )
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 12.0
+margin_bottom = 5.0
+stream = ExtResource( 4 )
+autoplay = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,6 +52,7 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="."]
+visible = false
 anchor_right = 1.0
 margin_left = 485.224
 margin_top = 305.0
@@ -69,14 +78,16 @@ __meta__ = {
 }
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 148.0
-margin_right = 1290.0
-margin_bottom = 168.0
+margin_top = 151.0
+margin_right = 1296.0
+margin_bottom = 171.0
 alignment = 1
 
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 587.0
-margin_right = 607.0
+anchor_top = 6.05
+anchor_bottom = 6.05
+margin_left = 590.0
+margin_right = 610.0
 margin_bottom = 20.0
 text = "1"
 __meta__ = {
@@ -84,8 +95,10 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 611.0
-margin_right = 631.0
+anchor_top = 6.05
+anchor_bottom = 6.05
+margin_left = 614.0
+margin_right = 634.0
 margin_bottom = 20.0
 text = "2"
 __meta__ = {
@@ -93,14 +106,18 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 635.0
-margin_right = 655.0
+anchor_top = 6.05
+anchor_bottom = 6.05
+margin_left = 638.0
+margin_right = 658.0
 margin_bottom = 20.0
 text = "3"
 
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 659.0
-margin_right = 679.0
+anchor_top = 6.05
+anchor_bottom = 6.05
+margin_left = 662.0
+margin_right = 682.0
 margin_bottom = 20.0
 text = "4"
 __meta__ = {
@@ -108,13 +125,29 @@ __meta__ = {
 }
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 683.0
-margin_right = 703.0
+anchor_top = 6.05
+anchor_bottom = 6.05
+margin_left = 686.0
+margin_right = 706.0
 margin_bottom = 20.0
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 429.616
+margin_top = 395.341
+margin_right = 878.616
+margin_bottom = 429.341
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "ENTER PARA COMENZAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="finished" from="." to="." method="_on_Menu_finished"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button2" to="." method="_on_Button2_pressed"]
