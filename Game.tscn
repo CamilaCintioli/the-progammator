@@ -1314,7 +1314,7 @@ position = Vector2( 6328.47, -268.504 )
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProgrammerArea"]
-position = Vector2( -125.879, -414.517 )
+position = Vector2( 641.254, 880.02 )
 shape = SubResource( 23 )
 
 [node name="EndEnemyPosition" type="Position2D" parent="."]
