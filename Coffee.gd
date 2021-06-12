@@ -1,17 +1,18 @@
 extends Node2D
 
 var container
-onready var takecoffesound = $AudioTakeCoffee
+var audiostream
 
-func initialize(_container):
+func initialize(_container, audio_stream):
 	container = _container
+	audiostream = audio_stream
 
 func _on_PickUpArea_body_entered(body):
 	if body.is_in_group("programmer"):
-		takecoffesound.play()
+		audiostream.stream = audiostream.coffee_take
+		audiostream.play()
 		body.pickUpCoffee()
 		hide()
-		yield(takecoffesound, "finished")
 		call_deferred("_remove")
 
 func _remove():

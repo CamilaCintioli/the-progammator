@@ -15,6 +15,7 @@ onready var upCamera = $UpCamera
 onready var checkpoints = $Checkpoints
 onready var endEnemy = $EndEnemy
 onready var coffee = $Coffee
+onready var audio_stream = $AudioStreamEffects
 
 signal stop_shooting
 
@@ -41,22 +42,22 @@ func _ready():
 	endCamera.initialize(programmer)
 	endEnemy.initialize(self)
 	upCamera.initialize(self)
-	$DialogBox.visible = false
+	#$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_checkpoint(CheckpointsMenu.check)
 
 func _initialize_coffee_health_packs():
-	coffee.initialize(self)
-	$Coffee2.initialize(self)
-	$Coffee3.initialize(self)
-	$Coffee4.initialize(self)
-	$Coffee5.initialize(self)
-	$Coffee6.initialize(self)
-	$Coffee7.initialize(self)
-	$Coffee8.initialize(self)
-	$Coffee9.initialize(self)
-	$Coffee10.initialize(self)
+	coffee.initialize(self, audio_stream)
+	$Coffee2.initialize(self, audio_stream)
+	$Coffee3.initialize(self, audio_stream)
+	$Coffee4.initialize(self, audio_stream)
+	$Coffee5.initialize(self, audio_stream)
+	$Coffee6.initialize(self, audio_stream)
+	$Coffee7.initialize(self, audio_stream)
+	$Coffee8.initialize(self, audio_stream)
+	$Coffee9.initialize(self, audio_stream)
+	$Coffee10.initialize(self, audio_stream)
 	
 func _initialize_robots():
 	robot.initialize(self)
@@ -89,10 +90,12 @@ func in_end_game():
 	end_game = true
 
 func hide_dialog():
-	$DialogBox.visible = false
-
+	#$DialogBox.visible = false
+	pass
+	
 func show_dialog():
-	$DialogBox.visible = true
+	#$DialogBox.visible = true
+	pass
 		
 func livesDecrease():
 	interface.livesDecrease()
@@ -202,15 +205,17 @@ func dron_hit_end_enemy():
 #	dron.hit_end_enemy()
 
 func _on_ForButton_pressed():
-	$DialogBox/Solution.text = "wrong answer"
+	#$DialogBox/Solution.text = "wrong answer"
+	pass
 
 func _on_WhileButton_pressed():
-	$DialogBox.visible = false
+	#$DialogBox.visible = false
 	$Bugs/BugsInfo/Label.text = ""
 	portal.bye()
 	
 func _on_IfButton_pressed():
-	$DialogBox/Solution.text = "wrong answer"
+	#$DialogBox/Solution.text = "wrong answer"
+	pass
 
 func set_camera_player():
 	$Programmer/CameraProgramer.current = true
@@ -266,13 +271,8 @@ func _on_Timer_timeout():
 
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
-		$EndEnemyCamera.current = true
-		control = false
-		endEnemy.set_drone(true)
-		dron.come_back()
-		programmer.set_game_over()
-		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
-
+		$EndMovingPlatform.move()
+		
 func _on_BGMusicStreamPlayer_finished():
 	$BGMusicStreamPlayer.play()
 
@@ -280,3 +280,14 @@ func _on_ChromCameraStart_body_entered(body):
 	if !chrom_dead and body.is_in_group("programmer"):
 		$ChromCamera.current = true
 		$ChromPortalStart.set_on()
+
+func _on_EndProgrammerArea_body_exited(body):
+	if body.is_in_group("programmer"):
+		$EndMovingPlatform.stop()
+		$EndEnemyCamera.current = true
+		control = false
+		endEnemy.set_drone(true)
+		dron.come_back()
+		#programmer.set_game_over()
+		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
+		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y)

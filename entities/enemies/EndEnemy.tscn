@@ -7,12 +7,12 @@
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.2981, 30.6988 )
+extents = Vector2( 39.2897, 42.8134 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1.76982, 32.3921 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "antenna"
 length = 1.8
 tracks/0/type = "value"
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "screen"
 length = 2.0
 tracks/0/type = "value"
@@ -76,6 +76,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="HitArea" type="Area2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 position = Vector2( -11.7429, -49.0558 )
@@ -85,8 +86,7 @@ shape = SubResource( 2 )
 position = Vector2( 4.16223, 66.001 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/antenna = SubResource( 4 )
-anims/screen = SubResource( 5 )
-
+anims/antenna = SubResource( 3 )
+anims/screen = SubResource( 4 )
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]

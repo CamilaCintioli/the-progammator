@@ -2,11 +2,14 @@ extends CanvasLayer
 
 export var heartNum = 0
 export var chromLives = 0
+
+export var bosslives = 0
 var level
 	
 func _ready():
 	$grayRect.hide()
 	$blackRect.hide()
+	$redRect.hide()
 	$GameOver.hide()
 	$RestartButton.hide()
 	$WinButton.hide()
@@ -32,7 +35,6 @@ func livesDecrease():
 
 
 func livesIncrease():
-	#if(heartNum < 3):
 		heartNum += 1
 		$grayRect/heartsNumber.text = str(heartNum)
 	
@@ -73,9 +75,9 @@ func chrom_hit():
 			level.chrom_finished()
 			
 func set_end_enemy_bar():
-	$blackRect.show()
-	chromLives = 3
-	$blackRect/livesNumber.text = str(chromLives)
+	$redRect.show()
+	bosslives = 3
+	$redRect/livesNumber.text = str(bosslives)
 	set_on()
 	
 func end_enemy_hit():

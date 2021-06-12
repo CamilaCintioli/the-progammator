@@ -22,7 +22,7 @@ func _ready():
 
 func initialize(_container):
 	limit = global_position.x
-	init_limit = global_position.x - 1150
+	init_limit = global_position.x - 1000
 	container = _container
 	fire_timer.start()
 	

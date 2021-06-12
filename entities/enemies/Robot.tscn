@@ -5,10 +5,10 @@
 [ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.06356, 30.1065 )
+extents = Vector2( 7.25284, 39.6314 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.2141, 29.828 )
+extents = Vector2( 15.8121, 31.2732 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.33102, 10 )
@@ -20,6 +20,7 @@ radius = 257.139
 radius = 235.272
 
 [node name="Robot" type="StaticBody2D"]
+position = Vector2( 7.56806, 5.88628 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -28,11 +29,11 @@ projectile_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 10
 vframes = 12
+hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.70123, 7.16558 )
+position = Vector2( 4.96257, 2.1202 )
 shape = SubResource( 1 )
 
 [node name="HitArea" type="Area2D" parent="."]
@@ -69,7 +70,6 @@ position = Vector2( 3.66026, -29.9194 )
 [node name="PositionTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
 [connection signal="body_entered" from="HeadArea" to="." method="_on_HeadArea_body_entered"]
 [connection signal="body_entered" from="DetectionAreaRight" to="." method="_on_DetectionAreaRight_body_entered"]

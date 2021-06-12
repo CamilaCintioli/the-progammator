@@ -30,8 +30,24 @@ func initialize(_container):
 
 func get_input():
 	var x_bounce = 0
+	# Horizontal speed
+	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	
+	if h_movement_direction != 0 and !Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			animation.play("walk")
+		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT) + x_bounce
+	
+	else:
+		if is_on_floor():
+			animation.play("idle")
+			velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
+	
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
+		
+		animation.play("jump")
 	if Input.is_action_just_pressed("jump") and $RayCast2D.is_colliding() and bounce == 0:
 		bounce = 1
 		velocity.y = clamp(velocity.y - jump_speed, -jump_speed, jump_speed)
@@ -43,23 +59,14 @@ func get_input():
 			x_bounce -= BOUNCING_JUMP
 		
 		animation.play("jump")
+		
 	if !is_on_floor() and $RayCast2D.is_colliding() and velocity.y > 0:
 		gravity = 1
 	else:
 		gravity = 10
+		
 	if is_on_floor():
 		bounce = 0
-	# Horizontal speed
-	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	
-	if h_movement_direction != 0:
-		if is_on_floor():
-			animation.play("walk")
-		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT) + x_bounce
-	
-	else:
-		animation.play("idle")
-		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
 	_set_animation(h_movement_direction)
 
