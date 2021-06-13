@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/DroneMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/menu/drone_menu.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float sections: hint_range(0.0, 5.0) = 0.0;
+uniform float tearing: hint_range(0.0, 0.5) = 0.025;
+
+void fragment() {
+    COLOR = texture(TEXTURE, UV + fract(UV.y * sections) * tearing);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/sections = 0.0
+shader_param/tearing = 0.025
+
+[node name="DroneMenu" type="Sprite"]
+material = SubResource( 2 )
+position = Vector2( 639.909, 359.776 )
+scale = Vector2( 1.00049, 1.00073 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
