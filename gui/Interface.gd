@@ -58,7 +58,7 @@ func game_over():
 func _on_RestartButton_pressed():
 	$RestartButton.hide()
 	$WinButton.hide()
-	level.restart()
+	level.restart_tree()
 
 func _on_GameOverTimer_timeout():
 	$GameOver.hide()
@@ -85,6 +85,14 @@ func end_enemy_hit():
 		chromLives -= 1
 		$blackRect/livesNumber.text = str(chromLives)
 		if chromLives <= 0:
+			level.pc_finished()
+			you_win()
+			
+func endEnemy_hit():
+	if(bosslives!=0):
+		bosslives -= 1
+		$redRect/livesNumber.text = str(bosslives)
+		if bosslives <= 0:
 			level.pc_finished()
 			you_win()
 

@@ -144,6 +144,9 @@ func dron_bye2():
 	
 func you_win():
 	interface.you_win()
+	
+func restart_tree():
+	get_tree().change_scene("res://Game.tscn")
 
 func restart():
 	if checkpoints.check > 0:
@@ -203,6 +206,9 @@ func change_platforms():
 func dron_hit_end_enemy():
 	interface.end_enemy_hit()
 #	dron.hit_end_enemy()
+
+func endEnemy_hit():
+	interface.endEnemy_hit()
 
 func _on_ForButton_pressed():
 	#$DialogBox/Solution.text = "wrong answer"

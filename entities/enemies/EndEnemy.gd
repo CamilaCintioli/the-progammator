@@ -100,5 +100,5 @@ func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
 		body.hit_end_enemy()
 		yield(body.animation2, "animation_finished")
-		container.dron_hit_end_enemy()
+		container.endEnemy_hit()
 #		call_deferred("_remove")
