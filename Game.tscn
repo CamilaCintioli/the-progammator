@@ -709,10 +709,6 @@ collision_mask = 7
 position = Vector2( -394.804, 178.018 )
 collision_mask = 7
 
-[node name="EndEnemy" parent="." instance=ExtResource( 29 )]
-position = Vector2( 7405.25, 116.312 )
-collision_mask = 7
-
 [node name="Programmer" parent="." instance=ExtResource( 18 )]
 position = Vector2( -4378.28, 2799.32 )
 collision_layer = 2
@@ -1089,6 +1085,10 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 28 )
 
+[node name="EndEnemy" parent="." instance=ExtResource( 29 )]
+position = Vector2( 7405.25, 116.312 )
+collision_mask = 7
+
 [node name="Checkpoints" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
@@ -1212,7 +1212,7 @@ position = Vector2( 6305.49, -1155.75 )
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProgrammerArea"]
-position = Vector2( 9.53906, 229.557 )
+position = Vector2( -1.82422, 232.263 )
 shape = SubResource( 24 )
 
 [node name="EndEnemyPosition" type="Position2D" parent="."]

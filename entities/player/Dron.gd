@@ -95,6 +95,11 @@ func hit(tile = false, vel_x = v_x, vel_y = v_y, up_or_down = upOrDown):
 		velocity.x = vel_x * -1
 		$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
 		animation.play("sparks")
+		
+func laser_hit():
+	var _dir = (global_position - container.endEnemy.global_position).normalized()
+	velocity.x += clamp(_dir.x, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 5)
+	velocity.y += clamp(_dir.y, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 5)
 	
 func come_back():
 	call_deferred("set_game_on")

@@ -12,6 +12,7 @@ var limit
 var init_limit
 var max_velocity = 1.5
 var fire = true
+var stop_fire = false
 var dron = false
 var velocity = Vector2.ZERO
 var speed = 4000
@@ -25,35 +26,50 @@ func initialize(_container):
 	limit = global_position.x
 	init_limit = global_position.x - 1000
 	container = _container
+	laser.initialize(_container)
 	fire_timer.start()
 	
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("fire_weapon"):
-		laser.look_at(container.dron.global_position)
-		yield(get_tree().create_timer(0.6), "timeout")
-		laser.is_casting = true
-		yield(get_tree().create_timer(2.6), "timeout")
-		laser.is_casting = false
-	
 func _process(delta):
-	velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
-	velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
-	velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+	laser.look_at(container.dron.global_position)
 	animation.play("antenna")
+	if fire && !stop_fire:
+		fire = false
+		fire()
+		fire_timer.start()
+		velocity = Vector2.ZERO
+	else:
+		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
+		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
+	velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
 		
 func _physics_process(_delta):
+	laser.look_at(Vector2(laser.global_position.x, laser.global_position.y + 1000))
 	position.x -= clamp(position.x - container.programmer.global_position.x, -max_velocity, max_velocity)
 	position.x = clamp(position.x, init_limit + 60, limit - 25)
 	var new_position_y = container.programmer.global_position.y - 350
 	position.y = new_position_y if new_position_y < position.y else position.y
-	if fire:
-		_fire()
-		fire_timer.start()
+	if fire && !stop_fire:
 		fire = false
+		fire()
+		fire_timer.start()
 
+func stop_laser():
+	stop_fire = true
+	
+func restart_laser():
+	yield(get_tree().create_timer(2), "timeout")
+	stop_fire = false
+	
 func _fire():
 	var proj = matrix_projectile_scene.instance()
 	proj.initialize(container, $ProjectilePosition.global_position)
+	
+func fire():
+	animation.play("screen")
+	yield(get_tree().create_timer(2), "timeout")
+	laser.is_casting = true
+	yield(get_tree().create_timer(2.6), "timeout")
+	laser.is_casting = false
 	
 func set_drone(condition):
 	dron = condition

@@ -272,6 +272,7 @@ func _on_Timer_timeout():
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
 		$EndMovingPlatform.move()
+		endEnemy.stop_laser()
 		
 func _on_BGMusicStreamPlayer_finished():
 	$BGMusicStreamPlayer.play()
@@ -288,6 +289,7 @@ func _on_EndProgrammerArea_body_exited(body):
 		control = false
 		endEnemy.set_drone(true)
 		dron.come_back()
+		endEnemy.restart_laser()
 		#programmer.set_game_over()
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y)

@@ -20,6 +20,7 @@ var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 var container
 var bounce = 0
+var laser_hitted:bool = false
 
 func _ready():
 	add_to_group("programmer")
@@ -90,6 +91,25 @@ func _physics_process(_delta):
 	
 func hit():
 	container.livesDecrease()
+	
+func laser_hit():
+	if !laser_hitted:
+		container.livesDecrease()
+		laser_hitted = true
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = false
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = true
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = false
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = true
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = false
+		yield(get_tree().create_timer(0.3), "timeout")
+		$Sprite.visible = true
+		yield(get_tree().create_timer(0.3), "timeout")
+		laser_hitted = false
 	
 func update_position(pos):
 	global_position = pos

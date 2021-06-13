@@ -30,8 +30,8 @@ func _ready() -> void:
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
 
-func initialize(c):
-	container = c
+func initialize(_container):
+	container = _container
 
 func _physics_process(delta: float) -> void:
 	cast_to = (cast_to + dir * cast_speed * delta).clamped(max_length)
@@ -63,8 +63,9 @@ func cast_beam() -> void:
 	collision_particles.emitting = is_colliding()
 
 	if is_colliding():
-		if get_collider().name == "Dron":
-			print("Dron hited")
+		var collider = get_collider()
+		if collider.name == "Dron" or collider.name == "Programmer":
+			collider.laser_hit()
 		cast_point = to_local(get_collision_point())
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
