@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://entities/player/StateMachine.gd"
-} ]
-_global_script_class_icons={
-"StateMachine": ""
-}
-
 [application]
 
 config/name="The Programator"
@@ -85,6 +75,11 @@ change={
 start={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+fire_weapon={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":86,"unicode":0,"echo":false,"script":null)
  ]
 }
 

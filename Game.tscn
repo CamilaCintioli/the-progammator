@@ -1278,6 +1278,7 @@ position = Vector2( 6863.78, -1574.44 )
 
 [node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 48 )
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

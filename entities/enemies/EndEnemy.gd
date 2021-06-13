@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var fire_timer = $FireTimer
 onready var animation = $Animation
+onready var laser := $LaserBeam2D
 
 export (PackedScene) var matrix_projectile_scene
 
@@ -25,6 +26,14 @@ func initialize(_container):
 	init_limit = global_position.x - 1000
 	container = _container
 	fire_timer.start()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("fire_weapon"):
+		laser.look_at(container.dron.global_position)
+		yield(get_tree().create_timer(0.6), "timeout")
+		laser.is_casting = true
+		yield(get_tree().create_timer(2.6), "timeout")
+		laser.is_casting = false
 	
 func _process(delta):
 	velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
