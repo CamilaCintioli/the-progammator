@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shaders/ray.shader" type="Shader" id=1]
+[ext_resource path="res://assets/textures/white_square_64x64.png" type="Texture" id=2]
+[ext_resource path="res://entities/enemies/RayPower.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/line_width = 0.088
+shader_param/color = Color( 0.0941176, 0.65098, 0.866667, 1 )
+shader_param/border_color = Color( 0.454902, 0.729412, 0.588235, 1 )
+
+[node name="RayPower" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ray" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 15, 0 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+offset = Vector2( 0.0682008, -31.2481 )

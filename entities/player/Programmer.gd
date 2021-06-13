@@ -91,6 +91,9 @@ func _physics_process(_delta):
 func hit():
 	container.livesDecrease()
 	
+func notify_hit():
+	print("hit programmer")
+	
 func update_position(pos):
 	global_position = pos
 

@@ -119,6 +119,9 @@ func restart():
 	upOrDown = false
 	$Sprite.rotation_degrees = 0
 	
+func notify_hit():
+	print("hit drone")
+	
 func end_position(pos):
 	global_position = pos
 	bye()

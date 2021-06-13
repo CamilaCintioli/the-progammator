@@ -711,7 +711,6 @@ collision_mask = 7
 
 [node name="EndEnemy" parent="." instance=ExtResource( 29 )]
 position = Vector2( 7405.25, 116.312 )
-collision_mask = 7
 
 [node name="Programmer" parent="." instance=ExtResource( 18 )]
 position = Vector2( -4378.28, 2799.32 )
@@ -1278,6 +1277,7 @@ position = Vector2( 6863.78, -1574.44 )
 
 [node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 48 )
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]
