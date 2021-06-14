@@ -45,6 +45,8 @@ func _process(delta):
 		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
 		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
 		velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+	else:
+		$LaserAudio.play()
 	if damaged:
 		damaged_x = (damaged_x + 1) % 200
 		sprite_effect.material.set_shader_param("desface_x", float(damaged_x) / 1000)
@@ -61,6 +63,8 @@ func _physics_process(_delta):
 		fire()
 		fire_timer.start()
 		velocity = Vector2.ZERO
+	if laser.is_casting:
+		$LaserAudio.play()
 
 func stop_laser():
 	stop_fire = true
