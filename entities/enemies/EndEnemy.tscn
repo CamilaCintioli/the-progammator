@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/textures/enemies/radar-computer-sprite.png" type="Texture" id=1]
 [ext_resource path="res://entities/enemies/EndEnemy.gd" type="Script" id=2]
@@ -6,6 +6,40 @@
 [ext_resource path="res://assets/textures/floor.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=5]
 [ext_resource path="res://entities/enemies/LaserBeam2D.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Shader" id=12]
+code = "shader_type canvas_item;
+
+uniform float desface_x: hint_range(0.0, 0.5) = 0.0;
+uniform float desface_y: hint_range(0.0, 0.5) = 0.0;
+uniform float sections: hint_range(0.0, 20.0) = 1.0;
+uniform float tearing: hint_range(0.0, 0.1) = 0.01;
+uniform vec4 flash_color: hint_color = vec4(1.0);
+uniform float flash_modifier: hint_range(0.0, 1.0) = 0;
+
+void fragment() {
+    vec4 color = texture(TEXTURE, UV);
+    color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+    float gy = fract(UV.y * sections);
+    vec2 uv = UV + gy * tearing;
+    float r = texture(TEXTURE, uv - vec2(desface_x, desface_x)).r;
+    float g = texture(TEXTURE, uv).g;
+    float b = texture(TEXTURE, uv + vec2(desface_x, desface_x)).b;
+
+    vec3 albedo = vec3(r,g,b);
+    color = vec4(albedo, color.a);
+    color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/desface_x = 0.0
+shader_param/desface_y = 0.0
+shader_param/sections = 0.0
+shader_param/tearing = 0.01
+shader_param/flash_color = Color( 0.219608, 0.827451, 0.843137, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -135,6 +169,7 @@ __meta__ = {
 matrix_projectile_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 13 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 

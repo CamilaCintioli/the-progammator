@@ -4,6 +4,7 @@ onready var fire_timer = $FireTimer
 onready var animation = $Animation
 onready var animation2 = $Animation2
 onready var laser := $LaserBeam2D
+onready var sprite_effect = $Sprite
 
 export (PackedScene) var matrix_projectile_scene
 
@@ -15,6 +16,8 @@ var max_velocity = 1.5
 var fire = true
 var stop_fire = false
 var dron = false
+var damaged = false
+var damaged_x = 0
 var velocity = Vector2.ZERO
 var speed = 4000
 
@@ -42,6 +45,10 @@ func _process(delta):
 		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
 		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
 		velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+	if damaged:
+		damaged_x = (damaged_x + 1) % 200
+		sprite_effect.material.set_shader_param("desface_x", float(damaged_x) / 1000)
+		sprite_effect.material.set_shader_param("sections", float(damaged_x) * 0.01)
 		
 func _physics_process(_delta):
 	laser.look_at(Vector2(laser.global_position.x, laser.global_position.y + 1000))
@@ -101,7 +108,12 @@ func game_over():
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
+		damaged = true
 		body.hit_end_enemy()
 		yield(body.animation2, "animation_finished")
 		container.endEnemy_hit()
-#		call_deferred("_remove")
+		yield(get_tree().create_timer(2), "timeout")
+		damaged = false
+		damaged_x = 0
+		sprite_effect.material.set_shader_param("desface_x", 0.0)
+		sprite_effect.material.set_shader_param("sections", 0.0)
