@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var fire_timer = $FireTimer
 onready var animation = $Animation
+onready var animation2 = $Animation2
 onready var laser := $LaserBeam2D
 
 export (PackedScene) var matrix_projectile_scene
@@ -31,16 +32,16 @@ func initialize(_container):
 	
 func _process(delta):
 	laser.look_at(container.dron.global_position)
-	animation.play("antenna")
+	animation2.play("antenna")
 	if fire && !stop_fire:
 		fire = false
 		fire()
 		fire_timer.start()
 		velocity = Vector2.ZERO
-	else:
+	elif !laser.is_casting:
 		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
 		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
-	velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+		velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
 		
 func _physics_process(_delta):
 	laser.look_at(Vector2(laser.global_position.x, laser.global_position.y + 1000))
@@ -52,6 +53,7 @@ func _physics_process(_delta):
 		fire = false
 		fire()
 		fire_timer.start()
+		velocity = Vector2.ZERO
 
 func stop_laser():
 	stop_fire = true
@@ -67,8 +69,9 @@ func _fire():
 func fire():
 	animation.play("screen")
 	yield(get_tree().create_timer(2), "timeout")
+	animation.play("screen_on")
 	laser.is_casting = true
-	yield(get_tree().create_timer(2.6), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	laser.is_casting = false
 	
 func set_drone(condition):
