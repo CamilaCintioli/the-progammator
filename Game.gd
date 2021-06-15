@@ -191,6 +191,7 @@ func restart():
 			end_game = false
 			endEnemy.set_drone(false)
 			endEnemy.restart($EndEnemyPosition.global_position)
+			
 	else:
 		get_tree().reload_current_scene()
 	

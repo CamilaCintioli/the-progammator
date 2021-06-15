@@ -78,7 +78,7 @@ func set_end_enemy_bar():
 	$redRect.show()
 	bosslives = 3
 	$redRect/livesNumber.text = str(bosslives)
-	set_on()
+#	set_on()
 	
 func end_enemy_hit():
 	if(chromLives!=0):
