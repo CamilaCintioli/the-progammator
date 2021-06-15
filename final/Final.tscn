@@ -1,0 +1,320 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/textures/env/Tiles/Tile (5).png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/env/Tiles/Tile (2).png" type="Texture" id=2]
+[ext_resource path="res://entities/player/Programmer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://final/Final.gd" type="Script" id=4]
+[ext_resource path="res://final/Credits.gd" type="Script" id=5]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Tile (5).png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Tile (2).png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 256, 256 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 3 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 57.6348, 65.8179 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 55.7838, 48.1151 )
+
+[node name="Final" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Congrats" type="Label" parent="."]
+margin_left = 539.605
+margin_top = 94.1176
+margin_right = 692.605
+margin_bottom = 125.118
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "    FELICITACIONES!
+JUEGO COMPLETADO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Sprite" parent="."]
+position = Vector2( 1368.82, 667.651 )
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Credits"]
+margin_left = 4.47925
+margin_top = -7.19206
+margin_right = 665.479
+margin_bottom = 6.80794
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.266667, 0.709804, 0.27451, 1 )
+text = "Autores: Jimena Rosato, Gabriel Pasquale, Camila Cintioli                    Gracias: Julieta, Eric, Nahuel, Ariel, Matias"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 256, 256 )
+collision_mask = 7
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65536, 0, 0, 65556, 0, 0, 131072, 0, 0, 131092, 0, 0, 196608, 0, 0, 196628, 0, 0, 262144, 0, 0, 262164, 0, 0, 327680, 0, 0, 327683, 1, 0, 327684, 1, 0, 327696, 1, 0, 327697, 1, 0, 327700, 0, 0, 393216, 0, 0, 393236, 0, 0, 458752, 0, 0, 458758, 1, 0, 458759, 1, 0, 458765, 1, 0, 458766, 1, 0, 458772, 0, 0, 524288, 0, 0, 524308, 0, 0, 589824, 0, 0, 589827, 1, 0, 589828, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589840, 1, 0, 589841, 1, 0, 589844, 0, 0, 655360, 0, 0, 655380, 0, 0, 720896, 0, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 671.232, 388.372 )
+
+[node name="Programmer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 676.7, 531.741 )
+
+[node name="Zero" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zero"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Zero"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Zero"]
+margin_left = 372.109
+margin_top = 301.34
+margin_right = 525.109
+margin_bottom = 332.34
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar
+   desde el comienzo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="One" type="Area2D" parent="."]
+position = Vector2( -190.248, -128.512 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="One"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="One"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="One"]
+margin_left = 370.125
+margin_top = 298.959
+margin_right = 528.125
+margin_bottom = 329.959
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar 
+ desde el checkpoint 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Two" type="Area2D" parent="."]
+position = Vector2( -190.248, 125.992 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Two"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Two"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Two"]
+margin_left = 371.712
+margin_top = 301.34
+margin_right = 529.712
+margin_bottom = 332.34
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar 
+ desde el checkpoint 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Three" type="Area2D" parent="."]
+position = Vector2( 451.572, -1.25992 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Three"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Three"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Three"]
+margin_left = 370.919
+margin_top = 300.547
+margin_right = 528.919
+margin_bottom = 331.547
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar 
+ desde el checkpoint 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Four" type="Area2D" parent="."]
+position = Vector2( 640.56, -129.772 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Four"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Four"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Four"]
+margin_left = 371.712
+margin_top = 302.134
+margin_right = 528.712
+margin_bottom = 333.134
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar 
+ desde el checkpoint 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Five" type="Area2D" parent="."]
+position = Vector2( 641.82, 127.252 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Five"]
+position = Vector2( 446.791, 382.315 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Five"]
+margin_left = 361.212
+margin_top = 278.721
+margin_right = 536.212
+margin_bottom = 355.721
+color = Color( 0.0392157, 0.121569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Five"]
+margin_left = 371.712
+margin_top = 300.547
+margin_right = 528.712
+margin_bottom = 331.547
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para volver a jugar 
+ desde el checkpoint 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2( 673.926, 528.57 )
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="Zero" to="." method="_on_Zero_body_entered"]
+[connection signal="body_exited" from="Zero" to="." method="_on_Zero_body_exited"]
+[connection signal="body_entered" from="One" to="." method="_on_One_body_entered"]
+[connection signal="body_exited" from="One" to="." method="_on_One_body_exited"]
+[connection signal="body_entered" from="Two" to="." method="_on_Two_body_entered"]
+[connection signal="body_exited" from="Two" to="." method="_on_Two_body_exited"]
+[connection signal="body_entered" from="Three" to="." method="_on_Three_body_entered"]
+[connection signal="body_exited" from="Three" to="." method="_on_Three_body_exited"]
+[connection signal="body_entered" from="Four" to="." method="_on_Four_body_entered"]
+[connection signal="body_exited" from="Four" to="." method="_on_Four_body_exited"]
+[connection signal="body_entered" from="Five" to="." method="_on_Five_body_entered"]
+[connection signal="body_exited" from="Five" to="." method="_on_Five_body_exited"]
+[connection signal="body_entered" from="Start" to="." method="_on_Start_body_entered"]

@@ -28,6 +28,7 @@ var change_zone = true
 var change = true
 var init_turrets = true
 var chrom_dead = false
+var final = true
 
 func _ready():
 	programmer.initialize(self)

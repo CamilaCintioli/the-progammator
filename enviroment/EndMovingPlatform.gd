@@ -21,7 +21,7 @@ func _init_tween():
 	#tween.interpolate_property(self, "follow", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, duration + IDLE_DURATION * 2)
 	tween.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	platform.position = platform.position.linear_interpolate(follow, 0.075)
 
 func stop():

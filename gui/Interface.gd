@@ -65,7 +65,8 @@ func _on_GameOverTimer_timeout():
 	$GameOverTimer.stop()
 	
 func you_win():
-	$WinButton.show()
+	get_tree().change_scene("res://final/Final.tscn")
+#	$WinButton.show()
 	
 func chrom_hit():
 	if(chromLives!=0):

@@ -13,7 +13,7 @@ var direction = -1
 var limit
 var init_limit
 var max_velocity = 1.5
-var fire = true
+var can_fire = true
 var stop_fire = false
 var dron = false
 var damaged = false
@@ -36,8 +36,8 @@ func initialize(_container):
 func _process(delta):
 	laser.look_at(container.dron.global_position)
 	animation2.play("antenna")
-	if fire && !stop_fire:
-		fire = false
+	if can_fire && !stop_fire:
+		can_fire = false
 		fire()
 		fire_timer.start()
 		velocity = Vector2.ZERO
@@ -58,8 +58,8 @@ func _physics_process(_delta):
 	position.x = clamp(position.x, init_limit + 60, limit - 25)
 	var new_position_y = container.programmer.global_position.y - 350
 	position.y = new_position_y if new_position_y < position.y else position.y
-	if fire && !stop_fire:
-		fire = false
+	if can_fire && !stop_fire:
+		can_fire = false
 		fire()
 		fire_timer.start()
 		velocity = Vector2.ZERO
@@ -103,7 +103,7 @@ func restart(start_pos):
 	global_position.y = start_pos.y
 
 func _on_FireTimer_timeout():
-	fire = true
+	can_fire = true
 	
 func game_over():
 	set_physics_process(false)
@@ -112,12 +112,15 @@ func game_over():
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
+		if container.interface.bosslives == 1:
+			set_process(false)
+			can_fire = false
 		damaged = true
 		body.hit_end_enemy()
 		yield(body.animation2, "animation_finished")
-		container.endEnemy_hit()
 		yield(get_tree().create_timer(2), "timeout")
 		damaged = false
 		damaged_x = 0
 		sprite_effect.material.set_shader_param("desface_x", 0.0)
 		sprite_effect.material.set_shader_param("sections", 0.0)
+		container.endEnemy_hit()

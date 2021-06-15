@@ -40,29 +40,34 @@ func check1():
 	dron_enable = false
 	check = 1
 	programmer_position = $Checkpoint1/CollisionShape2D.global_position
+	CheckpointsMenu.check = 1
 
 func check2():
 	dron_enable = true
 	check = 2
 	programmer_position = $Checkpoint2/CollisionShape2D.global_position
 	dron_position = $DronStartPosition.global_position
+	CheckpointsMenu.check = 2
 	
 func check3():
 	dron_enable = true
 	check = 3
 	programmer_position = $Checkpoint3/CollisionShape2D.global_position
 	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
+	CheckpointsMenu.check = 3
 	
 func check4():
 	dron_enable = false
 	check = 4
 	programmer_position = $Checkpoint4/CollisionShape2D.global_position
 	container.interface.set_chrome_bar()
+	CheckpointsMenu.check = 4
 		
 func check5():
 	dron_enable = true
 	check = 5
 	programmer_position = $Checkpoint5/CollisionShape2D.global_position
+	CheckpointsMenu.check = 5
 	
 func checkpoint(nro):
 	call("check" + str(nro))
