@@ -27,6 +27,7 @@ func _ready():
 	set_process(false)
 	$Sprite.visible = true
 	$White.visible = false
+	stop_fire = false
 
 func initialize(_container):
 	limit = global_position.x
@@ -126,6 +127,7 @@ func _on_HitArea_body_entered(body):
 			$spaceMissiles_001.visible = false
 			$spaceMissiles_002.visible = false
 			$Screen.visible = false
+			$LaserBeam2D.visible = false
 			container.dron.set_physics_process(false)
 			animation.play("dead")
 			yield(animation, "animation_finished")
