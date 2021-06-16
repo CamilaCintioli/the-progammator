@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://enviroment/EndMovingPlatform.gd" type="Script" id=46]
 [ext_resource path="res://assets/textures/env/Tiles/Spike.png" type="Texture" id=47]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=48]
+[ext_resource path="res://enviroment/effects/AroundParticles.tscn" type="PackedScene" id=49]
 
 [sub_resource type="Animation" id=1]
 resource_name = "matrix-fade"
@@ -582,6 +583,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="AroundParticles" parent="Bugs/Bug" instance=ExtResource( 49 )]
+position = Vector2( 60.1938, 285.725 )
+
 [node name="ColorRect" type="ColorRect" parent="Bugs/Bug"]
 margin_left = 20.3058
 margin_top = 268.653
@@ -602,7 +606,7 @@ margin_top = 279.225
 margin_right = 105.347
 margin_bottom = 307.225
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "   };"
+text = "    ;"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -614,6 +618,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="AroundParticles" parent="Bugs/Bug2" instance=ExtResource( 49 )]
+position = Vector2( 58.2172, 285.167 )
 
 [node name="ColorRect" type="ColorRect" parent="Bugs/Bug2"]
 margin_left = 20.3058
@@ -635,7 +642,7 @@ margin_top = 279.225
 margin_right = 105.347
 margin_bottom = 307.225
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "  and"
+text = "  &&"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -647,6 +654,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="AroundParticles" parent="Bugs/Bug3" instance=ExtResource( 49 )]
+position = Vector2( 58.8057, 284.293 )
 
 [node name="ColorRect" type="ColorRect" parent="Bugs/Bug3"]
 margin_left = 20.3058
@@ -1205,7 +1215,7 @@ position = Vector2( 5141.06, 254.532 )
 position = Vector2( -578.199, 684.12 )
 
 [node name="DronEndPosition" type="Position2D" parent="."]
-position = Vector2( 6318.79, -1529.65 )
+position = Vector2( 6364.04, -1583.39 )
 
 [node name="EndProgrammerArea" type="Area2D" parent="."]
 position = Vector2( 6305.49, -1155.75 )

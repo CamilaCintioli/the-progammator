@@ -1,25 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Coffee.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/coffee.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/take-coffe-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://enviroment/effects/TeaParticles.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 36.8269
+radius = 23.2053
 
 [node name="Coffee" type="Node2D"]
-position = Vector2( -4245.94, 2751.45 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CoffeeSprite" type="Sprite" parent="."]
-position = Vector2( -5.95508, -0.5 )
+position = Vector2( 9, -6 )
 scale = Vector2( 0.238374, 0.25305 )
 texture = ExtResource( 2 )
+
+[node name="TeaParticles" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1.66473, -28.7054 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
-position = Vector2( -15.7241, -0.621826 )
 shape = SubResource( 1 )
 
 [node name="AudioTakeCoffee" type="AudioStreamPlayer2D" parent="."]
