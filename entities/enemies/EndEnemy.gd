@@ -25,6 +25,8 @@ func _ready():
 	add_to_group("endEnemy")
 	set_physics_process(false)
 	set_process(false)
+	$Sprite.visible = true
+	$White.visible = false
 
 func initialize(_container):
 	limit = global_position.x
@@ -114,13 +116,27 @@ func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):
 		if container.interface.bosslives == 1:
 			set_process(false)
+			stop_fire = true
 			can_fire = false
-		damaged = true
-		body.hit_end_enemy()
-		yield(body.animation2, "animation_finished")
-		yield(get_tree().create_timer(2), "timeout")
-		damaged = false
-		damaged_x = 0
-		sprite_effect.material.set_shader_param("desface_x", 0.0)
-		sprite_effect.material.set_shader_param("sections", 0.0)
-		container.endEnemy_hit()
+			body.hit_end_enemy()
+			container.endEnemy_hit()
+			container.dron.velocity = Vector2.ZERO
+			yield(get_tree().create_timer(0.5), "timeout")
+			$Sprite.visible = false
+			container.dron.set_physics_process(false)
+			animation.play("dead")
+			yield(animation, "animation_finished")
+			$White.visible = true
+			animation.play("white")
+			yield(animation, "animation_finished")
+			container.you_win()
+		else:
+			damaged = true
+			body.hit_end_enemy()
+			container.endEnemy_hit()
+			yield(body.animation2, "animation_finished")
+			yield(get_tree().create_timer(2), "timeout")
+			damaged = false
+			damaged_x = 0
+			sprite_effect.material.set_shader_param("desface_x", 0.0)
+			sprite_effect.material.set_shader_param("sections", 0.0)

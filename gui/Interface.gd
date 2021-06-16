@@ -5,6 +5,8 @@ export var chromLives = 0
 
 export var bosslives = 0
 var level
+
+var finGame = false
 	
 func _ready():
 	$grayRect.hide()
@@ -13,6 +15,7 @@ func _ready():
 	$GameOver.hide()
 	$RestartButton.hide()
 	$WinButton.hide()
+	finGame = false
 	
 func initialize(theLevel):
 	level = theLevel
@@ -27,12 +30,11 @@ func hide_chrome_bar():
 	$blackRect.hide()
 	
 func livesDecrease():
-	if(heartNum!=0):
+	if !finGame and heartNum != 0:
 		heartNum -= 1
 		$grayRect/heartsNumber.text = str(heartNum)
 		if heartNum <= 0:
 			game_over()
-
 
 func livesIncrease():
 		heartNum += 1
@@ -49,11 +51,12 @@ func set_on():
 	
 	
 func game_over():
-	$grayRect/greenHeart.set_modulate(Color.darkgreen)
-	show_message()
-	yield($GameOverTimer, "timeout")
-	$RestartButton.show()
-	level.game_over()
+	if !finGame:
+		$grayRect/greenHeart.set_modulate(Color.darkgreen)
+		show_message()
+		yield($GameOverTimer, "timeout")
+		$RestartButton.show()
+		level.game_over()
 
 func _on_RestartButton_pressed():
 	$RestartButton.hide()
@@ -69,7 +72,7 @@ func you_win():
 #	$WinButton.show()
 	
 func chrom_hit():
-	if(chromLives!=0):
+	if chromLives != 0:
 		chromLives -= 1
 		$blackRect/livesNumber.text = str(chromLives)
 		if chromLives <= 0:
@@ -82,20 +85,18 @@ func set_end_enemy_bar():
 #	set_on()
 	
 func end_enemy_hit():
-	if(chromLives!=0):
+	if chromLives != 0:
 		chromLives -= 1
 		$blackRect/livesNumber.text = str(chromLives)
 		if chromLives <= 0:
-			level.pc_finished()
-			you_win()
+			finGame = true
 			
 func endEnemy_hit():
-	if(bosslives!=0):
+	if bosslives != 0:
 		bosslives -= 1
 		$redRect/livesNumber.text = str(bosslives)
 		if bosslives <= 0:
-			level.pc_finished()
-			you_win()
+			finGame = true
 
 func _on_WinButton_pressed():
 	get_tree().change_scene("res://Game.tscn")
