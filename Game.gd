@@ -43,7 +43,7 @@ func _ready():
 	endCamera.initialize(programmer)
 	endEnemy.initialize(self)
 	upCamera.initialize(self)
-	#$DialogBox.visible = false
+	$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_checkpoint(CheckpointsMenu.check)
@@ -91,12 +91,10 @@ func in_end_game():
 	end_game = true
 
 func hide_dialog():
-	#$DialogBox.visible = false
-	pass
+	$DialogBox.visible = false
 	
 func show_dialog():
-	#$DialogBox.visible = true
-	pass
+	$DialogBox.visible = true
 		
 func livesDecrease():
 	interface.livesDecrease()

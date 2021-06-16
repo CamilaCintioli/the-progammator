@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -344,6 +344,10 @@ extents = Vector2( 5.10254, 92.6412 )
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 21.0298, 99.5102 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 30
+font_data = ExtResource( 4 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 8 )
@@ -1288,6 +1292,34 @@ position = Vector2( 6863.78, -1574.44 )
 
 [node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 48 )
+
+[node name="DialogBox" type="Control" parent="."]
+margin_left = 2009.0
+margin_top = 406.0
+margin_right = 2577.0
+margin_bottom = 621.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="DialogBox"]
+margin_left = 71.0
+margin_top = 28.0
+margin_right = 469.0
+margin_bottom = 127.0
+color = Color( 0.811765, 0.792157, 0.576471, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+margin_left = 97.0
+margin_top = 33.0
+margin_right = 471.0
+margin_bottom = 199.0
+custom_fonts/normal_font = SubResource( 29 )
+custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
+bbcode_enabled = true
+bbcode_text = "Corrige todos log bugs"
+text = "Corrige todos log bugs"
 
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
