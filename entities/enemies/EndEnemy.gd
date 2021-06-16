@@ -51,8 +51,8 @@ func _process(delta):
 		$LaserAudio.play()
 	if damaged:
 		damaged_x = (damaged_x + 1) % 200
-		sprite_effect.material.set_shader_param("desface_x", float(damaged_x) / 1000)
-		sprite_effect.material.set_shader_param("sections", float(damaged_x) * 0.01)
+#		sprite_effect.material.set_shader_param("desface_x", float(damaged_x) / 1000)
+		sprite_effect.material.set_shader_param("sections", float(damaged_x) * 0.1)
 		
 func _physics_process(_delta):
 	laser.look_at(Vector2(laser.global_position.x, laser.global_position.y + 1000))
@@ -81,10 +81,10 @@ func _fire():
 	
 func fire():
 	animation.play("screen")
-	yield(get_tree().create_timer(2), "timeout")
+	yield(animation, "animation_finished")
 	animation.play("screen_on")
 	laser.is_casting = true
-	yield(get_tree().create_timer(2), "timeout")
+	yield(animation, "animation_finished")
 	laser.is_casting = false
 	
 func set_drone(condition):
@@ -123,6 +123,9 @@ func _on_HitArea_body_entered(body):
 			container.dron.velocity = Vector2.ZERO
 			yield(get_tree().create_timer(0.5), "timeout")
 			$Sprite.visible = false
+			$spaceMissiles_001.visible = false
+			$spaceMissiles_002.visible = false
+			$Screen.visible = false
 			container.dron.set_physics_process(false)
 			animation.play("dead")
 			yield(animation, "animation_finished")
@@ -138,5 +141,5 @@ func _on_HitArea_body_entered(body):
 			yield(get_tree().create_timer(2), "timeout")
 			damaged = false
 			damaged_x = 0
-			sprite_effect.material.set_shader_param("desface_x", 0.0)
 			sprite_effect.material.set_shader_param("sections", 0.0)
+#			sprite_effect.material.set_shader_param("desface_x", 0.0)
