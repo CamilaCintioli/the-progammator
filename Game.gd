@@ -148,13 +148,13 @@ func restart_tree():
 	get_tree().change_scene("res://Game.tscn")
 
 func restart():
+	interface.set_on()
 	if checkpoints.check > 0:
 		programmer.global_position = checkpoints.programmer_position
 		programmer.set_physics_process(true)
 		programmer.show()
 		control = true
 		is_game_over = false
-		interface.set_on()
 		programmer.velocity = Vector2.ZERO
 		dron.restart()
 		if checkpoints.dron_enable:
