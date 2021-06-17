@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lose-life.wav-483275f234f5a8946cd780db4a5f287b.sample"
+
+[deps]
+
+source_file="res://sounds/Lose-life.wav"
+dest_files=[ "res://.import/Lose-life.wav-483275f234f5a8946cd780db4a5f287b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
