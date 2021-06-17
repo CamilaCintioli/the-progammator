@@ -143,6 +143,7 @@ func dron_bye2():
 	dron.set_game_over()
 	
 func you_win():
+	audio_stream.game_win()
 	interface.you_win()
 	
 func restart_tree():
