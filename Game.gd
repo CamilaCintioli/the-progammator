@@ -321,3 +321,6 @@ func _on_EndProgrammerArea_body_exited(body):
 
 func bug_fixed():
 	audio_stream.bug_fixed()
+
+func play_robot_killed_sound():
+	audio_stream.robot_killed()

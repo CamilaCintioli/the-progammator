@@ -30,4 +30,5 @@ func _on_HeadArea_body_entered(body):
 	if body.is_in_group("dron"):
 		get_parent().dead()
 	if body.is_in_group("programmer"):
+		get_parent().play_robot_killed_sound()
 		call_deferred("_remove")
