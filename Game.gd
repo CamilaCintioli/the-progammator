@@ -158,6 +158,7 @@ func restart():
 		programmer.velocity = Vector2.ZERO
 		dron.restart()
 		if checkpoints.dron_enable:
+			interface.start_dron_connection()
 			dron.set_game_on()
 			if checkpoints.dron_position:
 				dron.global_position = checkpoints.dron_position
@@ -175,21 +176,25 @@ func restart():
 			change = false
 			$InfoDrone.visible = true
 			$InfoDron.visible = true
+			interface.start_dron_connection()
 		if checkpoints.check == 3:
 			change_zone = false
 			end_game = false
 			control = false
 			$Dron/CameraDron.current = true
+			interface.start_dron_connection()
 		if checkpoints.check == 4 or checkpoints.check == 5:
 			$Programmer/CameraProgramer.current = true
 			endCamera.global_position = init_end_camera
 			control = true
 			end_game = true
 			dron_bye2()
+			interface.stop_dron_connection()
 		if checkpoints.check == 5:
 			end_game = false
 			endEnemy.set_drone(false)
 			endEnemy.restart($EndEnemyPosition.global_position)
+			interface.stop_dron_connection()
 			
 	else:
 		get_tree().reload_current_scene()
@@ -233,6 +238,12 @@ func there_are_bugs() -> int:
 	
 func bye_portal():
 	$Portal.bye()
+	
+func set_connection(conn_level):
+	if(conn_level ==0):
+		dron.set_game_over()
+	interface.set_dron_connection(conn_level)
+	
 
 func _on_EndArea_body_entered(body):
 	if body.is_in_group("programmer") and !endCamera.current:

@@ -133,8 +133,8 @@ texture = ExtResource( 1 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -1, 15 )
 texture = ExtResource( 4 )
-hframes = 4
 vframes = 6
+hframes = 4
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -160,7 +160,6 @@ anims/sparks = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpDown"]
 shape = SubResource( 8 )
-
 [connection signal="collided" from="." to="." method="_on_Dron_collided"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="body_entered" from="UpDown" to="." method="_on_UpDown_body_entered"]

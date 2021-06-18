@@ -1,35 +1,102 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gui/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/fonts/MLTWNII_.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/textures/player/greenHeart.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/enemies/chrome ansii.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/enemies/radar-computer-sprite.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/sounds/wifisignal.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 38
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 34
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 32
-font_data = ExtResource( 3 )
-
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
-heartNum = 3
-chromLives = 3
+_heartNum = 17
+_chromLives = 3
+_bosslives = 1
+
+[node name="TopBar" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -640.0
+margin_right = 640.0
+margin_bottom = 50.0
+color = Color( 0.294118, 0.294118, 0.294118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="connection" type="Label" parent="TopBar"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.825
+margin_top = 16.6489
+margin_right = 40.1749
+margin_bottom = 36.6489
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "connection"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wifisignal" type="Sprite" parent="TopBar"]
+position = Vector2( 679.797, 23.4753 )
+scale = Vector2( 0.160084, 0.159439 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="DisconnectedBar" type="ColorRect" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_bottom = 50.0
+color = Color( 0.133333, 0.12549, 0.12549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Disconnected" type="Label" parent="DisconnectedBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -23.0
+margin_right = 163.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="grayRect" type="ColorRect" parent="."]
 visible = false
 margin_right = 131.0
-margin_bottom = 53.0
+margin_bottom = 50.0
 color = Color( 0.47451, 0.47451, 0.47451, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,7 +108,7 @@ margin_top = 11.1402
 margin_right = 152.133
 margin_bottom = 57.1402
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.027451, 0.0588235, 0.0117647, 1 )
 align = 1
 valign = 1
@@ -65,7 +132,7 @@ visible = false
 margin_left = 1149.0
 margin_top = 2.0
 margin_right = 1280.0
-margin_bottom = 55.0
+margin_bottom = 52.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,7 +144,7 @@ margin_top = 9.55283
 margin_right = 157.689
 margin_bottom = 55.5528
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
@@ -103,7 +170,7 @@ visible = false
 margin_left = 1149.0
 margin_top = 2.0
 margin_right = 1280.0
-margin_bottom = 55.0
+margin_bottom = 52.0
 color = Color( 0.423529, 0.0156863, 0.0156863, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,7 +182,7 @@ margin_top = 9.55283
 margin_right = 157.689
 margin_bottom = 55.5528
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
@@ -145,7 +212,7 @@ margin_left = -125.0
 margin_top = -50.0
 margin_right = 125.0
 margin_bottom = 50.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -161,7 +228,7 @@ margin_left = -117.0
 margin_top = -20.5
 margin_right = 117.0
 margin_bottom = 20.5
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,7 +244,7 @@ margin_left = -121.29
 margin_top = -49.4459
 margin_right = 128.71
 margin_bottom = 50.5536
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -187,6 +254,10 @@ __meta__ = {
 [node name="GameOverTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DisconnectedTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="WinButton" to="." method="_on_WinButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]
+[connection signal="timeout" from="DisconnectedTimer" to="." method="_on_DisconnectedTimer_timeout"]

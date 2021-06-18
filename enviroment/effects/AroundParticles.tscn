@@ -38,7 +38,7 @@ anim_offset = 1.0
 anim_offset_random = 1.0
 
 [node name="AroundParticles" type="Particles2D"]
-modulate = Color( 0, 0.635294, 1, 1 )
+modulate = Color( 0, 1, 0.647059, 1 )
 material = SubResource( 1 )
 position = Vector2( -4, -4 )
 amount = 6

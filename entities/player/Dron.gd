@@ -21,6 +21,7 @@ var upOrDown = false
 var sections:int = 0
 var distance_to_glitch:float = 1000.0
 var extreme_distance_to_glitch:float = 1700.0
+var disconnect_distance:float = 2500.0
 
 func _ready():
 	add_to_group("dron")
@@ -54,14 +55,21 @@ func set_glitch():
 	var programmer_distance = container.programmer.global_position - global_position
 	var distance = abs(programmer_distance.x) + abs(programmer_distance.y)
 	sections = (sections + 1) % 1000
-	if distance > extreme_distance_to_glitch:
+	if distance > disconnect_distance:
+		sprite_effect.material.set_shader_param("tearing", 0.095)
+		sprite_effect.material.set_shader_param("sections", float(sections) * 0.02)
+		container.set_connection(0)
+	elif distance > extreme_distance_to_glitch:
 		sprite_effect.material.set_shader_param("tearing", 0.075)
 		sprite_effect.material.set_shader_param("sections", float(sections) * 0.02)
+		container.set_connection(1)
 	elif distance > distance_to_glitch:
 		sprite_effect.material.set_shader_param("tearing", 0.025)
 		sprite_effect.material.set_shader_param("sections", float(sections) * 0.02)
+		container.set_connection(2)
 	else:
 		sprite_effect.material.set_shader_param("tearing", 0.0)
+		container.set_connection(3)
 	
 func collision_with_tile_map(vel_x, vel_y, up_or_down):
 	for i in get_slide_count():

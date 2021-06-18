@@ -1,10 +1,14 @@
 extends CanvasLayer
 
-export var heartNum = 0
-export var chromLives = 0
-
-export var bosslives = 0
+export var _heartNum = 0
+export var _chromLives = 0
+export var _bosslives = 0
+onready var sprite = $TopBar/wifisignal
 var level
+
+var heartNum = 0
+var chromLives = 0
+var bosslives = 0
 
 var finGame = false
 	
@@ -15,16 +19,19 @@ func _ready():
 	$GameOver.hide()
 	$RestartButton.hide()
 	$WinButton.hide()
+	$TopBar.hide()
 	finGame = false
 	
 func initialize(theLevel):
 	level = theLevel
-	$grayRect/heartsNumber.text = str(heartNum)
+	$grayRect/heartsNumber.text = str(_heartNum)
 	$grayRect.show()
+	$TopBar.show()
+	$TopBar/connection.text = "offline"
 	set_on()
 	
 func set_chrome_bar():
-	$blackRect/livesNumber.text = str(heartNum)
+	$blackRect/livesNumber.text = str(_chromLives)
 	$blackRect.show()
 
 func hide_chrome_bar():
@@ -46,7 +53,7 @@ func show_message():
 	$GameOverTimer.start()
 	
 func set_on():
-	heartNum = 3
+	heartNum = _heartNum
 	$grayRect/heartsNumber.text = str(heartNum)
 	$grayRect/greenHeart.set_modulate(Color.green)
 	
@@ -81,7 +88,7 @@ func chrom_hit():
 			
 func set_end_enemy_bar():
 	$redRect.show()
-	bosslives = 3
+	bosslives = _bosslives
 	$redRect/livesNumber.text = str(bosslives)
 #	set_on()
 	
@@ -101,3 +108,36 @@ func endEnemy_hit():
 
 func _on_WinButton_pressed():
 	get_tree().change_scene("res://Game.tscn")
+	
+func set_dron_connection(conn_level):
+	display_connection(conn_level)
+	print(conn_level)
+	sprite.frame = conn_level
+	if (conn_level == 0 ):
+		$DisconnectedBar.show()
+		$DisconnectedBar/Disconnected.text = "Sin señal..."
+		$DisconnectedTimer.start()
+		
+func display_connection(conn_level):
+	if(conn_level > 0):
+		$TopBar/connection.text = "online"
+	else:
+		$TopBar/connection.text = "offline"
+		
+func start_dron_connection():
+	$TopBar/connection.show()
+	$TopBar/wifisignal.show()
+	$TopBar/connection.text = "online"
+	
+	
+func stop_dron_connection():
+	$TopBar/connection.show()
+	$TopBar/wifisignal.show()
+	$TopBar/connection.text = "offline"
+
+func _on_DisconnectedTimer_timeout():
+	print ('disconnect change')
+	level.change_control()
+	$DisconnectedBar.hide()
+	$DisconnectedBar/Disconnected.text = ""
+	$TopBar/connection.text = "offline"
