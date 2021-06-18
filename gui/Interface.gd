@@ -31,6 +31,7 @@ func initialize(theLevel):
 	set_on()
 	
 func set_chrome_bar():
+	chromLives = _chromLives
 	$blackRect/livesNumber.text = str(_chromLives)
 	$blackRect.show()
 
