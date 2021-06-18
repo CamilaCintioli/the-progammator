@@ -596,6 +596,7 @@ tile_data = PoolIntArray( -2031530, 6, 0, -2031529, 6, 0, -2031528, 6, 0, -20315
 
 [node name="Portal" parent="." instance=ExtResource( 15 )]
 position = Vector2( 2260.13, 635.575 )
+collision_mask = 7
 
 [node name="Bugs" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -1300,6 +1301,7 @@ autostart = true
 [node name="BGMusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 38 )
 volume_db = -0.4
+autoplay = true
 bus = "BGM"
 
 [node name="Coffee" parent="." instance=ExtResource( 41 )]
@@ -1434,6 +1436,7 @@ custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
 bbcode_text = "Corrige todos log bugs"
 text = "Corrige todos log bugs"
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

@@ -37,6 +37,8 @@ func _on_Portal_body_entered(body):
 		anim.play("open")
 
 func _on_Portal_body_exited(body):
+	if body.is_in_group("programmer") and container.there_are_bugs():
+		container.hide_dialog()
 	if body.is_in_group("programmer") and !container.there_are_bugs():
 		container.hide_dialog()
 		anim.play("close")

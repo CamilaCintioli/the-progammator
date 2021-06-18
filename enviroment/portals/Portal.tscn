@@ -5,10 +5,10 @@
 [ext_resource path="res://enviroment/portals/DoorStreamPlayer2D.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 47.8717, 97.0545 )
+extents = Vector2( 79.9626, 97.0545 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.70255, 96.3121 )
+extents = Vector2( 44.0033, 86.4817 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "close"
@@ -56,6 +56,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
@@ -67,5 +68,6 @@ script = ExtResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 3 )
 anims/open = SubResource( 4 )
+
 [connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Portal_body_exited"]

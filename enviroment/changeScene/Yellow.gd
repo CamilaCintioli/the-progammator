@@ -20,8 +20,6 @@ onready var a7 = $YellowPlatform7/AnimationPlayer
 onready var a8 = $YellowPlatform8/AnimationPlayer
 onready var a9 = $YellowPlatform9/AnimationPlayer
 
-onready var yellow_anim = $AnimationPlayer
-
 func disable():
 	hide()
 	p1.disabled = true
