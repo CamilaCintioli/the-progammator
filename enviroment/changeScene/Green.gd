@@ -10,6 +10,16 @@ onready var p7 = $GreenPlatform7/CollisionPolygon2D
 onready var p8 = $GreenPlatform8/CollisionPolygon2D
 onready var p9 = $GreenPlatform9/CollisionPolygon2D
 
+onready var a1 = $GreenPlatform/GreenAnimationPlayer
+onready var a2 = $GreenPlatform2/GreenAnimationPlayer
+onready var a3 = $GreenPlatform3/GreenAnimationPlayer
+onready var a4 = $GreenPlatform4/GreenAnimationPlayer
+onready var a5 = $GreenPlatform5/GreenAnimationPlayer
+onready var a6 = $GreenPlatform6/GreenAnimationPlayer
+onready var a7 = $GreenPlatform7/GreenAnimationPlayer
+onready var a8 = $GreenPlatform8/GreenAnimationPlayer
+onready var a9 = $GreenPlatform9/GreenAnimationPlayer
+
 func _ready():
 	disable()
 
@@ -36,3 +46,15 @@ func enable():
 	p7.disabled = false
 	p8.disabled = false
 	p9.disabled = false
+
+
+func play():
+	a1.play("fade")
+	a2.play("fade")
+	a3.play("fade")
+	a4.play("fade")
+	a5.play("fade")
+	a6.play("fade")
+	a7.play("fade")
+	a8.play("fade")
+	a9.play("fade")

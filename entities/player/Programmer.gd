@@ -23,6 +23,9 @@ var container
 var bounce = 0
 var laser_hitted:bool = false
 
+
+var within_distance:bool = false
+
 func _ready():
 	add_to_group("programmer")
 
@@ -77,7 +80,29 @@ func _set_animation(h_movement_direction):
 	if h_movement_direction != 0 and int(!$Sprite.flip_h) != h_movement_direction:
 		$Sprite.flip_h = h_movement_direction < 0
 
+func _check_distance():
+	var dron_distance = container.dron.global_position - global_position
+	var distance = abs(dron_distance.x) + abs(dron_distance.y)
+	if distance < container.dron.disconnect_distance:
+		if !within_distance:
+			container.dron.set_game_on()
+			container.interface.display_connection(1)
+			within_distance = true
+		if distance > container.dron.disconnect_distance:
+			container.set_connection(0)
+		elif distance > container.dron.extreme_distance_to_glitch:
+			container.set_connection(1)
+		elif distance > container.dron.distance_to_glitch:
+			container.set_connection(2)
+		else:
+			container.set_connection(3)
+	elif distance > container.dron.disconnect_distance:
+		within_distance = false
+	
+	
 func _physics_process(_delta):
+	if container.final:
+		_check_distance()
 	if Input.is_action_just_pressed("change") and !container.chrom_dead:
 		if container.end_game:
 			arm._fire()

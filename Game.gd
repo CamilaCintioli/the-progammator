@@ -29,6 +29,7 @@ var change = true
 var init_turrets = true
 var chrom_dead = false
 var final = true
+var has_started = false
 
 func _ready():
 	programmer.initialize(self)
@@ -128,7 +129,7 @@ func dead():
 	is_game_over = true
 	interface.game_over()
 	endEnemy.set_drone(false)
-	endEnemy.restart($EndEnemyPosition.global_position)
+#	endEnemy.restart($EndEnemyPosition.global_position)
 	
 func game_over():
 	is_game_over = true
@@ -163,6 +164,7 @@ func restart():
 		programmer.velocity = Vector2.ZERO
 		dron.restart()
 		if checkpoints.dron_enable:
+			interface.start_dron_connection()
 			dron.set_game_on()
 			if checkpoints.dron_position:
 				dron.global_position = checkpoints.dron_position
@@ -180,21 +182,25 @@ func restart():
 			change = false
 			$InfoDrone.visible = true
 			$InfoDron.visible = true
+			interface.start_dron_connection()
 		if checkpoints.check == 3:
 			change_zone = false
 			end_game = false
 			control = false
 			$Dron/CameraDron.current = true
+			interface.start_dron_connection()
 		if checkpoints.check == 4 or checkpoints.check == 5:
 			$Programmer/CameraProgramer.current = true
 			endCamera.global_position = init_end_camera
 			control = true
 			end_game = true
 			dron_bye2()
+			interface.stop_dron_connection()
 		if checkpoints.check == 5:
 			end_game = false
 			endEnemy.set_drone(false)
 			endEnemy.restart($EndEnemyPosition.global_position)
+			interface.stop_dron_connection()
 			
 	else:
 		get_tree().reload_current_scene()
@@ -238,6 +244,12 @@ func there_are_bugs() -> int:
 	
 func bye_portal():
 	$Portal.bye()
+	
+func set_connection(conn_level):
+	if(conn_level ==0):
+		dron.set_game_over()
+	interface.set_dron_connection(conn_level)
+	
 
 func _on_EndArea_body_entered(body):
 	if body.is_in_group("programmer") and !endCamera.current:
@@ -279,6 +291,10 @@ func _on_DeadArea_body_entered(body):
 
 func _on_Timer_timeout():
 	change_platforms()
+	if(! has_started):
+		has_started = true
+		$ChangePlatform/Green.play()
+		$ChangePlatform/Yellow.play()
 
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):

@@ -26,13 +26,11 @@ func _on_HeadArea_body_entered(body):
 		yield(body.animation2, "animation_finished")
 		call_deferred("_remove")
 	if body.is_in_group("programmer"):
-		container.dead()
+		call_deferred("_remove")
 
 func _on_HitArea_body_entered(body):
-	if body.is_in_group("dron"):
-		body.bye()
+	if body.is_in_group("dron") or body.is_in_group("programmer"):
 		container.dead()
-		call_deferred("_remove")
 
 func _remove():
 	container.remove_child(self)
