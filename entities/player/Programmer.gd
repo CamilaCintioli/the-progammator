@@ -99,7 +99,8 @@ func _check_distance():
 	
 	
 func _physics_process(_delta):
-	_check_distance()
+	if container.final:
+		_check_distance()
 	if Input.is_action_just_pressed("change") and !container.chrom_dead:
 		if container.end_game:
 			arm._fire()
