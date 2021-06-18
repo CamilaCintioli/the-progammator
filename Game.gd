@@ -124,9 +124,8 @@ func chrom_start():
 		chrom.start()
 	
 func dead():
-	audio_stream.game_over()
 	is_game_over = true
-	interface.game_over()
+	interface.game_over(audio_stream)
 	endEnemy.set_drone(false)
 #	endEnemy.restart($EndEnemyPosition.global_position)
 	
