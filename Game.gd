@@ -109,6 +109,7 @@ func chrom_hit():
 func chrom_finished():
 	emit_signal("stop_shooting")
 	interface.hide_chrome_bar()
+	audio_stream.chrom_explosion()
 	chrom.game_over()
 	$ChromPortal.bye(self)
 #	$ChromPortalStart.bye(self)
