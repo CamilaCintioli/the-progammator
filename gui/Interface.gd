@@ -37,9 +37,10 @@ func set_chrome_bar():
 func hide_chrome_bar():
 	$blackRect.hide()
 	
-func livesDecrease():
+func livesDecrease(audio_stream):
 	if !finGame and heartNum != 0:
 		heartNum -= 1
+		audio_stream.lose_life()
 		$grayRect/heartsNumber.text = str(heartNum)
 		if heartNum <= 0:
 			game_over()

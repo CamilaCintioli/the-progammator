@@ -98,8 +98,7 @@ func show_dialog():
 	$DialogBox.visible = true
 		
 func livesDecrease():
-	audio_stream.lose_life()
-	interface.livesDecrease()
+	interface.livesDecrease(audio_stream)
 
 func livesIncrease():
 	interface.livesIncrease()
