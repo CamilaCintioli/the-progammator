@@ -12,4 +12,5 @@ func _ready():
 	
 func bug():
 	bugs -= 1
+	get_parent().bug_fixed()
 	$BugsInfo/Label.text = "bugs: " + str(bugs)

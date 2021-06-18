@@ -44,7 +44,7 @@ func livesDecrease(audio_stream):
 		audio_stream.lose_life()
 		$grayRect/heartsNumber.text = str(heartNum)
 		if heartNum <= 0:
-			game_over()
+			game_over(audio_stream)
 
 func livesIncrease():
 		heartNum += 1
@@ -60,8 +60,9 @@ func set_on():
 	$grayRect/greenHeart.set_modulate(Color.green)
 	
 	
-func game_over():
+func game_over(audio_stream):
 	if !finGame:
+		audio_stream.game_over()
 		$grayRect/greenHeart.set_modulate(Color.darkgreen)
 		show_message()
 		yield($GameOverTimer, "timeout")

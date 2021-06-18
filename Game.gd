@@ -124,9 +124,8 @@ func chrom_start():
 		chrom.start()
 	
 func dead():
-	audio_stream.game_over()
 	is_game_over = true
-	interface.game_over()
+	interface.game_over(audio_stream)
 	endEnemy.set_drone(false)
 #	endEnemy.restart($EndEnemyPosition.global_position)
 	
@@ -319,3 +318,9 @@ func _on_EndProgrammerArea_body_exited(body):
 		#programmer.set_game_over()
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y)
+
+func bug_fixed():
+	audio_stream.bug_fixed()
+
+func play_robot_killed_sound():
+	audio_stream.robot_killed()
