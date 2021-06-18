@@ -35,7 +35,8 @@ func _on_Zero_body_entered(_body):
 	$Zero/ColorRect.visible = true
 	$Zero/Label.visible = true
 	CheckpointsMenu.check = 0
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_Zero_body_exited(_body):
 	$Zero/ColorRect.visible = false
@@ -45,7 +46,8 @@ func _on_One_body_entered(_body):
 	$One/ColorRect.visible = true
 	$One/Label.visible = true
 	CheckpointsMenu.check = 1
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_One_body_exited(_body):
 	$One/ColorRect.visible = false
@@ -55,7 +57,8 @@ func _on_Two_body_entered(_body):
 	$Two/ColorRect.visible = true
 	$Two/Label.visible = true
 	CheckpointsMenu.check = 2
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_Two_body_exited(_body):
 	$Two/ColorRect.visible = false
@@ -65,7 +68,8 @@ func _on_Three_body_entered(_body):
 	$Three/ColorRect.visible = true
 	$Three/Label.visible = true
 	CheckpointsMenu.check = 3
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_Three_body_exited(_body):
 	$Three/ColorRect.visible = false
@@ -75,7 +79,8 @@ func _on_Four_body_entered(_body):
 	$Four/ColorRect.visible = true
 	$Four/Label.visible = true
 	CheckpointsMenu.check = 4
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_Four_body_exited(_body):
 	$Four/ColorRect.visible = false
@@ -85,7 +90,8 @@ func _on_Five_body_entered(_body):
 	$Five/ColorRect.visible = true
 	$Five/Label.visible = true
 	CheckpointsMenu.check = 5
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
 
 func _on_Five_body_exited(_body):
 	$Five/ColorRect.visible = false
@@ -95,4 +101,5 @@ func _on_Start_body_entered(_body):
 	$Zero/ColorRect.visible = false
 	$Zero/Label.visible = false
 	CheckpointsMenu.check = 0
-	$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.play()
