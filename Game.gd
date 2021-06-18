@@ -318,3 +318,6 @@ func _on_EndProgrammerArea_body_exited(body):
 		#programmer.set_game_over()
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y) 
 		endEnemy.global_position = Vector2($DronEndPosition.global_position.x + 500, $DronEndPosition.global_position.y)
+
+func bug_fixed():
+	audio_stream.bug_fixed()
