@@ -121,6 +121,7 @@ func chrom_start():
 		chrom.start()
 	
 func dead():
+	audio_stream.game_over()
 	is_game_over = true
 	interface.game_over()
 	endEnemy.set_drone(false)
@@ -142,6 +143,7 @@ func dron_bye2():
 	dron.set_game_over()
 	
 func you_win():
+	audio_stream.game_win()
 	interface.you_win()
 	
 func restart_tree():
