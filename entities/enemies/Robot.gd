@@ -26,6 +26,7 @@ func _on_HeadArea_body_entered(body):
 		yield(body.animation2, "animation_finished")
 		call_deferred("_remove")
 	if body.is_in_group("programmer"):
+		container.play_robot_killed_sound()
 		call_deferred("_remove")
 
 func _on_HitArea_body_entered(body):
