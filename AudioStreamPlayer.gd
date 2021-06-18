@@ -6,6 +6,7 @@ onready var game_over = load("res://sounds/Lose.wav")
 onready var game_win = load("res://sounds/Win.wav")
 onready var lose_life = load("res://sounds/Lose-life.wav")
 onready var chrom_explosion = load("res://sounds/Chrome-explosion.wav")
+onready var chrom_hit = load("res://sounds/Chorme-hit.wav")
 
 func game_over():
 	self.stream = game_over
@@ -21,4 +22,8 @@ func lose_life():
 	
 func chrom_explosion():
 	self.stream = chrom_explosion
+	self.play()
+
+func chrom_hit():
+	self.stream = chrom_hit
 	self.play()

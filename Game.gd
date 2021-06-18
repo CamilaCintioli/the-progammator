@@ -104,6 +104,7 @@ func livesIncrease():
 	interface.livesIncrease()
 
 func chrom_hit():
+	audio_stream.chrom_hit()
 	interface.chrom_hit()
 	
 func chrom_finished():
