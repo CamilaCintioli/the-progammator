@@ -98,17 +98,19 @@ func show_dialog():
 	$DialogBox.visible = true
 		
 func livesDecrease():
-	interface.livesDecrease()
+	interface.livesDecrease(audio_stream)
 
 func livesIncrease():
 	interface.livesIncrease()
 
 func chrom_hit():
+	audio_stream.chrom_hit()
 	interface.chrom_hit()
 	
 func chrom_finished():
 	emit_signal("stop_shooting")
 	interface.hide_chrome_bar()
+	audio_stream.chrom_explosion()
 	chrom.game_over()
 	$ChromPortal.bye(self)
 #	$ChromPortalStart.bye(self)

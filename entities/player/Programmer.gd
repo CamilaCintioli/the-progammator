@@ -9,6 +9,7 @@ const BOUNCING_JUMP = 155
 onready var arm = $Arm
 
 onready var animation = $AnimationPlayer
+onready var audio_stream = $ProgrammerSounds
 
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 200.0
@@ -52,6 +53,7 @@ func get_input():
 		velocity.y -= jump_speed
 		
 		animation.play("jump")
+		audio_stream.jump()
 	if Input.is_action_just_pressed("jump") and $RayCast2D.is_colliding() and bounce == 0:
 		bounce = 1
 		velocity.y = clamp(velocity.y - jump_speed, -jump_speed, jump_speed)
