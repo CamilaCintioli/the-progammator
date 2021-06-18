@@ -15,6 +15,8 @@ func _process(_delta):
 		button_4()
 	if Input.is_action_pressed("five"):
 		button_5()
+	if Input.is_action_pressed("cero"):
+		get_tree().change_scene("res://Game.tscn")
 
 func initialize(_container):
 	container = _container

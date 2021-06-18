@@ -56,4 +56,5 @@ text = "ENTER PARA COMENZAR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="finished" from="." to="." method="_on_Menu_finished"]
