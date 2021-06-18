@@ -230,8 +230,8 @@ texture = ExtResource( 5 )
 position = Vector2( -5, 21 )
 scale = Vector2( 1.51169, 1.45607 )
 texture = ExtResource( 8 )
-vframes = 6
 hframes = 8
+vframes = 6
 frame = 46
 
 [node name="White" type="Sprite" parent="."]
@@ -279,5 +279,6 @@ environment = SubResource( 15 )
 [node name="LaserAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 volume_db = -16.0
+
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
