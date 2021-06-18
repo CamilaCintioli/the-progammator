@@ -96,7 +96,7 @@ func hide_dialog():
 	
 func show_dialog():
 	$DialogBox.visible = true
-		
+	
 func livesDecrease():
 	interface.livesDecrease(audio_stream)
 

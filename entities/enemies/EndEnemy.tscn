@@ -245,8 +245,9 @@ texture = ExtResource( 5 )
 position = Vector2( -5, 21 )
 scale = Vector2( 1.51169, 1.45607 )
 texture = ExtResource( 8 )
-vframes = 6
 hframes = 8
+vframes = 6
+frame = 46
 
 [node name="White" type="Sprite" parent="."]
 visible = false
