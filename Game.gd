@@ -29,6 +29,7 @@ var change = true
 var init_turrets = true
 var chrom_dead = false
 var final = true
+var has_started = false
 
 func _ready():
 	programmer.initialize(self)
@@ -285,6 +286,10 @@ func _on_DeadArea_body_entered(body):
 
 func _on_Timer_timeout():
 	change_platforms()
+	if(! has_started):
+		has_started = true
+		$ChangePlatform/Green.play()
+		$ChangePlatform/Yellow.play()
 
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):

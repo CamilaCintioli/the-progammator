@@ -24,7 +24,7 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=4]
 size = 34
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 7 )
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -203,7 +203,6 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="Button" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -230,6 +229,8 @@ margin_right = 117.0
 margin_bottom = 20.5
 custom_fonts/font = SubResource( 2 )
 text = "Game Over"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

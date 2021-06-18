@@ -111,7 +111,6 @@ func _on_WinButton_pressed():
 	
 func set_dron_connection(conn_level):
 	display_connection(conn_level)
-	print(conn_level)
 	sprite.frame = conn_level
 	if (conn_level == 0 ):
 		$DisconnectedBar.show()
@@ -136,7 +135,6 @@ func stop_dron_connection():
 	$TopBar/connection.text = "offline"
 
 func _on_DisconnectedTimer_timeout():
-	print ('disconnect change')
 	level.change_control()
 	$DisconnectedBar.hide()
 	$DisconnectedBar/Disconnected.text = ""
