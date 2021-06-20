@@ -7,7 +7,6 @@ onready var anim_chrom = $AnimationChrom
 onready var tween = $Tween
 
 var container
-var direction = -1
 var limit
 var started = false
 
@@ -38,9 +37,6 @@ func start():
 
 func _physics_process(_delta):
 	anim_chrom.play("roll")
-	
-func _on_Timer_timeout():
-	direction *= -1
 	
 func game_over():
 	set_physics_process(false)

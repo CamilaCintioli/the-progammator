@@ -8,6 +8,7 @@ const SLOPE_THRESHOLD := deg2rad(60)
 onready var arm = $Arm
 onready var sm = $ProgrammerStateMachine
 onready var animation = $AnimationPlayer
+onready var anim2 = $AnimationPlayer2
 onready var audio_stream = $ProgrammerSounds
 onready var body = $Sprite
 
@@ -82,19 +83,8 @@ func laser_hit():
 	if !laser_hitted:
 		container.livesDecrease()
 		laser_hitted = true
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = false
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = true
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = false
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = true
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = false
-		yield(get_tree().create_timer(0.3), "timeout")
-		$Sprite.visible = true
-		yield(get_tree().create_timer(0.3), "timeout")
+		anim2.play("hit")
+		yield(anim2, "animation_finished")
 		laser_hitted = false
 	
 func update_position(pos):
