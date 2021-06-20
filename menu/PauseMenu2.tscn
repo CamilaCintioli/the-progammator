@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/GameMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/menu/drone_menu.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/menu/programmer.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -58,6 +60,7 @@ anchor_bottom = 0.5
 margin_top = -153.417
 margin_bottom = -70.4169
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "Game Paused"
 align = 1
 valign = 1
@@ -86,7 +89,7 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
-custom_colors/font_color_hover = Color( 0.305882, 0.607843, 1, 1 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "Continue"
 
 [node name="Controls" type="Button" parent="Control/Panel/VBoxContainer"]
@@ -98,7 +101,7 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
-custom_colors/font_color_hover = Color( 0.305882, 0.607843, 1, 1 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "Controles"
 
 [node name="Exit" type="Button" parent="Control/Panel/VBoxContainer"]
@@ -110,11 +113,23 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
-custom_colors/font_color_hover = Color( 0.305882, 0.607843, 1, 1 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "Exit"
 
+[node name="ProgrammerMenu" type="Sprite" parent="."]
+visible = false
+position = Vector2( 641.067, 358.1 )
+scale = Vector2( 1.00332, 1.00751 )
+texture = ExtResource( 4 )
+
+[node name="DroneMenu" type="Sprite" parent="."]
+visible = false
+position = Vector2( 639.882, 360.01 )
+scale = Vector2( 1.00124, 1.00369 )
+texture = ExtResource( 3 )
+
+[connection signal="drone_controls" from="." to="." method="_on_PauseMenu_drone_controls"]
 [connection signal="exit_requested" from="." to="." method="_on_PauseMenu_exit_requested"]
-[connection signal="show_controls" from="." to="." method="_on_PauseMenu_show_controls"]
 [connection signal="button_up" from="Control/Panel/VBoxContainer/Continue" to="." method="_on_Continue_button_up"]
 [connection signal="button_up" from="Control/Panel/VBoxContainer/Controls" to="." method="_on_Controls_button_up"]
 [connection signal="button_up" from="Control/Panel/VBoxContainer/Exit" to="." method="_on_Exit_button_up"]

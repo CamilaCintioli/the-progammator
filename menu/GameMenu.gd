@@ -1,15 +1,20 @@
 extends CanvasLayer
 
 signal exit_requested()
-signal show_controls()
+signal drone_controls()
 
 onready var menu = $Control
 onready var input_timer = $InputTimer
+onready var programmer = $ProgrammerMenu
+onready var drone = $DroneMenu
 
 var can_pause:bool = false
+var player:bool = false
 
 func _ready():
 	menu.hide()
+	programmer.hide()
+	drone.hide()
 	call_deferred("initialize")
 
 func initialize():
@@ -20,10 +25,15 @@ func exit_game():
 
 func _unhandled_input(_event):
 	if can_pause && Input.is_action_just_pressed("start") && input_timer.is_stopped():
-		var is_visible = menu.visible
-		menu.visible = !is_visible
-		get_tree().paused = !is_visible
-		input_timer.start()
+		if player:
+			player = false
+			emit_signal("drone_controls")
+		else:
+			drone.hide()
+			var is_visible = menu.visible
+			menu.visible = !is_visible
+			get_tree().paused = !is_visible
+			input_timer.start()
 
 func _on_Continue_button_up():
 	menu.hide()
@@ -39,7 +49,9 @@ func _on_PauseMenu_exit_requested():
 
 func _on_Controls_button_up():
 	menu.hide()
-	emit_signal("show_controls")
+	programmer.show()
+	player = true
 
-func _on_PauseMenu_show_controls():
-	pass # Replace with function body.
+func _on_PauseMenu_drone_controls():
+	programmer.hide()
+	drone.show()
