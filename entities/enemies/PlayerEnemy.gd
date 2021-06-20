@@ -20,7 +20,7 @@ func _init_tween():
 
 func _on_BodyArea_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
-		get_parent().dead()
+		body.enemy_hit()
 		
 func _remove():
 	get_parent().remove_child(self)
@@ -28,7 +28,7 @@ func _remove():
 
 func _on_HeadArea_body_entered(body):
 	if body.is_in_group("dron"):
-		get_parent().dead()
+		body.enemy_hit()
 	if body.is_in_group("programmer"):
 		get_parent().play_robot_killed_sound()
 		call_deferred("_remove")

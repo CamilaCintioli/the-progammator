@@ -1,55 +1,53 @@
 extends KinematicBody2D
 
 const FLOOR_NORMAL := Vector2.UP
-const SNAP_DIRECTION := Vector2.UP
-const SNAP_LENGHT := 32.0
-const SLOPE_THRESHOLD := deg2rad(46)
-const BOUNCING_JUMP = 155
+const SNAP_DIRECTION := Vector2.DOWN
+const SNAP_LENGTH := 32.0
+const SLOPE_THRESHOLD := deg2rad(60)
 
 onready var arm = $Arm
-
+onready var sm = $ProgrammerStateMachine
 onready var animation = $AnimationPlayer
 onready var audio_stream = $ProgrammerSounds
+onready var body = $Sprite
 
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 200.0
 export (float) var FRICTION_WEIGHT:float = 0.1
-export (int) var gravity:float = 10
-export (int) var jump_speed:float = 430
+export (int) var gravity:float = 14
+export (int) var jump_speed:float = 500
 
 var velocity:Vector2 = Vector2.ZERO
-var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
+var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
+var move_direction:int = 0
+var stop_on_slope:bool = true
 var container
 var bounce = 0
 var laser_hitted:bool = false
-
+var jumps:int = 0
 
 var within_distance:bool = false
 
 func _ready():
+	sm.initialize(self)
 	add_to_group("programmer")
 
 func initialize(_container):
 	self.container = _container
 	arm.container = _container
-
+	
 func get_input():
-	var x_bounce = 0
-	# Horizontal speed
-	var h_movement_direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	var on_floor = is_on_floor()
-	if h_movement_direction != 0 and !Input.is_action_just_pressed("jump"):
-		if on_floor:
-			animation.play("walk")
-		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT) + x_bounce
-	elif on_floor:
-		animation.play("idle")
-		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
-	if Input.is_action_just_pressed("jump") and on_floor:
-		velocity.y -= jump_speed
-		animation.play("jump")
-		audio_stream.jump()
-	_set_animation(h_movement_direction)
+	move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	_set_animation(move_direction)
+	
+func _handle_actions():
+	if container.final:
+		_check_distance()
+	if Input.is_action_just_pressed("change") and !container.chrom_dead:
+		if container.end_game:
+			arm._fire()
+		elif !container.change_zone and !container.dron_zone:
+			container.change_control()
 
 func _set_animation(h_movement_direction):
 	if h_movement_direction != 0 and int(!$Sprite.flip_h) != h_movement_direction:
@@ -73,26 +71,12 @@ func _check_distance():
 			container.set_connection(3)
 	elif distance > container.dron.disconnect_distance:
 		within_distance = false
-	
-	
-func _physics_process(_delta):
-	if container.final:
-		_check_distance()
-	if Input.is_action_just_pressed("change") and !container.chrom_dead:
-		if container.end_game:
-			arm._fire()
-		elif !container.change_zone and !container.dron_zone:
-			container.change_control()
-	
-	if container.control and (!container.dron_zone or !container.change_zone):
-		get_input()
-	else:
-		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
-	velocity.y += gravity
-	velocity = move_and_slide(velocity, FLOOR_NORMAL)
-	
+
 func hit():
 	container.livesDecrease()
+	
+func enemy_hit():
+	laser_hit()
 	
 func laser_hit():
 	if !laser_hitted:
@@ -128,3 +112,38 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func pickUpCoffee():
 	container.livesIncrease()
+	
+func _handle_move_input():
+	if container.control and (!container.dron_zone or !container.change_zone):
+		get_input()
+	else:
+		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
+
+func _handle_acceleration(multiplier:float = 1.0):
+	if move_direction != 0:
+		velocity.x = clamp(velocity.x + (move_direction * ACCELERATION * multiplier), -H_SPEED_LIMIT * multiplier, H_SPEED_LIMIT * multiplier)
+	else:
+		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
+
+func _apply_movement():
+	velocity.y += gravity
+	velocity.y = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, stop_on_slope, 4, SLOPE_THRESHOLD).y
+	if is_on_floor() && snap_vector == Vector2.ZERO:
+		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
+
+func _play_animation(animation_name:String, should_restart:bool = true, playback_speed:float = 1.0, play_backwards:bool = false):
+	if animation.has_animation(animation_name):
+		if should_restart:
+			animation.stop()
+		animation.playback_speed = playback_speed
+		if play_backwards:
+			animation.play_backwards(animation_name)
+		else:
+			animation.play(animation_name)
+
+func _is_animation_playing(animation_name:String)->bool:
+	return animation.current_animation == animation_name && animation.is_playing()
+
+func _remove():
+	set_physics_process(false)
+	hide()

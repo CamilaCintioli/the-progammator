@@ -6,7 +6,7 @@ onready var animation = $AnimationPlayer
 onready var animation2 = $AnimationPlayer2
 onready var sprite_effect = $Sprite
 
-var speed = 11
+var speed = 9
 
 var deacceleration:float = 0.8
 var FRICTION_WEIGHT:float = 0.3
@@ -103,6 +103,9 @@ func hit(tile = false, vel_x = v_x, vel_y = v_y, up_or_down = upOrDown):
 		velocity.x = vel_x * -1
 		$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
 		animation.play("sparks")
+		
+func enemy_hit():
+	container.livesDecrease()
 		
 func laser_hit():
 	var _dir = (global_position - container.endEnemy.global_position).normalized()

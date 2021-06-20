@@ -5,13 +5,13 @@
 [ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.25284, 39.6314 )
+extents = Vector2( 7.25284, 36.4371 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.8121, 31.2732 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.33102, 10 )
+extents = Vector2( 14.8989, 8.13791 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 257.139
@@ -33,7 +33,7 @@ hframes = 10
 vframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4.96257, 2.1202 )
+position = Vector2( 4.96257, 4.1202 )
 shape = SubResource( 1 )
 
 [node name="HitArea" type="Area2D" parent="."]
@@ -45,7 +45,7 @@ shape = SubResource( 2 )
 [node name="HeadArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
-position = Vector2( 3.76269, -28.9849 )
+position = Vector2( 3.32456, -30.2993 )
 shape = SubResource( 3 )
 
 [node name="DetectionAreaRight" type="Area2D" parent="."]
