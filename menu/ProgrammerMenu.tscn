@@ -22,15 +22,15 @@ font_data = ExtResource( 3 )
 [node name="ProgrammerMenu" type="Node"]
 
 [node name="Back" type="Sprite" parent="."]
-position = Vector2( 634.131, 359.008 )
+position = Vector2( 599.268, -546.636 )
 scale = Vector2( 21.0636, 12.2899 )
 texture = ExtResource( 1 )
 
 [node name="Title" type="Label" parent="."]
-margin_left = 437.148
-margin_top = 88.279
-margin_right = 737.148
-margin_bottom = 180.279
+margin_left = 402.285
+margin_top = -832.365
+margin_right = 702.285
+margin_bottom = -740.365
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
@@ -40,10 +40,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 347.543
-margin_top = 245.542
-margin_right = 473.543
-margin_bottom = 276.542
+margin_left = 312.68
+margin_top = -718.102
+margin_right = 438.68
+margin_bottom = -687.102
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "IZQUIERDA"
@@ -51,11 +51,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label7" type="Label" parent="."]
+margin_left = 489.82
+margin_top = -235.582
+margin_right = 794.82
+margin_bottom = -204.582
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para continuar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label2" type="Label" parent="."]
-margin_left = 345.783
-margin_top = 322.55
-margin_right = 471.783
-margin_bottom = 353.55
+margin_left = 310.92
+margin_top = -641.094
+margin_right = 436.92
+margin_bottom = -610.094
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "DERECHA"
@@ -64,10 +76,10 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 347.659
-margin_top = 393.014
-margin_right = 473.659
-margin_bottom = 424.014
+margin_left = 312.796
+margin_top = -570.63
+margin_right = 438.796
+margin_bottom = -539.63
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "SALTAR"
@@ -76,10 +88,10 @@ __meta__ = {
 }
 
 [node name="Label19" type="Label" parent="."]
-margin_left = 343.884
-margin_top = 582.126
-margin_right = 469.884
-margin_bottom = 613.126
+margin_left = 309.021
+margin_top = -381.518
+margin_right = 435.021
+margin_bottom = -350.518
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "CORRER"
@@ -88,10 +100,10 @@ __meta__ = {
 }
 
 [node name="Label6" type="Label" parent="."]
-margin_left = 345.148
-margin_top = 453.279
-margin_right = 536.148
-margin_bottom = 619.279
+margin_left = 310.285
+margin_top = -510.365
+margin_right = 501.285
+margin_bottom = -344.365
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "DISPARAR / 
@@ -102,45 +114,45 @@ __meta__ = {
 }
 
 [node name="Left" type="Sprite" parent="."]
-position = Vector2( 295.983, 260.192 )
+position = Vector2( 261.12, -703.452 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="Right" type="Sprite" parent="."]
-position = Vector2( 294.175, 336.344 )
+position = Vector2( 259.312, -627.3 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Up" type="Sprite" parent="."]
-position = Vector2( 295.435, 409.903 )
+position = Vector2( 260.572, -553.741 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Tecla" type="Sprite" parent="."]
-position = Vector2( 192.745, 409.659 )
+position = Vector2( 157.882, -553.985 )
 scale = Vector2( 0.569663, 0.265762 )
 texture = ExtResource( 5 )
 
 [node name="Shift" type="Sprite" parent="."]
-position = Vector2( 254.723, 502.647 )
+position = Vector2( 219.86, -460.997 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Tecla2" type="Sprite" parent="."]
-position = Vector2( 285.437, 502.621 )
+position = Vector2( 250.574, -461.023 )
 scale = Vector2( 0.340871, 0.260213 )
 texture = ExtResource( 5 )
 
 [node name="Tecla5" type="Sprite" parent="."]
-position = Vector2( 283.212, 598.268 )
+position = Vector2( 248.349, -369.376 )
 scale = Vector2( 0.340871, 0.260213 )
 texture = ExtResource( 5 )
 
 [node name="Label4" type="Label" parent="."]
-margin_left = 170.933
-margin_top = 411.718
-margin_right = 210.933
-margin_bottom = 425.718
+margin_left = 136.07
+margin_top = -551.926
+margin_right = 176.07
+margin_bottom = -537.926
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "space"
 __meta__ = {
@@ -148,10 +160,10 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="."]
-margin_left = 266.933
-margin_top = 501.718
-margin_right = 306.933
-margin_bottom = 515.718
+margin_left = 232.07
+margin_top = -461.926
+margin_right = 272.07
+margin_bottom = -447.926
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "shift"
 __meta__ = {
@@ -159,31 +171,59 @@ __meta__ = {
 }
 
 [node name="Label18" type="Label" parent="."]
-margin_left = 260.933
-margin_top = 597.6
-margin_right = 300.933
-margin_bottom = 611.6
+margin_left = 226.07
+margin_top = -370.044
+margin_right = 266.07
+margin_bottom = -356.044
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ctrl"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label20" type="Label" parent="."]
+margin_left = 308.137
+margin_top = -315.644
+margin_right = 620.137
+margin_bottom = -284.644
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "PAUSAR / MOSTRAR MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tecla6" type="Sprite" parent="."]
+position = Vector2( 235.457, -298.629 )
+scale = Vector2( 0.481412, 0.273055 )
+texture = ExtResource( 5 )
+
+[node name="Label21" type="Label" parent="."]
+margin_left = 219.951
+margin_top = -306.357
+margin_right = 259.951
+margin_bottom = -292.357
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 988.658, 338.846 )
+position = Vector2( 953.795, -566.798 )
 scale = Vector2( 0.166135, 0.175789 )
 texture = ExtResource( 9 )
 
 [node name="Back2" type="Sprite" parent="."]
-position = Vector2( 629.389, 1254.52 )
+position = Vector2( 609.526, 348.876 )
 scale = Vector2( 21.0636, 12.2899 )
 texture = ExtResource( 1 )
 
 [node name="Title2" type="Label" parent="."]
-margin_left = 492.399
-margin_top = 959.79
-margin_right = 792.409
-margin_bottom = 1051.79
+margin_left = 524.536
+margin_top = 74.1462
+margin_right = 824.546
+margin_bottom = 166.146
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
@@ -193,10 +233,10 @@ __meta__ = {
 }
 
 [node name="Label9" type="Label" parent="."]
-margin_left = 340.799
-margin_top = 1104.05
-margin_right = 466.799
-margin_bottom = 1135.05
+margin_left = 320.936
+margin_top = 195.406
+margin_right = 446.936
+margin_bottom = 226.406
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "IZQUIERDA"
@@ -205,10 +245,10 @@ __meta__ = {
 }
 
 [node name="Label10" type="Label" parent="."]
-margin_left = 339.039
-margin_top = 1181.06
-margin_right = 465.039
-margin_bottom = 1212.06
+margin_left = 319.176
+margin_top = 272.416
+margin_right = 445.176
+margin_bottom = 303.416
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "DERECHA"
@@ -217,10 +257,10 @@ __meta__ = {
 }
 
 [node name="Label11" type="Label" parent="."]
-margin_left = 340.919
-margin_top = 1253.53
-margin_right = 466.919
-margin_bottom = 1284.53
+margin_left = 321.056
+margin_top = 344.886
+margin_right = 447.056
+margin_bottom = 375.886
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "ARRIBA"
@@ -229,10 +269,10 @@ __meta__ = {
 }
 
 [node name="Label15" type="Label" parent="."]
-margin_left = 343.289
-margin_top = 1328.82
-margin_right = 469.289
-margin_bottom = 1359.82
+margin_left = 323.426
+margin_top = 420.176
+margin_right = 449.426
+margin_bottom = 451.176
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "ABAJO"
@@ -241,10 +281,10 @@ __meta__ = {
 }
 
 [node name="Label12" type="Label" parent="."]
-margin_left = 838.299
-margin_top = 1372.01
-margin_right = 1060.3
-margin_bottom = 1437.01
+margin_left = 818.436
+margin_top = 487.366
+margin_right = 1040.44
+margin_bottom = 552.366
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "EVITA AL ENEMIGO"
@@ -253,10 +293,10 @@ __meta__ = {
 }
 
 [node name="Label13" type="Label" parent="."]
-margin_left = 838.029
-margin_top = 1123.78
-margin_right = 1091.03
-margin_bottom = 1222.78
+margin_left = 818.166
+margin_top = 239.136
+margin_right = 1071.17
+margin_bottom = 338.136
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "ELIMÍNALO
@@ -267,10 +307,10 @@ __meta__ = {
 }
 
 [node name="Label14" type="Label" parent="."]
-margin_left = 338.029
-margin_top = 1390.78
-margin_right = 538.029
-margin_bottom = 1556.78
+margin_left = 318.166
+margin_top = 482.136
+margin_right = 518.166
+margin_bottom = 648.136
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "CAMBIAR CON EL
@@ -280,40 +320,40 @@ __meta__ = {
 }
 
 [node name="Left2" type="Sprite" parent="."]
-position = Vector2( 289.239, 1118.7 )
+position = Vector2( 269.376, 210.056 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="Right2" type="Sprite" parent="."]
-position = Vector2( 287.429, 1194.85 )
+position = Vector2( 267.566, 286.206 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Up2" type="Sprite" parent="."]
-position = Vector2( 288.689, 1268.41 )
+position = Vector2( 268.826, 359.766 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Tecla3" type="Sprite" parent="."]
-position = Vector2( 288.269, 1344.28 )
+position = Vector2( 268.406, 435.636 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="Shift2" type="Sprite" parent="."]
-position = Vector2( 247.979, 1420.16 )
+position = Vector2( 228.116, 511.516 )
 scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Tecla4" type="Sprite" parent="."]
-position = Vector2( 278.689, 1420.13 )
+position = Vector2( 258.826, 511.486 )
 scale = Vector2( 0.340871, 0.260213 )
 texture = ExtResource( 5 )
 
 [node name="Label16" type="Label" parent="."]
-margin_left = 260.189
-margin_top = 1419.23
-margin_right = 300.189
-margin_bottom = 1433.23
+margin_left = 240.326
+margin_top = 510.586
+margin_right = 280.326
+margin_bottom = 524.586
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "shift"
 __meta__ = {
@@ -321,22 +361,62 @@ __meta__ = {
 }
 
 [node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 766.899, 1407.08 )
+position = Vector2( 747.036, 522.436 )
 scale = Vector2( 0.162355, 0.16739 )
 texture = ExtResource( 9 )
 
 [node name="Sprite4" type="Sprite" parent="."]
-position = Vector2( 748.289, 1177.01 )
+position = Vector2( 728.426, 292.366 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
 hframes = 10
 vframes = 12
 
+[node name="Label22" type="Label" parent="."]
+margin_left = 317.353
+margin_top = 576.91
+margin_right = 629.353
+margin_bottom = 607.91
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "PAUSAR / MOSTRAR MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label24" type="Label" parent="."]
+margin_left = 523.918
+margin_top = 674.965
+margin_right = 835.918
+margin_bottom = 705.965
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Enter para continuar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tecla7" type="Sprite" parent="."]
+position = Vector2( 244.673, 593.925 )
+scale = Vector2( 0.481412, 0.273055 )
+texture = ExtResource( 5 )
+
+[node name="Label23" type="Label" parent="."]
+margin_left = 229.167
+margin_top = 586.197
+margin_right = 269.167
+margin_bottom = 600.197
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label17" type="Label" parent="."]
-margin_left = 774.918
-margin_top = 456.489
-margin_right = 1069.92
-margin_bottom = 555.489
+margin_left = 740.055
+margin_top = -449.155
+margin_right = 1035.06
+margin_bottom = -350.155
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "EVITA A LOS ENEMIGOS O
@@ -347,7 +427,7 @@ __meta__ = {
 }
 
 [node name="Sprite5" type="Sprite" parent="."]
-position = Vector2( 820.589, 333.471 )
+position = Vector2( 785.726, -572.173 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
 hframes = 10
