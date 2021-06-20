@@ -260,7 +260,7 @@ position = Vector2( 3.009, 17.8089 )
 shape = SubResource( 5 )
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 8.0
 one_shot = true
 
 [node name="HitArea" type="Area2D" parent="."]
@@ -297,5 +297,6 @@ volume_db = -16.0
 
 [node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
+
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]

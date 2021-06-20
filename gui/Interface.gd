@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-export var _heartNum = 0
-export var _chromLives = 0
-export var _bosslives = 0
+export var _heartNum = 5
+export var _chromLives = 5
+export var _bosslives = 1
 onready var sprite = $TopBar/wifisignal
 var level
 

@@ -40,7 +40,7 @@ func _state_logic(_delta):
 func _get_transition(_delta):
 	if !parent.container.control:
 		return STATES.IDLE
-	if state != STATES.DEAD && parent.container.interface.heartNum == 0:
+	if state != STATES.DEAD && parent.container.interface && parent.container.interface.heartNum == 0:
 		parent._remove()
 		return STATES.DEAD
 	if Input.is_action_just_pressed("jump") && [STATES.IDLE, STATES.WALK, STATES.RUN].has(state) && (parent.is_on_floor() || parent.jumps < 1):

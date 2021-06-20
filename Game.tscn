@@ -563,7 +563,6 @@ __meta__ = {
 anims/matrix-fade = SubResource( 1 )
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]
-_bosslives = 3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -819,7 +818,7 @@ __meta__ = {
 }
 
 [node name="Chrom" parent="." instance=ExtResource( 19 )]
-position = Vector2( 3895.06, 185.222 )
+position = Vector2( 3895.06, 210.222 )
 collision_mask = 7
 
 [node name="Robot" parent="." instance=ExtResource( 10 )]
@@ -1007,41 +1006,53 @@ position = Vector2( 7117.59, 620.273 )
 [node name="Platform2" parent="endEnviroment" instance=ExtResource( 2 )]
 position = Vector2( 7270.65, 486.395 )
 
+[node name="Platform19" parent="endEnviroment" instance=ExtResource( 2 )]
+position = Vector2( 6953.01, 505.873 )
+
 [node name="Platform3" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6878.25, 132.218 )
+position = Vector2( 6948.67, 154.693 )
 
 [node name="Platform9" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 7069.61, 13.4605 )
+position = Vector2( 7084.59, 25.447 )
 
 [node name="Platform10" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 7287.95, -92.1763 )
+position = Vector2( 7349.86, -54.0787 )
+
+[node name="Platform22" parent="endEnviroment" instance=ExtResource( 2 )]
+position = Vector2( 7237.15, -152.498 )
 
 [node name="Platform4" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6700.55, 267.806 )
+position = Vector2( 6694.56, 282.789 )
+
+[node name="Platform20" parent="endEnviroment" instance=ExtResource( 2 )]
+position = Vector2( 6402.39, 257.318 )
 
 [node name="Platform5" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 7174.78, 247.519 )
+position = Vector2( 7225.22, 252.014 )
 
 [node name="Platform6" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6541.47, 69.7119 )
+position = Vector2( 6504.01, 131.143 )
 
 [node name="Platform7" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6377.43, -56.8915 )
+position = Vector2( 6401.4, -4.45074 )
 
 [node name="Platform11" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6923.21, -145.425 )
+position = Vector2( 6953.37, -151.775 )
+
+[node name="Platform21" parent="endEnviroment" instance=ExtResource( 2 )]
+position = Vector2( 6471.54, -159.051 )
 
 [node name="Platform17" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6763.44, -51.2447 )
+position = Vector2( 6687.03, -72.221 )
 
 [node name="Platform12" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6554.44, -339.787 )
+position = Vector2( 6543.13, -351.101 )
 
 [node name="Platform18" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 6705.77, -413.204 )
+position = Vector2( 6768.51, -413.204 )
 
 [node name="Platform14" parent="endEnviroment" instance=ExtResource( 2 )]
-position = Vector2( 7180.2, -330.079 )
+position = Vector2( 7162.53, -338.088 )
 
 [node name="Platform15" parent="endEnviroment" instance=ExtResource( 2 )]
 position = Vector2( 7064.09, -451.374 )
@@ -1057,13 +1068,13 @@ visible = false
 position = Vector2( 6274.96, -561.578 )
 
 [node name="BreakablePlatform" parent="endEnviroment" instance=ExtResource( 21 )]
-position = Vector2( 6935.54, 532.474 )
+position = Vector2( 6746.75, 69.4971 )
 
 [node name="BreakablePlatform3" parent="endEnviroment" instance=ExtResource( 21 )]
-position = Vector2( 7288.72, 145.662 )
+position = Vector2( 7281.23, 138.204 )
 
 [node name="BreakablePlatform2" parent="endEnviroment" instance=ExtResource( 21 )]
-position = Vector2( 6749.41, -501.759 )
+position = Vector2( 6741.4, -515.107 )
 
 [node name="MovingPlatform" parent="endEnviroment" instance=ExtResource( 22 )]
 position = Vector2( 6429.88, 389.717 )
@@ -1215,7 +1226,7 @@ editor_draw_drag_margin = true
 script = ExtResource( 28 )
 
 [node name="EndEnemy" parent="." instance=ExtResource( 29 )]
-position = Vector2( 7405.25, 116.312 )
+position = Vector2( 7406.19, 209.291 )
 collision_mask = 7
 
 [node name="Checkpoints" type="Node2D" parent="."]
@@ -1346,7 +1357,7 @@ position = Vector2( -8.19196, 229.213 )
 shape = SubResource( 27 )
 
 [node name="EndEnemyPosition" type="Position2D" parent="."]
-position = Vector2( 7264.58, 125.716 )
+position = Vector2( 7264.58, 184.716 )
 
 [node name="InfoDrone" type="ColorRect" parent="."]
 visible = false

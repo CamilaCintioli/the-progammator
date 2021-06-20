@@ -9,6 +9,7 @@ onready var three = $Three
 onready var four = $Four
 onready var five = $Five
 
+var interface = false
 var control = true
 var dron_zone = false
 var change_zone = false

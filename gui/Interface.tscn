@@ -28,9 +28,6 @@ font_data = ExtResource( 7 )
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource( 1 )
-_heartNum = 5
-_chromLives = 3
-_bosslives = 1
 
 [node name="TopBar" type="ColorRect" parent="."]
 anchor_left = 0.5
