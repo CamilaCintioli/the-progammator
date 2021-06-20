@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=50]
 [ext_resource path="res://enviroment/laser/Soldier.tscn" type="PackedScene" id=51]
 [ext_resource path="res://enviroment/TimePlatform.tscn" type="PackedScene" id=52]
+[ext_resource path="res://menu/PauseMenu2.tscn" type="PackedScene" id=53]
 
 [sub_resource type="Animation" id=1]
 resource_name = "matrix-fade"
@@ -561,6 +562,8 @@ __meta__ = {
 
 [node name="bg3Animation" type="AnimationPlayer" parent="BGs"]
 anims/matrix-fade = SubResource( 1 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 53 )]
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]
 _bosslives = 2

@@ -16,7 +16,7 @@ func _unhandled_input(_event):
 	if Input.is_action_pressed("start"):
 		get_tree().change_scene("res://Game.tscn")
 
-func _process(delta):
+func _process(_delta):
 	sections += 1
 	material.set_shader_param("tearing", 0.015)
 	material.set_shader_param("sections", float(sections) * 0.01)
