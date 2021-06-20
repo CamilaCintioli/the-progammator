@@ -22,6 +22,7 @@ tracks/0/keys = {
 }
 
 [node name="TimePlatform" type="StaticBody2D"]
+modulate = Color( 0.384314, 0.917647, 0.941176, 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

@@ -563,6 +563,7 @@ __meta__ = {
 anims/matrix-fade = SubResource( 1 )
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]
+_bosslives = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
