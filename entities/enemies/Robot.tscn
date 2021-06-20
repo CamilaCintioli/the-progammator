@@ -71,7 +71,12 @@ position = Vector2( 3.66026, -29.9194 )
 wait_time = 3.0
 one_shot = true
 
+[node name="PlayerTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
+[connection signal="body_exited" from="HitArea" to="." method="_on_HitArea_body_exited"]
 [connection signal="body_entered" from="HeadArea" to="." method="_on_HeadArea_body_entered"]
 [connection signal="body_entered" from="DetectionAreaRight" to="." method="_on_DetectionAreaRight_body_entered"]
 [connection signal="body_exited" from="DetectionAreaRight" to="." method="_on_DetectionAreaRight_body_exited"]
@@ -79,3 +84,4 @@ one_shot = true
 [connection signal="body_exited" from="DetectionAreaLeft" to="." method="_on_DetectionAreaLeft_body_exited"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_Position_timeout"]
+[connection signal="timeout" from="PlayerTimer" to="." method="_on_PlayerTimer_timeout"]
