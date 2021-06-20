@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
+[ext_resource path="res://entities/enemies/MatrixTurret.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/videos/output.webm" type="VideoStream" id=4]
+[ext_resource path="res://sounds/matrix_sound.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -13,19 +14,19 @@ font_data = ExtResource( 3 )
 size = 25
 font_data = ExtResource( 5 )
 
-[node name="Menu" type="VideoPlayer"]
+[node name="Menu" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -4.0
 margin_top = -5.0
 margin_right = 12.0
 margin_bottom = 5.0
-stream = ExtResource( 4 )
-autoplay = true
+color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+turret_scene = ExtResource( 2 )
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.184314
@@ -57,4 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="finished" from="." to="." method="_on_Menu_finished"]
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

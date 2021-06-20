@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/matrix_sound.ogg-52234793cfb2534bf9a15e7656378d17.oggstr"
+
+[deps]
+
+source_file="res://sounds/matrix_sound.ogg"
+dest_files=[ "res://.import/matrix_sound.ogg-52234793cfb2534bf9a15e7656378d17.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
