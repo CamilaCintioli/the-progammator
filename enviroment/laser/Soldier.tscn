@@ -11,10 +11,10 @@ extents = Vector2( 7.27268, 17.2346 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 311.592, 486.47 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 196.796, 486.47 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 141.682, 4.63781 )
 
 [node name="Soldier" type="KinematicBody2D"]
@@ -52,13 +52,14 @@ one_shot = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 4 )
+position = Vector2( 131, -0.000465393 )
+shape = SubResource( 3 )
 
 [node name="HitArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 position = Vector2( 168.146, 9.58737 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="LaserAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
