@@ -25,8 +25,6 @@ var stop_on_slope:bool = true
 var container
 var bounce = 0
 var laser_hitted:bool = false
-var jumps:int = 0
-
 var within_distance:bool = false
 
 func _ready():
@@ -122,14 +120,13 @@ func _apply_movement():
 		snap_vector = SNAP_DIRECTION * SNAP_LENGTH
 
 func _play_animation(animation_name:String, should_restart:bool = true, playback_speed:float = 1.0, play_backwards:bool = false):
-	if animation.has_animation(animation_name):
-		if should_restart:
-			animation.stop()
-		animation.playback_speed = playback_speed
-		if play_backwards:
-			animation.play_backwards(animation_name)
-		else:
-			animation.play(animation_name)
+	if should_restart:
+		animation.stop()
+	animation.playback_speed = playback_speed
+	if play_backwards:
+		animation.play_backwards(animation_name)
+	else:
+		animation.play(animation_name)
 
 func _is_animation_playing(animation_name:String)->bool:
 	return animation.current_animation == animation_name && animation.is_playing()

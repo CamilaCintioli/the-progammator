@@ -1330,7 +1330,7 @@ autoplay = true
 bus = "BGM"
 
 [node name="Coffee" parent="." instance=ExtResource( 41 )]
-position = Vector2( -909.414, 1593.87 )
+position = Vector2( -923.414, 1593.87 )
 
 [node name="Coffee2" parent="." instance=ExtResource( 41 )]
 position = Vector2( -1877, 1770.46 )

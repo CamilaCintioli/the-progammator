@@ -22,17 +22,7 @@ func initialize(parent):
 func _state_logic(_delta):
 	parent._handle_actions()
 	parent._handle_move_input()
-	
-	if parent.container.control && state == STATES.JUMP && Input.is_action_just_pressed("jump") && parent.jumps < 1:
-		parent.snap_vector = Vector2.ZERO
-		parent.velocity.y = -parent.jump_speed
-		parent.jumps += 1
-		parent._play_animation(animations_map[state])
-	
-	if parent.container.control && state == STATES.RUN || (state == STATES.JUMP && Input.is_action_pressed("run")):
-		parent._handle_acceleration(2)
-	else:
-		parent._handle_acceleration()
+	parent._handle_acceleration(1.0 + float((parent.container.control && state == STATES.RUN) || (state == STATES.JUMP && Input.is_action_pressed("run"))))
 	parent._apply_movement()
 
 func _get_transition(_delta):
@@ -41,10 +31,9 @@ func _get_transition(_delta):
 	if state != STATES.DEAD && parent.container.interface && parent.container.interface.heartNum == 0:
 		parent._remove()
 		return STATES.DEAD
-	if Input.is_action_just_pressed("jump") && [STATES.IDLE, STATES.WALK, STATES.RUN].has(state) && (parent.is_on_floor() || parent.jumps < 1):
+	if Input.is_action_just_pressed("jump") && [STATES.IDLE, STATES.WALK, STATES.RUN].has(state) && parent.is_on_floor():
 		parent.snap_vector = Vector2.ZERO
 		parent.velocity.y = -parent.jump_speed
-		parent.jumps += 1 * (1 + int(!parent.is_on_floor()))
 		return STATES.JUMP
 	
 	match state:
@@ -66,12 +55,10 @@ func _get_transition(_delta):
 				else:
 					return STATES.WALK
 		STATES.JUMP:
-			if parent.is_on_floor():
-				parent.jumps = 0
-				if parent.move_direction != 0:
-					return STATES.WALK
-				else:
-					return STATES.IDLE
+			if parent.is_on_floor() and parent.move_direction != 0:
+				return STATES.WALK
+			else:
+				return STATES.IDLE
 	return null
 
 func _enter_state(new_state, _old_state):
