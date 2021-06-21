@@ -181,7 +181,7 @@ func restart():
 			$InfoDrone.visible = true
 			$InfoDron.visible = true
 			interface.start_dron_connection()
-		if checkpoints.check == 3:
+		if checkpoints.check == 3 or checkpoints.check == 32:
 			change_zone = false
 			end_game = false
 			control = false
@@ -269,7 +269,6 @@ func _on_DronUp_body_entered(body):
 
 func _on_Device_body_entered(body):
 	if body.is_in_group("programmer"):
-		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
 		dron_zone = false
 
 func _on_ChangeCamera_body_entered(body):
@@ -325,3 +324,7 @@ func bug_fixed():
 
 func play_robot_killed_sound():
 	audio_stream.robot_killed()
+
+func _on_ChangeCamera_body_exited(body):
+	if body.is_in_group("dron"):
+		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)

@@ -88,6 +88,7 @@ func laser_hit():
 		laser_hitted = false
 	
 func update_position(pos):
+	snap_vector = Vector2.ZERO
 	velocity = Vector2.ZERO
 	global_position = pos
 
@@ -107,11 +108,9 @@ func pickUpCoffee():
 func _handle_move_input():
 	if container.control and (!container.dron_zone or !container.change_zone):
 		get_input()
-	else:
-		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 
 func _handle_acceleration(multiplier:float = 1.0):
-	if move_direction != 0:
+	if move_direction != 0 and container.control:
 		velocity.x = clamp(velocity.x + (move_direction * ACCELERATION * multiplier), -H_SPEED_LIMIT * multiplier, H_SPEED_LIMIT * multiplier)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0

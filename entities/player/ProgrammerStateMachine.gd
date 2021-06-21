@@ -21,9 +21,7 @@ func initialize(parent):
 
 func _state_logic(_delta):
 	parent._handle_actions()
-
-	if parent.container.control && !parent.container.dron_zone && ![STATES.IDLE, STATES.DEAD].has(state):
-		parent._handle_move_input()
+	parent._handle_move_input()
 	
 	if parent.container.control && state == STATES.JUMP && Input.is_action_just_pressed("jump") && parent.jumps < 1:
 		parent.snap_vector = Vector2.ZERO

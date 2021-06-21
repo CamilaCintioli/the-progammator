@@ -21,6 +21,10 @@ func _on_Checkpoint2_body_entered(body):
 func _on_Checkpoint3_body_entered(body):
 	if body.is_in_group("programmer"):
 		check3()
+		
+func _on_Checkpoint32_body_entered(body):
+	if body.is_in_group("programmer") or body.is_in_group("dron"):
+		check32()
 
 func _on_Checkpoint4_body_entered(body):
 	if body.is_in_group("programmer"):
@@ -55,6 +59,13 @@ func check3():
 	programmer_position = $Checkpoint3/CollisionShape2D.global_position
 	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
 	CheckpointsMenu.check = 3
+	
+func check32():
+	dron_enable = true
+	check = 32
+	programmer_position = $Checkpoint32/CollisionShape2D.global_position
+	dron_position = Vector2(programmer_position.x, programmer_position.y - 50)
+	CheckpointsMenu.check = 32
 	
 func check4():
 	dron_enable = false
