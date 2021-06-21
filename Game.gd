@@ -269,7 +269,7 @@ func _on_DronUp_body_entered(body):
 
 func _on_Device_body_entered(body):
 	if body.is_in_group("programmer"):
-		programmer.velocity = Vector2.ZERO
+		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
 		dron_zone = false
 
 func _on_ChangeCamera_body_entered(body):

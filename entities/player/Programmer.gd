@@ -88,6 +88,7 @@ func laser_hit():
 		laser_hitted = false
 	
 func update_position(pos):
+	velocity = Vector2.ZERO
 	global_position = pos
 
 func set_game_over():
