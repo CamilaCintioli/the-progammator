@@ -1379,8 +1379,8 @@ margin_bottom = 1656.27
 custom_fonts/normal_font = SubResource( 28 )
 custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
-bbcode_text = "Continua con el drone"
-text = "Continua con el drone"
+bbcode_text = "CONTINUE WITH THE DRONE"
+text = "CONTINUE WITH THE DRONE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1431,22 +1431,22 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="DialogBox"]
-margin_left = 71.0
-margin_top = 28.0
-margin_right = 469.0
-margin_bottom = 127.0
+margin_left = 77.0
+margin_top = 54.0
+margin_right = 410.0
+margin_bottom = 112.0
 color = Color( 0.811765, 0.792157, 0.576471, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
 margin_left = 97.0
-margin_top = 33.0
+margin_top = 58.0
 margin_right = 471.0
-margin_bottom = 199.0
+margin_bottom = 224.0
 custom_fonts/normal_font = SubResource( 32 )
 custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
-bbcode_text = "Corrige todos log bugs"
-text = "Corrige todos log bugs"
+bbcode_text = "FIX ALL BUGS"
+text = "FIX ALL BUGS"
 
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]

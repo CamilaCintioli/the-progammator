@@ -62,7 +62,7 @@ margin_top = -153.417
 margin_bottom = -70.4169
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "JUEGO PAUSADO"
+text = "GAME PAUSED"
 align = 1
 valign = 1
 __meta__ = {
@@ -103,7 +103,7 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Controles"
+text = "Controls"
 
 [node name="Exit" type="Button" parent="Control/Panel/VBoxContainer"]
 margin_top = 68.0

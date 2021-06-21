@@ -12,7 +12,7 @@ extents = Vector2( 7.27268, 17.2346 )
 shader = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 196.796, 486.47 )
+extents = Vector2( 206.338, 474.456 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 141.682, 4.63781 )
@@ -52,7 +52,7 @@ one_shot = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 131, -0.000465393 )
+position = Vector2( 195, -0.000656128 )
 shape = SubResource( 3 )
 
 [node name="HitArea" type="Area2D" parent="."]

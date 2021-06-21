@@ -47,13 +47,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 429.616
+margin_left = 378.616
 margin_top = 395.341
-margin_right = 878.616
+margin_right = 905.616
 margin_bottom = 429.341
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "ENTER PARA COMENZAR"
+text = "PRESS ENTER TO CONTINUE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
