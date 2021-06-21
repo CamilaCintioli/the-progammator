@@ -31,6 +31,7 @@ one_shot = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -9.0
 attenuation = 1.23114
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

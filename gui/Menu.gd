@@ -28,7 +28,6 @@ func _process(_delta):
 
 func initialize(_container):
 	container = _container
-	start_turrets()
 
 func button_1():
 	CheckpointsMenu.set_check(1)
@@ -49,13 +48,6 @@ func button_4():
 func button_5():
 	CheckpointsMenu.set_check(5)
 	container.start_level_1()
-
-func start_turrets():
-	if init_turrets:
-		init_turrets = false
-		for pos in [0,50,100,150,200,250,300,400,500,600,700,750,800,850,900,950,1000,1050,1100,1150,1200,1300]:
-			var turret = turret_scene.instance()
-			turret.initialize(self, Vector2(pos, 0))
 
 func _on_Audio_finished():
 	sound.play()

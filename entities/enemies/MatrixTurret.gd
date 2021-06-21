@@ -13,6 +13,8 @@ func _add():
 	container.add_child(self)
 	fire_timer.wait_time = rand_range(1,5)
 	fire_timer.start()
+	#Conectando la señal de game para parar los disparos 
+	container.connect("stop_shooting", self, "_on_stop_shooting")
 
 func initialize(_container, turret_pos):
 	self.container = _container
