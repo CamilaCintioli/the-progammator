@@ -6,6 +6,9 @@ export var _bosslives = 1
 onready var sprite = $TopBar/wifisignal
 var level
 
+onready var fade_tween = $Fade/Tween
+onready var fade = $Fade/BlackScreen
+
 var heartNum = 0
 var chromLives = 0
 var bosslives = 0
@@ -20,6 +23,9 @@ func _ready():
 	$RestartButton.hide()
 	$WinButton.hide()
 	$TopBar.hide()
+	fade.color.a = 0
+	fade.hide()
+	
 	finGame = false
 	
 func initialize(theLevel):
@@ -29,6 +35,11 @@ func initialize(theLevel):
 	$TopBar.show()
 	$TopBar/connection.text = "offline"
 	set_on()
+	
+func fade_to_black():
+	fade.show()
+	fade_tween.interpolate_property(fade, "color", fade.color, Color.black, 1)
+	fade_tween.start()
 	
 func set_chrome_bar():
 	chromLives = _chromLives
@@ -62,13 +73,14 @@ func set_on():
 	
 func game_over(audio_stream):
 	if !finGame:
+		fade_to_black()
+		level.game_over()
 		audio_stream.game_over()
 		$grayRect/greenHeart.set_modulate(Color.darkgreen)
 		show_message()
 		yield($GameOverTimer, "timeout")
 		$RestartButton.show()
-		level.game_over()
-
+		
 func _on_RestartButton_pressed():
 	$RestartButton.hide()
 	$WinButton.hide()

@@ -40,15 +40,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="Panel" parent="Control"]
+modulate = Color( 0, 0, 0, 0.454902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="Panel" type="Panel" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -762.0
-margin_top = -474.0
-margin_right = 730.0
-margin_bottom = 428.0
+margin_left = -350.0
+margin_top = -250.0
+margin_right = 350.0
+margin_bottom = 250.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,8 +63,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -153.417
-margin_bottom = -70.4169
+margin_top = -121.5
+margin_bottom = -38.5
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 text = "GAME PAUSED"
@@ -128,7 +133,6 @@ visible = false
 position = Vector2( 639.882, 360.01 )
 scale = Vector2( 1.00124, 1.00369 )
 texture = ExtResource( 3 )
-
 [connection signal="drone_controls" from="." to="." method="_on_PauseMenu_drone_controls"]
 [connection signal="exit_requested" from="." to="." method="_on_PauseMenu_exit_requested"]
 [connection signal="button_up" from="Control/Panel/VBoxContainer/Continue" to="." method="_on_Continue_button_up"]

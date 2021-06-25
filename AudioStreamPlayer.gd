@@ -1,8 +1,7 @@
 extends AudioStreamPlayer
 
 
-onready var coffee_take = load("res://assets/sounds/take-coffe-sound.wav") 
-onready var game_over_sound = load("res://sounds/Lose.wav")
+onready var game_over_sound = load("res://sounds/Lose - The Programator -.ogg")
 onready var game_win_sound = load("res://sounds/Win.wav")
 onready var lose_life_sound = load("res://sounds/Lose-life.wav")
 onready var chrom_explosion_sound = load("res://sounds/Chrome-explosion.wav")

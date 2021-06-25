@@ -48,6 +48,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_checkpoint(CheckpointsMenu.check)
+	$BGMusicStreamPlayer.play()
 
 func _initialize_coffee_health_packs():
 	coffee.initialize(self, audio_stream)
@@ -133,6 +134,7 @@ func game_over():
 	is_game_over = true
 	programmer.set_game_over()
 	dron.bye()
+	$BGMusicStreamPlayer.stream_paused = true
 	
 func dron_bye():
 	change_control()
@@ -153,6 +155,7 @@ func restart_tree():
 
 func restart():
 	interface.set_on()
+	$BGMusicStreamPlayer.stream_paused = false
 	if checkpoints.check > 0:
 		programmer.global_position = checkpoints.programmer_position
 		programmer.set_physics_process(true)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemies/MatrixTurret.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://sounds/matrix_sound.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/1_The Programator - Intro.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -13,6 +13,23 @@ font_data = ExtResource( 3 )
 [sub_resource type="DynamicFont" id=2]
 size = 25
 font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.933333 ) ]
+}
 
 [node name="Menu" type="ColorRect"]
 anchor_right = 1.0
@@ -47,6 +64,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.933333 )
 margin_left = 378.616
 margin_top = 395.341
 margin_right = 905.616
@@ -61,4 +79,6 @@ __meta__ = {
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 
+[node name="AnimationEnter" type="AnimationPlayer" parent="."]
+anims/blink = SubResource( 3 )
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

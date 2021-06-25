@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://gui/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -20,6 +20,12 @@ font_data = ExtResource( 7 )
 size = 38
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.164706, 0.156863, 0.156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 34
@@ -199,6 +205,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Fade" type="Node" parent="."]
+
+[node name="BlackScreen" type="ColorRect" parent="Fade"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Tween" type="Tween" parent="Fade"]
+
 [node name="RestartButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -208,7 +224,11 @@ margin_left = -125.0
 margin_top = -50.0
 margin_right = 125.0
 margin_bottom = 50.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.0352941, 0.756863, 0.0313726, 1 )
+custom_colors/font_color_hover = Color( 0.384314, 0.952941, 0.145098, 1 )
 text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -250,12 +270,12 @@ __meta__ = {
 }
 
 [node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="DisconnectedTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="WinButton" to="." method="_on_WinButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

@@ -37,7 +37,7 @@
 [ext_resource path="res://assets/textures/background/codingTech blue.png" type="Texture" id=35]
 [ext_resource path="res://assets/textures/background/codingTech green.png" type="Texture" id=36]
 [ext_resource path="res://assets/textures/background/codingTech red.png" type="Texture" id=37]
-[ext_resource path="res://assets/sounds/BG-Corona-320bit.wav" type="AudioStream" id=38]
+[ext_resource path="res://sounds/CoronaOGG.ogg" type="AudioStream" id=38]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (7).png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (8).png" type="Texture" id=40]
 [ext_resource path="res://Coffee.tscn" type="PackedScene" id=41]
@@ -1432,6 +1432,7 @@ position = Vector2( 6866.78, -1598.41 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
 script = ExtResource( 48 )
 
 [node name="DialogBox" type="Control" parent="."]
@@ -1461,7 +1462,6 @@ custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
-
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

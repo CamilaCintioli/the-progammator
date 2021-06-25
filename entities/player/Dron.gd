@@ -14,7 +14,7 @@ var FRICTION_WEIGHT:float = 0.3
 var container
 
 var velocity:Vector2 = Vector2.ZERO
-var VELOCITY_TO_CRASH = 140.0
+var VELOCITY_TO_CRASH = 280.0
 var v_x = 0.0
 var v_y = 0.0
 var upOrDown = false
@@ -76,6 +76,7 @@ func collision_with_tile_map(vel_x, vel_y, up_or_down):
 		var collision = get_slide_collision(i)
 		var tile: bool = collision.collider is TileMap or collision.collider.name == "EndEnemy"
 		if tile and (abs(vel_x) > VELOCITY_TO_CRASH or abs(vel_y) > VELOCITY_TO_CRASH):
+			animation.play("sparks")
 			emit_signal('collided')
 		else:
 			hit(tile, vel_x, vel_y, up_or_down)

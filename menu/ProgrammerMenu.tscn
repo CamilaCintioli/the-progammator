@@ -369,8 +369,8 @@ texture = ExtResource( 9 )
 position = Vector2( -729.921, 1208.49 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
-hframes = 10
 vframes = 12
+hframes = 10
 
 [node name="Label22" type="Label" parent="."]
 margin_left = -1140.99
@@ -430,8 +430,8 @@ __meta__ = {
 position = Vector2( -672.621, 343.95 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
-hframes = 10
 vframes = 12
+hframes = 10
 
 [node name="Back3" type="Sprite" parent="."]
 position = Vector2( 647.645, 362.83 )
@@ -780,8 +780,8 @@ texture = ExtResource( 9 )
 position = Vector2( 774.802, 1202.83 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
-hframes = 10
 vframes = 12
+hframes = 10
 
 [node name="Label43" type="Label" parent="."]
 margin_left = 363.729
@@ -841,5 +841,5 @@ __meta__ = {
 position = Vector2( 834.102, 337.293 )
 scale = Vector2( 1.83907, 1.66486 )
 texture = ExtResource( 11 )
-hframes = 10
 vframes = 12
+hframes = 10
