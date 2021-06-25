@@ -566,7 +566,7 @@ anims/matrix-fade = SubResource( 1 )
 [node name="PauseMenu" parent="." instance=ExtResource( 53 )]
 
 [node name="Interface" parent="." instance=ExtResource( 11 )]
-_bosslives = 2
+_bosslives = 3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -1462,6 +1462,7 @@ custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
+
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

@@ -19,7 +19,7 @@ var dron = false
 var damaged = false
 var damaged_x = 0
 var velocity = Vector2.ZERO
-var speed = 4000
+var speed = 3450
 
 func _ready():
 	add_to_group("endEnemy")

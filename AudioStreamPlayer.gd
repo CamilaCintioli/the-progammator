@@ -8,6 +8,7 @@ onready var chrom_explosion_sound = load("res://sounds/Chrome-explosion.wav")
 onready var chrom_hit_sound = load("res://sounds/Chorme-hit.wav")
 onready var fix_bug = load("res://sounds/Code-grab.wav")
 onready var robot_killed_sound = load("res://sounds/Robot-death.wav")
+onready var take_coffee = load("res://assets/sounds/take-coffe-sound.wav")
 
 func game_over():
 	self.stream = game_over_sound
@@ -35,4 +36,8 @@ func bug_fixed():
 	
 func robot_killed():
 	self.stream = robot_killed_sound
+	self.play()
+
+func take_coffee_sound():
+	self.stream = take_coffee
 	self.play()

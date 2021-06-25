@@ -10,21 +10,22 @@ onready var drone = $DroneMenu
 
 var can_pause:bool = false
 var player:bool = false
+var container
 
 func _ready():
 	menu.hide()
 	programmer.hide()
 	drone.hide()
-	call_deferred("initialize")
 
-func initialize():
+func initialize(_container):
 	can_pause = true
+	container = _container
 
 func exit_game():
 	get_tree().quit()
 
 func _unhandled_input(_event):
-	if can_pause && Input.is_action_just_pressed("start") && input_timer.is_stopped():
+	if !container.is_game_over && can_pause && Input.is_action_just_pressed("start") && input_timer.is_stopped():
 		if player:
 			player = false
 			emit_signal("drone_controls")

@@ -44,6 +44,7 @@ func _ready():
 	endCamera.initialize(programmer)
 	endEnemy.initialize(self)
 	upCamera.initialize(self)
+	$PauseMenu.initialize(self)
 	$DialogBox.visible = false
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position

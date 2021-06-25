@@ -11,8 +11,7 @@ func initialize(_container, audio_stream):
 func _on_PickUpArea_body_entered(body):
 	if body.is_in_group("programmer") && !taken:
 		taken = true
-		audiostream.stream = audiostream.coffee_take
-		audiostream.play()
+		audiostream.take_coffee_sound()
 		body.pickUpCoffee()
 		hide()
 		call_deferred("_remove")
