@@ -21,13 +21,13 @@ size = 38
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.235294, 0.227451, 0.227451, 1 )
+
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.164706, 0.156863, 0.156863, 1 )
+bg_color = Color( 0.137255, 0.133333, 0.133333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 size = 34
 use_filter = true
 font_data = ExtResource( 7 )
@@ -224,9 +224,9 @@ margin_left = -125.0
 margin_top = -50.0
 margin_right = 125.0
 margin_bottom = 50.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.0352941, 0.756863, 0.0313726, 1 )
 custom_colors/font_color_hover = Color( 0.384314, 0.952941, 0.145098, 1 )
 text = "Restart"
@@ -262,7 +262,7 @@ margin_left = -121.29
 margin_top = -49.4459
 margin_right = 128.71
 margin_bottom = 50.5536
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false,

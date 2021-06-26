@@ -21,10 +21,21 @@ shader_param/tearing = 0.025
 
 [node name="DroneMenu" type="Sprite"]
 material = SubResource( 2 )
-position = Vector2( 639.909, 359.776 )
+position = Vector2( 639.909, 356.601 )
 scale = Vector2( 1.00049, 1.00073 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -660.036
+margin_top = -380.699
+margin_right = 659.964
+margin_bottom = 379.301
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -33,6 +44,5 @@ one_shot = true
 stream = ExtResource( 3 )
 volume_db = -9.0
 attenuation = 1.23114
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

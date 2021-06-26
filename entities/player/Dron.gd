@@ -110,8 +110,8 @@ func enemy_hit():
 		
 func laser_hit():
 	var _dir = (global_position - container.endEnemy.global_position).normalized()
-	velocity.x += clamp(_dir.x, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 4)
-	velocity.y += clamp(_dir.y, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 4)
+	velocity.x += clamp(_dir.x, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 6)
+	velocity.y += clamp(_dir.y, -FRICTION_WEIGHT, FRICTION_WEIGHT) * (speed - 6)
 	
 func come_back():
 	call_deferred("set_game_on")
