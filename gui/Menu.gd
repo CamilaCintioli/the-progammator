@@ -3,14 +3,22 @@ extends ColorRect
 export (PackedScene) var turret_scene
 
 onready var sound = $Audio
-onready var anim = $AnimationEnter
+onready var soundKey = $AudioStreamPlayer
+onready var animEnter = $AnimationEnter
+onready var animTitle = $AnimationTitle
 
 var init_turrets = true
 var container
 
 func _ready():
+	$Label.hide()
 	sound.play()
-	anim.play("blink")
+	soundKey.play()
+	animTitle.play("intro")
+	yield(animTitle, "animation_finished")
+	soundKey.stop()
+	$Label.show()
+	animEnter.play("blink")
 	
 
 func _process(_delta):
@@ -54,3 +62,6 @@ func button_5():
 
 func _on_Audio_finished():
 	sound.play()
+
+
+

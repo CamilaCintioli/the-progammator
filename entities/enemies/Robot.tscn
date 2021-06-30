@@ -5,13 +5,13 @@
 [ext_resource path="res://entities/Proyectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.25284, 36.4371 )
+extents = Vector2( 7.7476, 42.3124 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.8121, 31.2732 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 14.8989, 8.13791 )
+extents = Vector2( 14.8989, 12.9645 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 257.139
@@ -29,8 +29,8 @@ projectile_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 10
 vframes = 12
+hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.96257, 4.1202 )
@@ -74,7 +74,6 @@ one_shot = true
 [node name="PlayerTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
 [connection signal="body_exited" from="HitArea" to="." method="_on_HitArea_body_exited"]
 [connection signal="body_entered" from="HeadArea" to="." method="_on_HeadArea_body_entered"]

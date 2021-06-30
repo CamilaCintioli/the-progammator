@@ -3,11 +3,12 @@ extends CanvasLayer
 export var _heartNum = 5
 export var _chromLives = 5
 export var _bosslives = 1
-onready var sprite = $TopBar/wifisignal
+onready var sprite = $Wifi/wifisignal
 var level
 
 onready var fade_tween = $Fade/Tween
 onready var fade = $Fade/BlackScreen
+onready var wifi = $Wifi
 
 var heartNum = 0
 var chromLives = 0
@@ -23,6 +24,7 @@ func _ready():
 	$RestartButton.hide()
 	$WinButton.hide()
 	$TopBar.hide()
+	wifi.show()
 	fade.color.a = 0
 	fade.hide()
 	
@@ -32,8 +34,9 @@ func initialize(theLevel):
 	level = theLevel
 	$grayRect/heartsNumber.text = str(_heartNum)
 	$grayRect.show()
-	$TopBar.show()
-	$TopBar/connection.text = "offline"
+	wifi.show()
+	#$TopBar.show()
+	#$TopBar/connection.text = "offline"
 	set_on()
 	
 func fade_to_black():
@@ -69,6 +72,7 @@ func set_on():
 	heartNum = _heartNum
 	$grayRect/heartsNumber.text = str(heartNum)
 	$grayRect/greenHeart.set_modulate(Color.green)
+	wifi.show()
 	
 	
 func game_over(audio_stream):
@@ -125,32 +129,39 @@ func _on_WinButton_pressed():
 	get_tree().change_scene("res://Game.tscn")
 	
 func set_dron_connection(conn_level):
-	display_connection(conn_level)
+	
 	sprite.frame = conn_level
 	if (conn_level == 0 ):
 		$DisconnectedBar.show()
-		$DisconnectedBar/Disconnected.text = "Sin señal..."
+		$DisconnectedBar/Disconnected.text = "Wifi signal lost"
 		$DisconnectedTimer.start()
 		
-func display_connection(conn_level):
-	if(conn_level > 0):
-		$TopBar/connection.text = "online"
-	else:
-		$TopBar/connection.text = "offline"
+func display_connection(player_pos):
+	
+	
+	#wifi.rect_position = player_pos
+	#print(player_pos)
+	pass
+	#wifi.show()
+	#if(conn_level > 0):
+	#	$TopBar/connection.text = "online"
+	#else:
+	#	$TopBar/connection.text = "offline"
 		
 func start_dron_connection():
-	$TopBar/connection.show()
-	$TopBar/wifisignal.show()
-	$TopBar/connection.text = "online"
-	
+	#$TopBar/connection.show()
+	#$TopBar/wifisignal.show()
+	#$TopBar/connection.text = "online"
+	wifi.show()
 	
 func stop_dron_connection():
-	$TopBar/connection.show()
-	$TopBar/wifisignal.show()
-	$TopBar/connection.text = "offline"
-
+	#$TopBar/connection.show()
+	#$TopBar/wifisignal.show()
+	#$TopBar/connection.text = "offline"
+	pass
+	
 func _on_DisconnectedTimer_timeout():
 	level.change_control()
 	$DisconnectedBar.hide()
 	$DisconnectedBar/Disconnected.text = ""
-	$TopBar/connection.text = "offline"
+	#$TopBar/connection.text = "offline"

@@ -30,6 +30,7 @@ var init_turrets = true
 var chrom_dead = false
 var final = true
 var has_started = false
+var can_change = false
 
 func _ready():
 	programmer.initialize(self)
@@ -49,6 +50,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_checkpoint(CheckpointsMenu.check)
+	
 	$BGMusicStreamPlayer.play()
 
 func _initialize_coffee_health_packs():
@@ -85,6 +87,7 @@ func start_checkpoint(nro):
 
 func change_control():
 	control = !control
+	#if(can_change):
 	if control:
 		$Programmer/CameraProgramer.current = true
 	else:
@@ -183,7 +186,7 @@ func restart():
 			change_zone = false
 			change = false
 			$InfoDrone.visible = true
-			$InfoDron.visible = true
+			$InfoDrone/InfoDroneText.visible = true
 			interface.start_dron_connection()
 		if checkpoints.check == 3 or checkpoints.check == 32:
 			change_zone = false
@@ -251,6 +254,10 @@ func set_connection(conn_level):
 	if(conn_level ==0):
 		dron.set_game_over()
 	interface.set_dron_connection(conn_level)
+	if(control):
+		interface.display_connection(programmer.position)
+	else:
+		interface.display_connection(dron.position)
 	
 
 func _on_EndArea_body_entered(body):
@@ -269,7 +276,7 @@ func _on_DronUp_body_entered(body):
 		control = false
 		change = false
 		$InfoDrone.visible = true
-		$InfoDron.visible = true
+		$InfoDrone/InfoDroneText.visible = true
 
 func _on_Device_body_entered(body):
 	if body.is_in_group("programmer"):

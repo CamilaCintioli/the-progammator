@@ -3,7 +3,7 @@
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enviroment/portals/Codes.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/MLTWNII_.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sounds/testBG.ogg" type="AudioStream" id=4]
 [ext_resource path="res://enviroment/MovingFloor.gd" type="Script" id=5]
 [ext_resource path="res://enviroment/portals/While.gd" type="Script" id=6]
 [ext_resource path="res://assets/textures/gray_square.png" type="Texture" id=7]
@@ -37,7 +37,6 @@
 [ext_resource path="res://assets/textures/background/codingTech blue.png" type="Texture" id=35]
 [ext_resource path="res://assets/textures/background/codingTech green.png" type="Texture" id=36]
 [ext_resource path="res://assets/textures/background/codingTech red.png" type="Texture" id=37]
-[ext_resource path="res://sounds/CoronaOGG.ogg" type="AudioStream" id=38]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (7).png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (8).png" type="Texture" id=40]
 [ext_resource path="res://Coffee.tscn" type="PackedScene" id=41]
@@ -357,22 +356,30 @@ extents = Vector2( 71.0125, 99.9192 )
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 77.2622, 325.054 )
 
-[sub_resource type="DynamicFont" id=28]
-size = 30
-font_data = ExtResource( 4 )
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.109804, 0.101961, 0.101961, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 16.6465, 93.2645 )
+[sub_resource type="DynamicFont" id=29]
+size = 32
+extra_spacing_top = 8
+font_data = ExtResource( 50 )
 
 [sub_resource type="RectangleShape2D" id=30]
-extents = Vector2( 5.10254, 92.6412 )
+extents = Vector2( 16.6465, 93.2645 )
 
 [sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 5.10254, 92.6412 )
+
+[sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 21.0298, 99.5102 )
 
-[sub_resource type="DynamicFont" id=32]
+[sub_resource type="DynamicFont" id=33]
 size = 30
-font_data = ExtResource( 4 )
+font_data = ExtResource( 50 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 8 )
@@ -610,7 +617,7 @@ position = Vector2( -3397.12, 2515.91 )
 position = Vector2( -1221.4, 2322.24 )
 
 [node name="Portal" parent="." instance=ExtResource( 15 )]
-position = Vector2( 2260.13, 635.575 )
+position = Vector2( 2260.13, 632.011 )
 collision_mask = 7
 
 [node name="Bugs" type="Node" parent="."]
@@ -1324,7 +1331,7 @@ wait_time = 1.85
 autostart = true
 
 [node name="BGMusicStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 38 )
+stream = ExtResource( 4 )
 volume_db = -0.4
 autoplay = true
 bus = "BGM"
@@ -1373,25 +1380,25 @@ shape = SubResource( 27 )
 [node name="EndEnemyPosition" type="Position2D" parent="."]
 position = Vector2( 7264.58, 184.716 )
 
-[node name="InfoDrone" type="ColorRect" parent="."]
+[node name="InfoDrone" type="Panel" parent="."]
 visible = false
-margin_left = -1101.81
-margin_top = 1493.66
-margin_right = -719.811
-margin_bottom = 1625.66
-color = Color( 0.811765, 0.792157, 0.576471, 1 )
+margin_left = -1102.0
+margin_top = 1494.0
+margin_right = -786.0
+margin_bottom = 1626.0
+custom_styles/panel = SubResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InfoDron" type="RichTextLabel" parent="."]
+[node name="InfoDroneText" type="RichTextLabel" parent="InfoDrone"]
 visible = false
-margin_left = -1085.54
-margin_top = 1516.27
-margin_right = -704.545
-margin_bottom = 1656.27
-custom_fonts/normal_font = SubResource( 28 )
-custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
+margin_left = 22.7622
+margin_top = 22.0486
+margin_right = 301.762
+margin_bottom = 116.049
+custom_fonts/normal_font = SubResource( 29 )
+custom_colors/default_color = Color( 0.133333, 0.709804, 0.156863, 1 )
 bbcode_enabled = true
 bbcode_text = "CONTINUE WITH THE DRONE"
 text = "CONTINUE WITH THE DRONE"
@@ -1405,7 +1412,7 @@ script = ExtResource( 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortal"]
 position = Vector2( 5005.29, 635.068 )
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="ChromPortalStart" type="StaticBody2D" parent="."]
 collision_mask = 7
@@ -1413,7 +1420,7 @@ script = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromPortalStart"]
 position = Vector2( 3734.02, 636.058 )
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="ChromCamera" type="Camera2D" parent="."]
 position = Vector2( 4373.28, 418.574 )
@@ -1424,7 +1431,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChromCameraStart"]
 position = Vector2( -428.483, 67.4095 )
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="EndEnemyCamera" type="Camera2D" parent="."]
 position = Vector2( 6866.78, -1598.41 )
@@ -1436,33 +1443,33 @@ bus = "Effects"
 script = ExtResource( 48 )
 
 [node name="DialogBox" type="Control" parent="."]
-margin_left = 2009.0
-margin_top = 405.109
-margin_right = 2577.0
-margin_bottom = 620.109
+visible = false
+margin_left = 2023.68
+margin_top = 405.0
+margin_right = 2512.68
+margin_bottom = 569.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="DialogBox"]
-margin_left = 77.0
+margin_left = 93.0
 margin_top = 54.0
-margin_right = 410.0
+margin_right = 378.0
 margin_bottom = 112.0
-color = Color( 0.811765, 0.792157, 0.576471, 1 )
+color = Color( 0.152941, 0.152941, 0.145098, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
-margin_left = 97.0
-margin_top = 58.0
+margin_left = 130.0
+margin_top = 71.0
 margin_right = 471.0
 margin_bottom = 224.0
-custom_fonts/normal_font = SubResource( 32 )
-custom_colors/default_color = Color( 0.329412, 0.25098, 0.0666667, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+custom_colors/default_color = Color( 0.121569, 0.780392, 0.243137, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
-
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

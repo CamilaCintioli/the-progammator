@@ -58,7 +58,6 @@ func _check_distance():
 	if distance < container.dron.disconnect_distance:
 		if !within_distance:
 			container.dron.set_game_on()
-			container.interface.display_connection(1)
 			within_distance = true
 		if distance > container.dron.disconnect_distance:
 			container.set_connection(0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemies/MatrixTurret.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://sounds/1_The Programator - Intro.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://sounds/keyboard.ogg" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -29,6 +30,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.933333 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 0, 3, 7, 10, 0, 7, 0, 13, -1, 0, -1 ]
 }
 
 [node name="Menu" type="ColorRect"]
@@ -59,6 +76,7 @@ custom_colors/font_color = Color( 0.231373, 0.784314, 0.278431, 1 )
 text = "THE PROGRAMATOR"
 align = 1
 valign = 1
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -79,6 +97,14 @@ __meta__ = {
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Effects"
+
 [node name="AnimationEnter" type="AnimationPlayer" parent="."]
 anims/blink = SubResource( 3 )
+
+[node name="AnimationTitle" type="AnimationPlayer" parent="."]
+anims/intro = SubResource( 4 )
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
