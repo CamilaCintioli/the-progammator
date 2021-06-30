@@ -279,8 +279,8 @@ rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "FELICITACIONES!
-JUEGO COMPLETADO"
+text = "CONGRATULATIONS!
+GAME COMPLETED"
 align = 1
 valign = 1
 __meta__ = {
@@ -299,7 +299,7 @@ margin_bottom = 6.80794
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.266667, 0.709804, 0.27451, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Autores: Jimena Rosato, Gabriel Pasquale, Camila Cintioli                    Gracias: Julieta, Eric, Nahuel, Ariel, Matias"
+text = "Authors: Jimena Rosato, Gabriel Pasquale, Camila Cintioli                    Thanks: Julieta, Eric, Nahuel, Ariel, Matias"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -331,13 +331,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Zero"]
-margin_left = 372.109
-margin_top = 301.34
-margin_right = 525.109
-margin_bottom = 332.34
+margin_left = 370.109
+margin_top = 302.34
+margin_right = 526.109
+margin_bottom = 333.34
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar
-   desde el comienzo"
+text = "Press Enter to play again
+    from the beginning"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -362,6 +362,9 @@ margin_top = 278.721
 margin_right = 536.212
 margin_bottom = 355.721
 custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="One"]
 margin_left = 370.125
@@ -369,8 +372,8 @@ margin_top = 298.959
 margin_right = 528.125
 margin_bottom = 329.959
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar 
- desde el checkpoint 1"
+text = "Press Enter to play again
+     from checkpoint 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -402,8 +405,8 @@ margin_top = 301.34
 margin_right = 529.712
 margin_bottom = 332.34
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar 
- desde el checkpoint 2"
+text = "Press Enter to play again
+     from checkpoint 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -435,8 +438,8 @@ margin_top = 300.547
 margin_right = 528.919
 margin_bottom = 331.547
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar 
- desde el checkpoint 3"
+text = "Press Enter to play again
+     from checkpoint 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -468,8 +471,8 @@ margin_top = 302.134
 margin_right = 528.712
 margin_bottom = 333.134
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar 
- desde el checkpoint 4"
+text = "Press Enter to play again
+     from checkpoint 4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -501,8 +504,8 @@ margin_top = 300.547
 margin_right = 528.712
 margin_bottom = 331.547
 custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
-text = "Enter para volver a jugar 
- desde el checkpoint 5"
+text = "Press Enter to play again
+     from checkpoint 5"
 __meta__ = {
 "_edit_use_anchors_": false
 }

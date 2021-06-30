@@ -295,7 +295,7 @@ func _on_StartUpCamera_body_entered(body):
 		upCamera.start()
 
 func _on_DeadArea_body_entered(body):
-	if body.is_in_group("programmer"):
+	if body.is_in_group("programmer") and !is_game_over:
 		dead()
 
 func _on_Timer_timeout():
