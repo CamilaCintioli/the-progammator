@@ -94,8 +94,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+[node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+bus = "IntroAndOutro"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -107,4 +108,3 @@ anims/blink = SubResource( 3 )
 [node name="AnimationTitle" type="AnimationPlayer" parent="."]
 anims/intro = SubResource( 4 )
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

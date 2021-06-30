@@ -142,26 +142,14 @@ func display_connection(player_pos):
 	#wifi.rect_position = player_pos
 	#print(player_pos)
 	pass
-	#wifi.show()
-	#if(conn_level > 0):
-	#	$TopBar/connection.text = "online"
-	#else:
-	#	$TopBar/connection.text = "offline"
 		
 func start_dron_connection():
-	#$TopBar/connection.show()
-	#$TopBar/wifisignal.show()
-	#$TopBar/connection.text = "online"
 	wifi.show()
 	
 func stop_dron_connection():
-	#$TopBar/connection.show()
-	#$TopBar/wifisignal.show()
-	#$TopBar/connection.text = "offline"
 	pass
 	
 func _on_DisconnectedTimer_timeout():
 	level.change_control()
 	$DisconnectedBar.hide()
 	$DisconnectedBar/Disconnected.text = ""
-	#$TopBar/connection.text = "offline"

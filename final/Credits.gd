@@ -10,5 +10,5 @@ func _physics_process(_delta):
 	global_position.x -= 2
 	if Input.is_action_pressed("start"):
 		get_tree().change_scene("res://Game.tscn")
-	if global_position.x < -1400:
+	if global_position.x < -2000:
 		global_position.x = initial_x
