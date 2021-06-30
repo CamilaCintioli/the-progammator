@@ -19,7 +19,7 @@ var dron = false
 var damaged = false
 var damaged_x = 0
 var velocity = Vector2.ZERO
-var speed = 3450
+var speed = 50
 
 func _ready():
 	add_to_group("endEnemy")
@@ -36,7 +36,7 @@ func initialize(_container):
 	laser.initialize(_container)
 	fire_timer.start()
 	
-func _process(delta):
+func _process(_delta):
 	laser.look_at(container.dron.global_position)
 	animation2.play("antenna")
 	if can_fire && !stop_fire:
@@ -47,7 +47,7 @@ func _process(delta):
 	elif !laser.is_casting:
 		velocity.x = clamp(container.dron.global_position.x - global_position.x, -1, 1)
 		velocity.y = clamp(container.dron.global_position.y - global_position.y, -1, 1)
-		velocity = move_and_slide(velocity * speed * delta, Vector2.ZERO)
+		velocity = move_and_slide(velocity * speed, Vector2.ZERO)
 	else:
 		$LaserAudio.play()
 	if damaged:
