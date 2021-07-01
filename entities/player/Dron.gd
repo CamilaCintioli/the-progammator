@@ -76,7 +76,6 @@ func collision_with_tile_map(vel_x, vel_y, up_or_down):
 		var collision = get_slide_collision(i)
 		var tile: bool = collision.collider is TileMap or collision.collider.name == "EndEnemy"
 		if tile and (abs(vel_x) > VELOCITY_TO_CRASH or abs(vel_y) > VELOCITY_TO_CRASH):
-			animation.play("sparks")
 			emit_signal('collided')
 		else:
 			hit(tile, vel_x, vel_y, up_or_down)
@@ -152,7 +151,21 @@ func _on_VisibilityNotifier2D_screen_exited():
 		container.dead()
 		call_deferred("set_game_over")
 
+func explosion():
+	if container.interface.heartNum == 1:
+		sprite_effect.hide()
+		set_physics_process(false)
+		container.chrom_dead = true
+		animation.play("dead")
+		yield(animation, "animation_finished")
+	container.livesDecrease()
+	
 func _on_Dron_collided():
+	sprite_effect.hide()
+	set_physics_process(false)
+	container.chrom_dead = true
+	animation.play("dead")
+	yield(animation, "animation_finished")
 	container.dead()
 	call_deferred("set_game_over")
 

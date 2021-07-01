@@ -29,8 +29,8 @@ projectile_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 12
 hframes = 10
+vframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.96257, 4.1202 )
@@ -74,6 +74,7 @@ one_shot = true
 [node name="PlayerTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
 [connection signal="body_exited" from="HitArea" to="." method="_on_HitArea_body_exited"]
 [connection signal="body_entered" from="HeadArea" to="." method="_on_HeadArea_body_entered"]

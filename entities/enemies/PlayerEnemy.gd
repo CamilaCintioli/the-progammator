@@ -24,7 +24,7 @@ func _init_tween():
 func _on_BodyArea_body_entered(body):
 	if body.is_in_group("programmer") or body.is_in_group("dron"):
 		target = body
-		body.enemy_hit()
+		body.explosion()
 		target_timer.start()
 		
 func _remove():
@@ -33,14 +33,14 @@ func _remove():
 
 func _on_HeadArea_body_entered(body):
 	if body.is_in_group("dron"):
-		body.enemy_hit()
+		body.explosion()
 	if body.is_in_group("programmer"):
 		get_parent().play_robot_killed_sound()
 		call_deferred("_remove")
 
 func _on_TargetTimer_timeout():
 	if target:
-		target.enemy_hit()
+		target.explosion()
 		target_timer.start()
 
 func _on_BodyArea_body_exited(body):

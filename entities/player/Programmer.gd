@@ -126,6 +126,16 @@ func _play_animation(animation_name:String, should_restart:bool = true, playback
 		animation.play_backwards(animation_name)
 	else:
 		animation.play(animation_name)
+		
+func explosion():
+	if container.interface.heartNum == 1:
+		sm.set_physics_process(false)
+		container.chrom_dead = true
+		animation.play("dead")
+		yield(animation, "animation_finished")
+	else:
+		laser_hit()
+	container.livesDecrease()
 
 func _is_animation_playing(animation_name:String)->bool:
 	return animation.current_animation == animation_name && animation.is_playing()

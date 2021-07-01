@@ -34,7 +34,7 @@ func _on_HeadArea_body_entered(body):
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron") or body.is_in_group("programmer"):
 		player = body
-		body.enemy_hit()
+		body.explosion()
 		player_timer.start()
 
 func _remove():
@@ -95,7 +95,7 @@ func _on_Position_timeout():
 
 func _on_PlayerTimer_timeout():
 	if player:
-		player.enemy_hit()
+		player.explosion()
 		player_timer.start()
 
 func _on_HitArea_body_exited(body):
