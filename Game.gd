@@ -138,6 +138,7 @@ func game_over():
 	is_game_over = true
 	programmer.set_game_over()
 	dron.bye()
+	endEnemy.stop_laser()
 	$BGMusicStreamPlayer.stream_paused = true
 	
 func dron_bye():

@@ -293,9 +293,9 @@ script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="Credits"]
 margin_left = 4.47925
-margin_top = -7.19206
-margin_right = 665.479
-margin_bottom = 6.80794
+margin_top = -10.5556
+margin_right = 1048.48
+margin_bottom = 3.44437
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.266667, 0.709804, 0.27451, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -529,7 +529,6 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 21 )
 volume_db = -11.428
-
 [connection signal="body_entered" from="Zero" to="." method="_on_Zero_body_entered"]
 [connection signal="body_exited" from="Zero" to="." method="_on_Zero_body_exited"]
 [connection signal="body_entered" from="One" to="." method="_on_One_body_entered"]

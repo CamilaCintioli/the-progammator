@@ -3,10 +3,10 @@
 [ext_resource path="res://entities/enemies/EndEnemyProjectile.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/enemies/virus-emoji.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.88141, 5.10664 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="EndEnemyProjectile" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -20,14 +20,13 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0743256, 2.41558 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 4.0
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
