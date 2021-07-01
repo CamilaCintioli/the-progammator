@@ -218,9 +218,11 @@ __meta__ = {
 matrix_projectile_scene = ExtResource( 3 )
 
 [node name="spaceMissiles_001" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( -55.0029, -3.87711 )
 
 [node name="spaceMissiles_002" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( 61.0408, -4.71801 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -229,12 +231,13 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 
 [node name="Antenna" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.25 )
 position = Vector2( -11.6287, -52.6511 )
 scale = Vector2( 0.0833469, 0.919217 )
 texture = ExtResource( 4 )
 
 [node name="Screen" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 4 )
 position = Vector2( 3.14979, 6.61459 )
@@ -242,11 +245,12 @@ scale = Vector2( 0.215413, 0.166543 )
 texture = ExtResource( 5 )
 
 [node name="Explosion" type="Sprite" parent="."]
+visible = false
 position = Vector2( -5, 21 )
 scale = Vector2( 1.51169, 1.45607 )
 texture = ExtResource( 8 )
-vframes = 6
 hframes = 8
+vframes = 6
 frame = 46
 
 [node name="White" type="Sprite" parent="."]
@@ -256,6 +260,7 @@ scale = Vector2( 3.6269, 2.96576 )
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 3.009, 17.8089 )
 shape = SubResource( 5 )
 
@@ -264,16 +269,20 @@ wait_time = 8.0
 one_shot = true
 
 [node name="HitArea" type="Area2D" parent="."]
+visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+visible = false
 position = Vector2( -11.7429, -49.0558 )
 shape = SubResource( 6 )
 
 [node name="ProjectilePosition" type="Position2D" parent="."]
+visible = false
 position = Vector2( 4.16223, 66.001 )
 
 [node name="LaserBeam2D" parent="." instance=ExtResource( 6 )]
+visible = false
 collision_mask = 6
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -297,5 +306,6 @@ volume_db = -16.0
 
 [node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
+
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]

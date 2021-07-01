@@ -1,15 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemies/MatrixTurret.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gui/Title.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/1_The Programator - Intro.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/Miltown_.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://sounds/keyboard.ogg" type="AudioStream" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 45
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -49,6 +45,7 @@ tracks/0/keys = {
 }
 
 [node name="Menu" type="ColorRect"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -4.0
@@ -62,26 +59,10 @@ __meta__ = {
 }
 turret_scene = ExtResource( 2 )
 
-[node name="Title" type="Label" parent="."]
-anchor_left = 0.184314
-anchor_top = 0.297273
-anchor_right = 0.808075
-anchor_bottom = 0.311
-margin_top = -19.5
-margin_right = -268.029
-margin_bottom = 9.65773
-rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.231373, 0.784314, 0.278431, 1 )
-text = "THE PROGRAMATOR"
-align = 1
-valign = 1
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="Title" parent="." instance=ExtResource( 3 )]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.933333 )
 margin_left = 378.616
 margin_top = 395.341
@@ -107,4 +88,5 @@ anims/blink = SubResource( 3 )
 
 [node name="AnimationTitle" type="AnimationPlayer" parent="."]
 anims/intro = SubResource( 4 )
+
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]
