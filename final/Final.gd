@@ -32,6 +32,9 @@ func _ready():
 	$Five/ColorRect.visible = false
 	$Five/Label.visible = false
 	$AudioStreamEnding.play()
+	
+func jump():
+	pass
 
 func _on_Zero_body_entered(_body):
 	$Zero/ColorRect.visible = true
