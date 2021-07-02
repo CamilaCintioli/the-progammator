@@ -5,7 +5,7 @@ onready var animation = $Animation
 onready var animation2 = $Animation2
 onready var laser := $LaserBeam2D
 onready var sprite_effect = $Sprite
-
+onready var anim_move = $AnimationMove
 export (PackedScene) var matrix_projectile_scene
 
 var container
@@ -112,6 +112,10 @@ func game_over():
 	set_physics_process(false)
 	set_process(false)
 	hide()
+	
+func to_end():
+	stop_laser()
+	set_physics_process(false)
 
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("dron"):

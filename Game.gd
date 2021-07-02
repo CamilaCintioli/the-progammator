@@ -87,11 +87,19 @@ func start_checkpoint(nro):
 
 func change_control():
 	control = !control
-	#if(can_change):
-	if control:
+	if control || (!can_change):
 		$Programmer/CameraProgramer.current = true
 	else:
 		$Dron/CameraDron.current = true
+
+func enable_change(value):
+	can_change = value
+	show_connection(value)
+	if($Programmer/CameraProgramer.current and dron_zone):
+		show_connection(true)
+
+func show_connection(value):
+	interface.show_dron_connection(value)
 
 func in_end_game():
 	end_game = true
@@ -170,7 +178,7 @@ func restart():
 		programmer.velocity = Vector2.ZERO
 		dron.restart()
 		if checkpoints.dron_enable:
-			interface.start_dron_connection()
+			interface.show_dron_connection(true)
 			dron.set_game_on()
 			if checkpoints.dron_position:
 				dron.global_position = checkpoints.dron_position
@@ -188,25 +196,25 @@ func restart():
 			change = false
 			$InfoDrone.visible = true
 			$InfoDrone/InfoDroneText.visible = true
-			interface.start_dron_connection()
+			interface.show_dron_connection(true)
 		if checkpoints.check == 3 or checkpoints.check == 32:
 			change_zone = false
 			end_game = false
 			control = false
 			$Dron/CameraDron.current = true
-			interface.start_dron_connection()
+			interface.show_dron_connection(true)
 		if checkpoints.check == 4 or checkpoints.check == 5:
 			$Programmer/CameraProgramer.current = true
 			endCamera.global_position = init_end_camera
 			control = true
 			end_game = true
 			dron_bye2()
-			interface.stop_dron_connection()
+			interface.show_dron_connection(false)
 		if checkpoints.check == 5:
 			end_game = false
 			endEnemy.set_drone(false)
 			endEnemy.restart($EndEnemyPosition.global_position)
-			interface.stop_dron_connection()
+			interface.show_dron_connection(false)
 			
 	else:
 		get_tree().reload_current_scene()
@@ -255,10 +263,6 @@ func set_connection(conn_level):
 	if(conn_level ==0):
 		dron.set_game_over()
 	interface.set_dron_connection(conn_level)
-	if(control):
-		interface.display_connection(programmer.position)
-	else:
-		interface.display_connection(dron.position)
 	
 
 func _on_EndArea_body_entered(body):
@@ -309,7 +313,7 @@ func _on_Timer_timeout():
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
 		$EndMovingPlatform.move()
-		endEnemy.stop_laser()
+		endEnemy.to_end()
 		
 func _on_BGMusicStreamPlayer_finished():
 	$BGMusicStreamPlayer.play()
@@ -336,7 +340,11 @@ func bug_fixed():
 
 func play_robot_killed_sound():
 	audio_stream.robot_killed()
+	
+func cel_audio():
+	audio_stream.cel_audio()
 
 func _on_ChangeCamera_body_exited(body):
 	if body.is_in_group("dron"):
 		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
+

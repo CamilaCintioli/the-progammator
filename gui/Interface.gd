@@ -3,16 +3,19 @@ extends CanvasLayer
 export var _heartNum = 5
 export var _chromLives = 5
 export var _bosslives = 1
-onready var sprite = $Wifi/wifisignal
 var level
 
 onready var fade_tween = $Fade/Tween
 onready var fade = $Fade/BlackScreen
 onready var wifi = $Wifi
+onready var sprite = $Wifi/wifisignal
 
+var colorWifi = {0: Color.red, 1:Color.orange, 2:Color.green, 3:Color.blue}
 var heartNum = 0
 var chromLives = 0
 var bosslives = 0
+
+var new_style = StyleBoxFlat.new()
 
 var finGame = false
 	
@@ -24,7 +27,6 @@ func _ready():
 	$RestartButton.hide()
 	$WinButton.hide()
 	$TopBar.hide()
-	wifi.show()
 	fade.color.a = 0
 	fade.hide()
 	
@@ -34,10 +36,9 @@ func initialize(theLevel):
 	level = theLevel
 	$grayRect/heartsNumber.text = str(_heartNum)
 	$grayRect.show()
-	wifi.show()
-	#$TopBar.show()
-	#$TopBar/connection.text = "offline"
 	set_on()
+	init_override_style(new_style)
+
 	
 func fade_to_black():
 	fade.show()
@@ -129,27 +130,28 @@ func _on_WinButton_pressed():
 	get_tree().change_scene("res://Game.tscn")
 	
 func set_dron_connection(conn_level):
-	
 	sprite.frame = conn_level
+	new_style.set_border_color(colorWifi[conn_level])
+	wifi.set('custom_styles/panel', new_style)
 	if (conn_level == 0 ):
 		$DisconnectedBar.show()
 		$DisconnectedBar/Disconnected.text = "Wifi signal lost"
 		$DisconnectedTimer.start()
-		
-func display_connection(player_pos):
 	
-	
-	#wifi.rect_position = player_pos
-	#print(player_pos)
-	pass
-		
-func start_dron_connection():
-	wifi.show()
-	
-func stop_dron_connection():
-	pass
+func show_dron_connection(can_show):
+	if(can_show):
+		wifi.show()
+	else:
+		wifi.hide()
 	
 func _on_DisconnectedTimer_timeout():
 	level.change_control()
 	$DisconnectedBar.hide()
 	$DisconnectedBar/Disconnected.text = ""
+
+func init_override_style(style):
+	style.set_bg_color(Color( 0, 0, 0, 0.717647 ))
+	style.set_border_width_all(5)
+	style.set_border_color(Color( 0.243137, 0.223529, 0.223529, 1 ))
+	style.set_corner_radius_all(15)
+	style.set_border_blend(true)

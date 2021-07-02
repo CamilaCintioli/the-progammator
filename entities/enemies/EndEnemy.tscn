@@ -210,6 +210,7 @@ glow_intensity = 0.5
 glow_bicubic_upscale = true
 
 [node name="EndEnemy" type="KinematicBody2D"]
+position = Vector2( 0, -500 )
 collision_mask = 6
 script = ExtResource( 2 )
 __meta__ = {
