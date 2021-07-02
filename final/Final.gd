@@ -37,9 +37,7 @@ func _on_Zero_body_entered(_body):
 	$Zero/ColorRect.visible = true
 	$Zero/Label.visible = true
 	CheckpointsMenu.check = 0
-	#if !$AudioStreamPlayer2D.is_playing():
-		#$AudioStreamPlayer2D.play()
-		#pass
+	$AudioStreamPlayer2D.play()
 
 func _on_Zero_body_exited(_body):
 	$Zero/ColorRect.visible = false
@@ -49,9 +47,7 @@ func _on_One_body_entered(_body):
 	$One/ColorRect.visible = true
 	$One/Label.visible = true
 	CheckpointsMenu.check = 1
-	if !$AudioStreamPlayer2D.is_playing():
-		#$AudioStreamPlayer2D.play()
-		pass
+	$AudioStreamPlayer2D.play()
 
 func _on_One_body_exited(_body):
 	$One/ColorRect.visible = false
@@ -61,9 +57,7 @@ func _on_Two_body_entered(_body):
 	$Two/ColorRect.visible = true
 	$Two/Label.visible = true
 	CheckpointsMenu.check = 2
-	if !$AudioStreamPlayer2D.is_playing():
-		#$AudioStreamPlayer2D.play()
-		pass
+	$AudioStreamPlayer2D.play()
 
 func _on_Two_body_exited(_body):
 	$Two/ColorRect.visible = false
@@ -73,9 +67,7 @@ func _on_Three_body_entered(_body):
 	$Three/ColorRect.visible = true
 	$Three/Label.visible = true
 	CheckpointsMenu.check = 3
-	if !$AudioStreamPlayer2D.is_playing():
-		#$AudioStreamPlayer2D.play()
-		pass
+	$AudioStreamPlayer2D.play()
 
 func _on_Three_body_exited(_body):
 	$Three/ColorRect.visible = false
@@ -85,9 +77,8 @@ func _on_Four_body_entered(_body):
 	$Four/ColorRect.visible = true
 	$Four/Label.visible = true
 	CheckpointsMenu.check = 4
-	if !$AudioStreamPlayer2D.is_playing():
-		#$AudioStreamPlayer2D.play()
-		pass
+	$AudioStreamPlayer2D.play()
+
 
 func _on_Four_body_exited(_body):
 	$Four/ColorRect.visible = false

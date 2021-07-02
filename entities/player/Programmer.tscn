@@ -4,7 +4,7 @@
 [ext_resource path="res://entities/player/Programmer.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/Arm.gd" type="Script" id=3]
 [ext_resource path="res://entities/player/PlayerProyectile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sounds/Jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/jumpsound.wav" type="AudioStream" id=5]
 [ext_resource path="res://entities/player/ProgrammerSounds.gd" type="Script" id=6]
 [ext_resource path="res://entities/player/ProgrammerStateMachine.gd" type="Script" id=7]
 
@@ -70,7 +70,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -82,6 +81,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 4, 4 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("ProgrammerSounds")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -125,8 +138,9 @@ __meta__ = {
 position = Vector2( 0, 10.2052 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
-hframes = 6
 vframes = 3
+hframes = 6
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 18 )
@@ -165,7 +179,7 @@ anims/walk = SubResource( 6 )
 
 [node name="ProgrammerSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = -8.404
+bus = "Effects"
 script = ExtResource( 6 )
 
 [node name="ProgrammerStateMachine" type="Node" parent="."]
@@ -173,6 +187,5 @@ script = ExtResource( 7 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/hit = SubResource( 7 )
-
 [connection signal="timeout" from="Arm/FireTimer" to="Arm" method="_on_Timer_timeout"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

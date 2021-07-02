@@ -300,7 +300,7 @@ margin_bottom = 3.44437
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.266667, 0.709804, 0.27451, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Authors: Jimena Rosato, Gabriel Pasquale, Camila Cintioli                    Thanks: Julieta, Eric, Nahuel, Ariel, Matias"
+text = "Authors: Jimena Rosato, Gabriel Pasquale, Camila Cintioli                    Thanks: Julieta, Eric, Nahuel, Ariel, Matias                    Music/Special Thanks: Rodrigo Salgado, Leandro Lencina"
 __meta__ = {
 "_edit_use_anchors_": false
 }

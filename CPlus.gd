@@ -25,8 +25,8 @@ func _on_CPlus_body_entered(body):
 			sound.play()
 			show_dialog(true)
 			anim.play("text")
+			_container.add_ram()
 			timer.start()
-		_container.add_ram()
 
 func _on_DialogTimer_timeout():
 	anim.play("bounce")

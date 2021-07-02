@@ -9,15 +9,11 @@ onready var chrom_hit_sound = load("res://sounds/Chorme-hit.wav")
 onready var fix_bug = load("res://sounds/Code-grab.wav")
 onready var robot_killed_sound = load("res://sounds/Robot-death.wav")
 onready var take_coffee = load("res://assets/sounds/take-coffe-sound.wav")
-onready var cel_audio_sound = load("res://sounds/Jump.wav")
+onready var cel_audio_sound = load("res://sounds/celAudio.wav")
 
 func game_over():
 	self.stream = game_over_sound
 	self.play()
-	
-	
-	#self.stream_paused = true
-	
 	
 func game_win():
 	self.stream = game_win_sound
