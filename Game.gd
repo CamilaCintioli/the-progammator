@@ -210,7 +210,7 @@ func restart():
 		if checkpoints.check == 6:
 			end_game = false
 			dron.global_position = $DronEndPosition.global_position
-			
+			interface.set_end_enemy_bar()
 	else:
 		get_tree().reload_current_scene()
 	
