@@ -828,10 +828,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chrom" parent="." instance=ExtResource( 19 )]
-position = Vector2( 3895.06, 210.222 )
-collision_mask = 7
-
 [node name="Robot" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1549.21, 304.535 )
 collision_mask = 7
@@ -855,10 +851,6 @@ collision_mask = 7
 [node name="Programmer" parent="." instance=ExtResource( 18 )]
 position = Vector2( -4387.72, 2993.76 )
 collision_layer = 2
-
-[node name="Dron" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1477.82, 1515.13 )
-collision_layer = 4
 
 [node name="MovingFloor" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -1236,6 +1228,10 @@ script = ExtResource( 28 )
 position = Vector2( 7406.19, 209.291 )
 collision_mask = 7
 
+[node name="Dron" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1477.82, 1515.13 )
+collision_layer = 4
+
 [node name="Checkpoints" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
@@ -1435,6 +1431,10 @@ shape = SubResource( 32 )
 
 [node name="EndEnemyCamera" type="Camera2D" parent="."]
 position = Vector2( 6866.78, -1598.41 )
+
+[node name="Chrom" parent="." instance=ExtResource( 19 )]
+position = Vector2( 3895.06, 210.222 )
+collision_mask = 7
 
 [node name="Tween" type="Tween" parent="."]
 
