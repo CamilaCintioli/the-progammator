@@ -72,8 +72,7 @@ func show_message():
 func set_on():
 	heartNum = _heartNum
 	$grayRect/heartsNumber.text = str(heartNum)
-	wifi.show()
-	
+	#wifi.show()
 	
 func game_over(audio_stream):
 	if !finGame:
@@ -137,9 +136,7 @@ func set_dron_connection(conn_level):
 		$DisconnectedBar/Disconnected.text = "Wifi signal lost"
 		$DisconnectedTimer.start()
 		
-func display_connection(_player_pos):
-	pass
-	#wifi.rect_position = _player_pos
+
 	
 func start_dron_connection():
 	wifi.show()

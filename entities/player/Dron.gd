@@ -42,12 +42,12 @@ func _physics_process(_delta):
 	if !container.control:
 		get_input()
 		set_glitch()
+		velocity.y -= $Sprite.rotation_degrees/15
 	else:
 		velocity.x = deaccelerate_x()
 		velocity.y = deaccelerate_y()
 	v_x = velocity.x + 0.0
 	v_y = velocity.y + 0.0
-	velocity.y -= $Sprite.rotation_degrees/10
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	collision_with_tile_map(v_x, v_y, upOrDown)
 	

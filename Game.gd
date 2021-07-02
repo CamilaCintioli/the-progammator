@@ -94,12 +94,14 @@ func change_control():
 
 func enable_change(value):
 	can_change = value
-	show_connection(value)
-	if($Programmer/CameraProgramer.current and dron_zone):
-		show_connection(true)
 
-func show_connection(value):
-	interface.show_dron_connection(value)
+func show_connection():
+	if(checkpoints.check == 3 ||
+		checkpoints.check == 32 ||
+		checkpoints.check == 6 ):
+		interface.show_dron_connection(true)
+	else:
+		interface.show_dron_connection(false)
 
 func in_end_game():
 	end_game = true
@@ -178,7 +180,6 @@ func restart():
 		programmer.velocity = Vector2.ZERO
 		dron.restart()
 		if checkpoints.dron_enable:
-			interface.show_dron_connection(true)
 			dron.set_game_on()
 			if checkpoints.dron_position:
 				dron.global_position = checkpoints.dron_position
@@ -196,7 +197,7 @@ func restart():
 			change = false
 			$InfoDrone.visible = true
 			$InfoDrone/InfoDroneText.visible = true
-			interface.show_dron_connection(true)
+			interface.show_dron_connection(false)
 		if checkpoints.check == 3 or checkpoints.check == 32:
 			change_zone = false
 			end_game = false
@@ -219,6 +220,7 @@ func restart():
 			end_game = false
 			dron.global_position = $DronEndPosition.global_position
 			interface.set_end_enemy_bar()
+			interface.show_dron_connection(true)
 	else:
 		get_tree().reload_current_scene()
 	

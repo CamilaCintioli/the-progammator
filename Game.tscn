@@ -1481,7 +1481,6 @@ custom_colors/default_color = Color( 0.121569, 0.780392, 0.243137, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
-
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]
