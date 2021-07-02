@@ -1138,6 +1138,12 @@ position = Vector2( -2892.23, 2954.25 )
 [node name="TimePlatform5" parent="ChangePlatform" instance=ExtResource( 52 )]
 position = Vector2( -909.318, 2545.25 )
 
+[node name="TimePlatform10" parent="ChangePlatform" instance=ExtResource( 52 )]
+position = Vector2( -2156.08, 2988.55 )
+
+[node name="TimePlatform11" parent="ChangePlatform" instance=ExtResource( 52 )]
+position = Vector2( -2025.44, 2931.58 )
+
 [node name="TimePlatform6" parent="ChangePlatform" instance=ExtResource( 52 )]
 position = Vector2( -817.292, 2428.35 )
 
@@ -1153,9 +1159,6 @@ position = Vector2( -1172.66, 1740.95 )
 [node name="Yellow" type="Node2D" parent="ChangePlatform"]
 script = ExtResource( 26 )
 
-[node name="YellowPlatform" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
-position = Vector2( -2031.07, 2914.97 )
-
 [node name="YellowPlatform2" parent="ChangePlatform/Yellow" instance=ExtResource( 24 )]
 position = Vector2( -1528.94, 2656.58 )
 
@@ -1164,9 +1167,6 @@ position = Vector2( -1662.16, 1919.75 )
 
 [node name="Green" type="Node2D" parent="ChangePlatform"]
 script = ExtResource( 27 )
-
-[node name="GreenPlatform" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
-position = Vector2( -2170.01, 2976.83 )
 
 [node name="GreenPlatform2" parent="ChangePlatform/Green" instance=ExtResource( 25 )]
 position = Vector2( -1601.11, 2754.1 )

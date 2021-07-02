@@ -28,7 +28,7 @@ shader_param/tearing = 0.075
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.7158, 3.91617 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "dead"
 length = 2.0
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rayo:modulate")
@@ -85,7 +85,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sparks:frame")
@@ -126,7 +126,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rayo:modulate")
@@ -155,7 +155,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sparks:frame")
@@ -182,7 +182,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 12.7425, 6.75 )
 
 [node name="Dron" type="KinematicBody2D"]
@@ -232,18 +232,18 @@ position = Vector2( 0.0936397, -5.96046e-08 )
 scale = Vector2( 1.35585, 0.372584 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/dead = SubResource( 9 )
-anims/rayo = SubResource( 4 )
-anims/sparks = SubResource( 5 )
+anims/dead = SubResource( 4 )
+anims/rayo = SubResource( 5 )
+anims/sparks = SubResource( 6 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/rayo = SubResource( 6 )
-anims/sparks = SubResource( 7 )
+anims/rayo = SubResource( 7 )
+anims/sparks = SubResource( 8 )
 
 [node name="UpDown" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpDown"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

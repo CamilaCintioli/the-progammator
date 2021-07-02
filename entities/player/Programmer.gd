@@ -133,9 +133,9 @@ func explosion():
 		container.chrom_dead = true
 		animation.play("dead")
 		yield(animation, "animation_finished")
+		container.livesDecrease()
 	else:
 		laser_hit()
-	container.livesDecrease()
 
 func _is_animation_playing(animation_name:String)->bool:
 	return animation.current_animation == animation_name && animation.is_playing()

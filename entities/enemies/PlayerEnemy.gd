@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var collision = $CollisionShape2D
 onready var tween = $Tween
 onready var target_timer = $TargetTimer
+onready var animation = $AnimationPlayer
 
 const MARGIN_PLATFORM = 150
 const IDLE_DURATION = 0.55
@@ -28,6 +29,10 @@ func _on_BodyArea_body_entered(body):
 		target_timer.start()
 		
 func _remove():
+	$BodyArea/CollisionShape2D.disabled = true
+	$HeadArea/CollisionShape2D.disabled = true
+	animation.play("dead")
+	yield(animation, "animation_finished")
 	get_parent().remove_child(self)
 	queue_free()
 

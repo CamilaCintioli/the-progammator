@@ -136,13 +136,10 @@ func set_dron_connection(conn_level):
 		$DisconnectedBar/Disconnected.text = "Wifi signal lost"
 		$DisconnectedTimer.start()
 		
-func display_connection(player_pos):
-	
-	
-	#wifi.rect_position = player_pos
-	#print(player_pos)
+func display_connection(_player_pos):
 	pass
-		
+	#wifi.rect_position = _player_pos
+	
 func start_dron_connection():
 	wifi.show()
 	
