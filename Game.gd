@@ -230,6 +230,7 @@ func restart():
 			dron.global_position = $DronEndPosition.global_position
 			interface.set_end_enemy_bar()
 			interface.show_dron_connection(true)
+			$EndGreenWall.set_on()
 	else:
 		get_tree().reload_current_scene()
 	
@@ -287,6 +288,7 @@ func _on_EndArea_body_entered(body):
 		endEnemy.start()
 		interface.set_end_enemy_bar()
 		end_game = false
+		$EndGreenWall.stop_collision()
 
 func _on_DronUp_body_entered(body):
 	if body.is_in_group("programmer"):
@@ -327,6 +329,7 @@ func _on_Timer_timeout():
 func _on_EndProgrammerArea_body_entered(body):
 	if body.is_in_group("programmer"):
 		$EndMovingPlatform.move()
+		$EndGreenWall.set_on()
 		endEnemy.to_end()
 		
 func _on_BGMusicStreamPlayer_finished():
