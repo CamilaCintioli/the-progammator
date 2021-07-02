@@ -5,7 +5,6 @@ onready var animation = $Animation
 onready var animation2 = $Animation2
 onready var laser := $LaserBeam2D
 onready var sprite_effect = $Sprite
-onready var anim_move = $AnimationMove
 export (PackedScene) var matrix_projectile_scene
 
 var container

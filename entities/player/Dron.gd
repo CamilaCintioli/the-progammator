@@ -93,7 +93,14 @@ func deaccelerate_y() -> float:
 		return velocity.y + deacceleration if velocity.y < 0 else velocity.y - deacceleration
 
 func hit(tile = false, vel_x = v_x, vel_y = v_y, up_or_down = upOrDown):
-	if tile and up_or_down:
+	if container.interface.heartNum == 1:
+		sprite_effect.hide()
+		set_physics_process(false)
+		container.chrom_dead = true
+		animation.play("dead")
+		yield(animation, "animation_finished")
+		container.livesDecrease()
+	elif tile and up_or_down:
 		container.livesDecrease()
 		velocity.y = vel_y * -1
 		$Sprite.rotation_degrees = clamp($Sprite.rotation_degrees - 3, -20, 20)
