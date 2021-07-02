@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://enviroment/EndCamera.gd" type="Script" id=1]
 [ext_resource path="res://enviroment/endScene/Platform.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://assets/textures/background/codingTech blue.png" type="Texture" id=35]
 [ext_resource path="res://assets/textures/background/codingTech green.png" type="Texture" id=36]
 [ext_resource path="res://assets/textures/background/codingTech red.png" type="Texture" id=37]
+[ext_resource path="res://enviroment/CPlus.tscn" type="PackedScene" id=38]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (7).png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/env/Tiles/Tile (8).png" type="Texture" id=40]
 [ext_resource path="res://Coffee.tscn" type="PackedScene" id=41]
@@ -351,7 +352,7 @@ extents = Vector2( 587.668, 292.158 )
 extents = Vector2( 2683.05, 55.9348 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 71.0125, 99.9192 )
+extents = Vector2( 61.6001, 102.23 )
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 77.2622, 325.054 )
@@ -958,7 +959,7 @@ position = Vector2( 2644.1, 702.28 )
 position = Vector2( 3299.59, 698.717 )
 
 [node name="Cel" parent="MovingFloor" instance=ExtResource( 16 )]
-position = Vector2( 3467.92, 657.322 )
+position = Vector2( 3368.03, 666.836 )
 
 [node name="PlayerEnemy" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2764.19, 565.629 )
@@ -1481,6 +1482,9 @@ custom_colors/default_color = Color( 0.121569, 0.780392, 0.243137, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
+
+[node name="CPlus" parent="." instance=ExtResource( 38 )]
+position = Vector2( 3535.81, 649.239 )
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

@@ -222,8 +222,8 @@ matrix_projectile_scene = ExtResource( 3 )
 position = Vector2( -5, 21 )
 scale = Vector2( 1.51169, 1.45607 )
 texture = ExtResource( 8 )
-hframes = 8
 vframes = 6
+hframes = 8
 frame = 47
 
 [node name="spaceMissiles_001" parent="." instance=ExtResource( 10 )]
@@ -298,6 +298,5 @@ volume_db = -16.0
 
 [node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
-
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]

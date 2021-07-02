@@ -16,6 +16,7 @@ onready var checkpoints = $Checkpoints
 onready var endEnemy = $EndEnemy
 onready var coffee = $Coffee
 onready var audio_stream = $AudioStreamEffects
+onready var cplus = $CPlus
 
 signal stop_shooting
 
@@ -50,6 +51,7 @@ func _ready():
 	interface.initialize(self)
 	init_end_camera = endCamera.global_position
 	start_checkpoint(CheckpointsMenu.check)
+	cplus.initialize(self)
 	
 	$BGMusicStreamPlayer.play()
 
@@ -125,8 +127,10 @@ func chrom_hit():
 func chrom_finished():
 	emit_signal("stop_shooting")
 	interface.hide_chrome_bar()
+	interface.show_ram(false)
 	audio_stream.chrom_explosion()
 	chrom.game_over()
+	$BGs/bg3Animation.stop()
 	$ChromPortal.bye(self)
 #	$ChromPortalStart.bye(self)
 	
@@ -142,13 +146,14 @@ func dead():
 	is_game_over = true
 	interface.game_over(audio_stream)
 	endEnemy.set_drone(false)
+	endEnemy.game_over()
 #	endEnemy.restart($EndEnemyPosition.global_position)
 	
 func game_over():
 	is_game_over = true
 	programmer.set_game_over()
 	dron.bye()
-	endEnemy.stop_laser()
+	endEnemy.game_over()
 	$BGMusicStreamPlayer.stream_paused = true
 	
 func dron_bye():
@@ -211,6 +216,10 @@ func restart():
 			end_game = true
 			dron_bye2()
 			interface.show_dron_connection(false)
+			if(checkpoints.check == 4):
+				cplus.has_entered = true
+				cplus.show_dialog(true)
+				add_ram()
 		if checkpoints.check == 5:
 			end_game = false
 			endEnemy.set_drone(false)
@@ -348,6 +357,9 @@ func play_robot_killed_sound():
 	
 func cel_audio():
 	audio_stream.cel_audio()
+	
+func add_ram():
+	interface.show_ram(true)
 
 func _on_ChangeCamera_body_exited(body):
 	if body.is_in_group("dron"):

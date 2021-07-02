@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://CPlus.gd" type="Script" id=1]
+[ext_resource path="res://sounds/Win.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/textures/env/cplus.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 79.3575, 78.9239 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bounce"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.14902, 0.137255, 0.137255, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
+
+[node name="CPlus" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.592157, 1, 0.854902, 1 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -66.4847, -39.6035, 1.22351, -77.0213, 63.5864, -37.8217, 65.3682, 37.0137, -0.558289, 76.2133, -66.4847, 35.2319 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6.10352e-05, -5.65686 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bounce = SubResource( 2 )
+anims/text = SubResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="DialogTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_left = -141.372
+margin_top = -164.413
+margin_right = 141.628
+margin_bottom = -88.4126
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -31.5
+margin_right = 140.0
+margin_bottom = 31.5
+custom_fonts/font = SubResource( 5 )
+text = "IT'S DANGEROUS TO GO ALONE
+TAKE THIS RAM WITH YOU"
+align = 1
+valign = 1
+[connection signal="body_entered" from="." to="." method="_on_CPlus_body_entered"]
+[connection signal="timeout" from="DialogTimer" to="." method="_on_DialogTimer_timeout"]

@@ -9,6 +9,7 @@ onready var fade_tween = $Fade/Tween
 onready var fade = $Fade/BlackScreen
 onready var wifi = $Wifi
 onready var sprite = $Wifi/wifisignal
+onready var ram = $Ram
 
 var colorWifi = {0: Color.red, 1:Color.orange, 2:Color.green, 3:Color.blue}
 var heartNum = 0
@@ -146,6 +147,12 @@ func show_dron_connection(can_show):
 		wifi.show()
 	else:
 		wifi.hide()
+
+func show_ram(show):
+	if(show):
+		ram.show()
+	else:
+		ram.hide()
 	
 func _on_DisconnectedTimer_timeout():
 	level.change_control()
