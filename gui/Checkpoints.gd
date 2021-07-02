@@ -39,7 +39,11 @@ func check_4():
 func _on_Checkpoint5_body_entered(body):
 	if body.is_in_group("programmer"):
 		check5()
-		
+
+func _on_Checkpoint6_body_entered(body):
+	if body.is_in_group("programmer"):
+		check6()
+
 func check1():
 	dron_enable = false
 	check = 1
@@ -79,6 +83,12 @@ func check5():
 	check = 5
 	programmer_position = $Checkpoint5/CollisionShape2D.global_position
 	CheckpointsMenu.check = 5
-	
+
+func check6():
+	dron_enable = true
+	check = 6 
+	programmer_position = $Checkpoint6/CollisionShape2D.global_position
+	CheckpointsMenu.check = 6
+
 func checkpoint(nro):
 	call("check" + str(nro))
