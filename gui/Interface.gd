@@ -137,7 +137,10 @@ func set_dron_connection(conn_level):
 		$DisconnectedBar/Disconnected.text = "Wifi signal lost"
 		$DisconnectedTimer.start()
 		
-
+func set_dron_connection2(conn_level):
+	sprite.frame = conn_level
+	new_style.set_border_color(colorWifi[conn_level])
+	wifi.set('custom_styles/panel', new_style)
 	
 func start_dron_connection():
 	wifi.show()

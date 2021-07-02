@@ -72,6 +72,10 @@ func _check_distance():
 	elif distance > container.dron.disconnect_distance:
 		within_distance = false
 		container.enable_change(false)
+		if container.checkpoints.check == 3 || container.checkpoints.check == 32 || container.checkpoints.check == 6:
+			container.interface.set_dron_connection2(0)
+		else:
+			container.interface.show_dron_connection(false)
 
 func hit():
 	container.livesDecrease()

@@ -559,6 +559,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="bg10" type="TextureRect" parent="BGs"]
+modulate = Color( 0.741176, 0.741176, 0.741176, 1 )
+margin_left = 4157.02
+margin_top = -1837.52
+margin_right = 5972.02
+margin_bottom = -912.519
+texture = ExtResource( 37 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="bg3" type="TextureRect" parent="BGs"]
 modulate = Color( 0.741176, 0.741176, 0.741176, 1 )
 margin_left = 26.0
