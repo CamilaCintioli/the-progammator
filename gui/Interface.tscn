@@ -3,7 +3,7 @@
 [ext_resource path="res://gui/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/textures/player/wifisignalV2.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/player/greenHeart.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/coffee.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/enemies/chrome ansii.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/enemies/radar-computer-sprite.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/ScreenMatrix.ttf" type="DynamicFontData" id=7]
@@ -117,10 +117,10 @@ __meta__ = {
 }
 
 [node name="heartsNumber" type="Label" parent="grayRect"]
-margin_left = 40.7763
-margin_top = 9.86207
-margin_right = 153.776
-margin_bottom = 59.8621
+margin_left = 44.0
+margin_top = 16.0
+margin_right = 156.0
+margin_bottom = 62.0
 rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.027451, 0.0588235, 0.0117647, 1 )
@@ -131,11 +131,11 @@ __meta__ = {
 }
 
 [node name="greenHeart" type="TextureRect" parent="grayRect"]
-margin_left = 14.7395
-margin_top = 14.3972
-margin_right = 854.74
-margin_bottom = 893.397
-rect_scale = Vector2( 0.03, 0.03 )
+margin_left = 9.19839
+margin_top = -3.14211
+margin_right = 849.199
+margin_bottom = 875.858
+rect_scale = Vector2( 0.21, 0.21 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -72,16 +72,15 @@ func show_message():
 func set_on():
 	heartNum = _heartNum
 	$grayRect/heartsNumber.text = str(heartNum)
-	$grayRect/greenHeart.set_modulate(Color.green)
 	wifi.show()
 	
 	
 func game_over(audio_stream):
 	if !finGame:
+		$grayRect/heartsNumber.text = str(0)
 		fade_to_black()
 		level.game_over()
 		audio_stream.game_over()
-		$grayRect/greenHeart.set_modulate(Color.darkgreen)
 		show_message()
 		yield($GameOverTimer, "timeout")
 		$RestartButton.show()
