@@ -1298,9 +1298,6 @@ position = Vector2( -1849.94, 2816.38 )
 [node name="Checkpoint4" type="Area2D" parent="Checkpoints"]
 position = Vector2( 5519.8, -2112 )
 collision_mask = 7
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2( -1870.4, 2752.23 )
@@ -1321,6 +1318,20 @@ position = Vector2( -1853.33, 2753.47 )
 shape = SubResource( 26 )
 
 [node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint5"]
+position = Vector2( -1849.94, 2816.38 )
+
+[node name="Checkpoint6" type="Area2D" parent="Checkpoints"]
+position = Vector2( 8162.58, -3453.26 )
+collision_mask = 7
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint6"]
+position = Vector2( -1853.33, 2753.47 )
+shape = SubResource( 26 )
+
+[node name="Position2D" type="Position2D" parent="Checkpoints/Checkpoint6"]
 position = Vector2( -1849.94, 2816.38 )
 
 [node name="DronStartPosition" type="Position2D" parent="Checkpoints"]
@@ -1470,7 +1481,6 @@ custom_colors/default_color = Color( 0.121569, 0.780392, 0.243137, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
-
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]
@@ -1488,6 +1498,7 @@ text = "FIX ALL BUGS"
 [connection signal="body_entered" from="Checkpoints/Checkpoint32" to="Checkpoints" method="_on_Checkpoint32_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint4" to="Checkpoints" method="_on_Checkpoint4_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint5" to="Checkpoints" method="_on_Checkpoint5_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint6" to="Checkpoints" method="_on_Checkpoint6_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="BGMusicStreamPlayer" to="." method="_on_BGMusicStreamPlayer_finished"]
 [connection signal="body_entered" from="EndProgrammerArea" to="." method="_on_EndProgrammerArea_body_entered"]
