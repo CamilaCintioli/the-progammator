@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 
-onready var game_over_sound = load("res://sounds/Lose - The Programator -.ogg")
+onready var game_over_sound = load("res://assets/sounds/windows.ogg")
 onready var game_win_sound = load("res://sounds/Win.wav")
 onready var lose_life_sound = load("res://sounds/Lose-life.wav")
 onready var chrom_explosion_sound = load("res://sounds/Chrome-explosion.wav")
@@ -14,6 +14,10 @@ onready var cel_audio_sound = load("res://sounds/Jump.wav")
 func game_over():
 	self.stream = game_over_sound
 	self.play()
+	
+	
+	#self.stream_paused = true
+	
 	
 func game_win():
 	self.stream = game_win_sound
