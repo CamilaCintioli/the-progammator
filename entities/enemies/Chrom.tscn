@@ -88,12 +88,13 @@ shape = SubResource( 1 )
 [node name="explosion" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
-hframes = 8
 vframes = 6
+hframes = 8
 
 [node name="chromSprite" type="Sprite" parent="."]
 position = Vector2( 0.315334, 0.31534 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 texture = ExtResource( 1 )
 
 [node name="AnimationChrom" type="AnimationPlayer" parent="."]
@@ -106,5 +107,4 @@ wait_time = 0.5
 [node name="Tween" type="Tween" parent="."]
 repeat = true
 playback/repeat = true
-
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
