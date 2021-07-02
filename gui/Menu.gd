@@ -22,8 +22,8 @@ func _ready():
 	
 
 func _process(_delta):
-	if Input.is_action_pressed("start"):
-		get_tree().change_scene("res://menu/PlayerMenu.tscn")
+	#if Input.is_action_pressed("start"):
+	#	get_tree().change_scene("res://menu/PlayerMenu.tscn")
 	if Input.is_action_pressed("one"):
 		button_1()
 	if Input.is_action_pressed("two"):
@@ -69,5 +69,5 @@ func button_6():
 func _on_Audio_finished():
 	sound.play()
 
-
-
+func _on_Button_pressed():
+	get_tree().change_scene("res://menu/PlayerMenu.tscn")
