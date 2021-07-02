@@ -53,6 +53,7 @@ func _set_animation(h_movement_direction):
 		$Sprite.flip_h = h_movement_direction < 0
 
 func _check_distance():
+	#container.show_connection()
 	var dron_distance = container.dron.global_position - global_position
 	var distance = abs(dron_distance.x) + abs(dron_distance.y)
 	if distance < container.dron.disconnect_distance:
