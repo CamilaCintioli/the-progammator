@@ -59,6 +59,7 @@ func _check_distance():
 		if !within_distance:
 			container.dron.set_game_on()
 			within_distance = true
+			container.enable_change(true)
 		if distance > container.dron.disconnect_distance:
 			container.set_connection(0)
 		elif distance > container.dron.extreme_distance_to_glitch:
@@ -69,6 +70,7 @@ func _check_distance():
 			container.set_connection(3)
 	elif distance > container.dron.disconnect_distance:
 		within_distance = false
+		container.enable_change(false)
 
 func hit():
 	container.livesDecrease()

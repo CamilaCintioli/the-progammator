@@ -617,7 +617,7 @@ position = Vector2( -3397.12, 2515.91 )
 position = Vector2( -1221.4, 2322.24 )
 
 [node name="Portal" parent="." instance=ExtResource( 15 )]
-position = Vector2( 2260.13, 632.011 )
+position = Vector2( 2260.13, 630.597 )
 collision_mask = 7
 
 [node name="Bugs" type="Node" parent="."]
@@ -1481,7 +1481,6 @@ custom_colors/default_color = Color( 0.121569, 0.780392, 0.243137, 1 )
 bbcode_enabled = true
 bbcode_text = "FIX ALL BUGS"
 text = "FIX ALL BUGS"
-
 [connection signal="body_entered" from="Bugs/Bug" to="Bugs/Bug" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug2" to="Bugs/Bug2" method="_on_Bug_body_entered"]
 [connection signal="body_entered" from="Bugs/Bug3" to="Bugs/Bug3" method="_on_Bug_body_entered"]

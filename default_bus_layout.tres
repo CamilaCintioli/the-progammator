@@ -18,5 +18,5 @@ bus/3/name = "IntroAndOutro"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -3.54298
+bus/3/volume_db = -2.51026
 bus/3/send = "Master"
