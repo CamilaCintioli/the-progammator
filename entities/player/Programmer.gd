@@ -45,7 +45,7 @@ func _handle_actions():
 	if Input.is_action_just_pressed("change") and !container.chrom_dead:
 		if container.end_game:
 			arm._fire()
-		elif !container.change_zone and !container.dron_zone:
+		elif !container.change_zone and !container.dron_zone and container.can_change:
 			container.change_control()
 
 func _set_animation(h_movement_direction):
