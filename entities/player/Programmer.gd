@@ -146,3 +146,6 @@ func _is_animation_playing(animation_name:String)->bool:
 func _remove():
 	set_physics_process(false)
 	hide()
+
+func jump():
+	container.jump()

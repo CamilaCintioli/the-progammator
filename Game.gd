@@ -368,3 +368,5 @@ func _on_ChangeCamera_body_exited(body):
 	if body.is_in_group("dron"):
 		programmer.update_position($ChangePlatform/ProgrammerPosition.global_position)
 
+func jump():
+	audio_stream.jump()

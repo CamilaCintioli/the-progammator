@@ -34,6 +34,7 @@ func _get_transition(_delta):
 	if Input.is_action_just_pressed("jump") && [STATES.IDLE, STATES.WALK, STATES.RUN].has(state) && parent.is_on_floor():
 		parent.snap_vector = Vector2.ZERO
 		parent.velocity.y = -parent.jump_speed
+		parent.jump()
 		return STATES.JUMP
 	
 	match state:
