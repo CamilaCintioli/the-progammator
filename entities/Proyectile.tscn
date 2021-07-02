@@ -38,7 +38,6 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0827395, -0.0225514 )
-scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
 offset = Vector2( 10, 0 )
 vframes = 3
