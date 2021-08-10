@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/textures/menu/programmer.png" type="Texture" id=1]
+[ext_resource path="res://menu/PlayerMenu.gd" type="Script" id=2]
+[ext_resource path="res://sounds/glitch_sound.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/textures/player.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float sections: hint_range(0.0, 5.0) = 0.0;
+uniform float tearing: hint_range(0.0, 0.5) = 0.025;
+
+void fragment() {
+    COLOR = texture(TEXTURE, UV + fract(UV.y * sections) * tearing);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/sections = 0.0
+shader_param/tearing = 0.025
+
+[node name="PlayerMenu" type="Sprite"]
+material = SubResource( 2 )
+position = Vector2( 640.633, 360.228 )
+scale = Vector2( 1.00261, 1.00495 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -810.83
+margin_top = -476.204
+margin_right = -2025.83
+margin_bottom = -1130.2
+rect_scale = Vector2( 25, 15 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -9.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

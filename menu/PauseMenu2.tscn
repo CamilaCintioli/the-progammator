@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/GameMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/menu/drone_menu.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/menu/programmer.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="InputTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="Panel" parent="Control"]
+modulate = Color( 0, 0, 0, 0.454902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -250.0
+margin_right = 350.0
+margin_bottom = 250.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -121.5
+margin_bottom = -38.5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "GAME PAUSED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -166.0
+margin_right = 166.0
+margin_bottom = 173.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="Control/Panel/VBoxContainer"]
+margin_right = 332.0
+margin_bottom = 14.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Continue"
+
+[node name="Controls" type="Button" parent="Control/Panel/VBoxContainer"]
+margin_top = 34.0
+margin_right = 332.0
+margin_bottom = 48.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Controls"
+
+[node name="Exit" type="Button" parent="Control/Panel/VBoxContainer"]
+margin_top = 68.0
+margin_right = 332.0
+margin_bottom = 82.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 0.262745, 0.815686, 0.231373, 1 )
+text = "Exit"
+
+[node name="ProgrammerMenu" type="Sprite" parent="."]
+visible = false
+position = Vector2( 641.067, 358.1 )
+scale = Vector2( 1.00332, 1.00751 )
+texture = ExtResource( 4 )
+
+[node name="DroneMenu" type="Sprite" parent="."]
+visible = false
+position = Vector2( 639.882, 360.01 )
+scale = Vector2( 1.00124, 1.00369 )
+texture = ExtResource( 3 )
+[connection signal="drone_controls" from="." to="." method="_on_PauseMenu_drone_controls"]
+[connection signal="exit_requested" from="." to="." method="_on_PauseMenu_exit_requested"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer/Continue" to="." method="_on_Continue_button_up"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer/Controls" to="." method="_on_Controls_button_up"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer/Exit" to="." method="_on_Exit_button_up"]

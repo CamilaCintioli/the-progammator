@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/computer drop.ogg-fdd06348e90c6337f1b68b1d05caf3e9.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/computer drop.ogg"
+dest_files=[ "res://.import/computer drop.ogg-fdd06348e90c6337f1b68b1d05caf3e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

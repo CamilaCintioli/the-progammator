@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/1_The Programator - Intro.ogg-36969bcc9f8fa9c4f1b516d3e81dd71d.oggstr"
+
+[deps]
+
+source_file="res://sounds/1_The Programator - Intro.ogg"
+dest_files=[ "res://.import/1_The Programator - Intro.ogg-36969bcc9f8fa9c4f1b516d3e81dd71d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chrome-explosion.wav-d8369738ffcaaab14bddefde6ddd979e.sample"
+
+[deps]
+
+source_file="res://sounds/Chrome-explosion.wav"
+dest_files=[ "res://.import/Chrome-explosion.wav-d8369738ffcaaab14bddefde6ddd979e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

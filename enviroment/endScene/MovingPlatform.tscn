@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enviroment/endScene/MovingPlatform.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/env/Tiles/BGTile (1).png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 91.0882, 10 )
+
+[node name="MovingPlatform" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.7, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.000457764, 0.0189035 )
+scale = Vector2( 0.469098, 0.510353 )
+polygon = PoolVector2Array( -175.977, -44.5124, 174.627, -45.6361, 189.61, -33.2751, 190.359, -17.1683, 159.269, 34.1487, -165.489, 36.0216, -188.338, -11.9242, -186.84, -36.6463 )
+one_way_collision = true
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.235962, -31.3724 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

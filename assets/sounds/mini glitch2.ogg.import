@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mini glitch2.ogg-94a72c565197399d2438a871f3b4e831.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/mini glitch2.ogg"
+dest_files=[ "res://.import/mini glitch2.ogg-94a72c565197399d2438a871f3b4e831.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

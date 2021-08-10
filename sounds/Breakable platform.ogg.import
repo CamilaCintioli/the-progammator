@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Breakable platform.ogg-73b4c775d32dc4d7ea55b3647ed70492.oggstr"
+
+[deps]
+
+source_file="res://sounds/Breakable platform.ogg"
+dest_files=[ "res://.import/Breakable platform.ogg-73b4c775d32dc4d7ea55b3647ed70492.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

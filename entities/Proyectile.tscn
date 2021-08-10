@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entities/Proyectile.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/enemies/matrix-proj.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/green_circle.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.1452
+
+[sub_resource type="Animation" id=2]
+resource_name = "fall"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11 ]
+}
+
+[node name="Proyectile" type="Area2D"]
+scale = Vector2( 1.3, 1.3 )
+collision_mask = 7
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BGSprite" type="Sprite" parent="."]
+modulate = Color( 0.0235294, 0.00784314, 0.00784314, 1 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.0827395, -0.0225514 )
+texture = ExtResource( 2 )
+offset = Vector2( 10, 0 )
+vframes = 3
+hframes = 9
+frame = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="MatrixAnimProjectile" type="AnimationPlayer" parent="."]
+anims/fall = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Proyectile_body_entered"]
