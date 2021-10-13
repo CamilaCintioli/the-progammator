@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/textures/env/inf.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/player/ram.png" type="Texture" id=10]
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0352941, 0.458824, 0.572549, 0.792157 )
 border_width_left = 5
 border_width_top = 5
@@ -24,7 +24,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.309804, 0.282353, 0.282353, 0.717647 )
 border_width_left = 5
 border_width_top = 5
@@ -37,7 +37,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0.843137 )
 border_width_left = 5
 border_width_top = 5
@@ -49,20 +49,20 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 38
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.0431373, 0.0392157, 0.0392157, 0.929412 )
 border_width_left = 5
 border_width_top = 5
@@ -74,7 +74,7 @@ corner_radius_top_left = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.462745, 0.113725, 0.113725, 0.952941 )
 border_width_left = 5
 border_width_top = 5
@@ -86,13 +86,13 @@ corner_radius_top_left = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.235294, 0.227451, 0.227451, 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.137255, 0.133333, 0.133333, 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 34
 use_filter = true
 font_data = ExtResource( 7 )
@@ -106,7 +106,7 @@ margin_left = 11.5835
 margin_top = 156.075
 margin_right = 124.584
 margin_bottom = 206.075
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,7 +133,7 @@ margin_left = 12.0
 margin_top = 84.4049
 margin_right = 125.0
 margin_bottom = 134.405
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -152,7 +152,7 @@ texture = ExtResource( 8 )
 [node name="grayRect" type="Panel" parent="."]
 margin_right = 131.0
 margin_bottom = 57.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -163,7 +163,7 @@ margin_top = 14.7401
 margin_right = 156.0
 margin_bottom = 60.7401
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.027451, 0.0588235, 0.0117647, 1 )
 align = 1
 valign = 1
@@ -202,7 +202,7 @@ margin_left = -144.825
 margin_top = 16.6489
 margin_right = 40.1749
 margin_bottom = 36.6489
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "connection"
 align = 1
@@ -232,7 +232,7 @@ margin_left = -167.0
 margin_top = -23.0
 margin_right = 163.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -245,7 +245,7 @@ margin_left = 1149.0
 margin_top = 2.0
 margin_right = 1280.0
 margin_bottom = 59.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="livesNumber" type="Label" parent="blackRect"]
 margin_left = 61.689
@@ -253,7 +253,7 @@ margin_top = 9.55283
 margin_right = 157.689
 margin_bottom = 55.5528
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
@@ -280,7 +280,7 @@ margin_left = 1149.59
 margin_top = -0.378414
 margin_right = 1280.59
 margin_bottom = 56.6216
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -291,7 +291,7 @@ margin_top = 9.55283
 margin_right = 157.689
 margin_bottom = 55.5528
 rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
@@ -330,9 +330,9 @@ margin_left = -125.0
 margin_top = -50.0
 margin_right = 125.0
 margin_bottom = 50.0
-custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.0352941, 0.756863, 0.0313726, 1 )
 custom_colors/font_color_hover = Color( 0.384314, 0.952941, 0.145098, 1 )
 text = "Restart"
@@ -350,7 +350,7 @@ margin_left = -117.0
 margin_top = -20.5
 margin_right = 117.0
 margin_bottom = 20.5
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Game Over"
 align = 1
 valign = 1
@@ -368,7 +368,7 @@ margin_left = -121.29
 margin_top = -49.4459
 margin_right = 128.71
 margin_bottom = 50.5536
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -382,6 +382,7 @@ one_shot = true
 [node name="DisconnectedTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="WinButton" to="." method="_on_WinButton_pressed"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

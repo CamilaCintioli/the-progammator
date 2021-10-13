@@ -13,7 +13,7 @@
 size = 45
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 5 )
 
@@ -108,7 +108,7 @@ margin_left = 2.245
 margin_top = -26.9391
 margin_right = 2.245
 margin_bottom = 10.0609
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.027451, 0.792157, 0.0392157, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "CLICK POWER TO CONTINUE"
@@ -128,5 +128,6 @@ anims/blink = SubResource( 3 )
 
 [node name="AnimationTitle" type="AnimationPlayer" parent="."]
 anims/intro = SubResource( 4 )
+
 [connection signal="pressed" from="Label/Button" to="." method="_on_Button_pressed"]
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]
