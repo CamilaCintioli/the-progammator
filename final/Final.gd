@@ -15,6 +15,8 @@ var dron_zone = false
 var change_zone = false
 var chrom_dead = true
 var final = false
+var inputstr = ""
+var send:bool = false
 
 func _ready():
 	$Camera2D.current = true
@@ -31,8 +33,27 @@ func _ready():
 	$Four/Label.visible = false
 	$Five/ColorRect.visible = false
 	$Five/Label.visible = false
+	$Sent.visible = false
 	$AudioStreamEnding.play()
-	
+	credits.initialize(self)
+	$Button.visible = false
+	$Click.visible = false
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		var s = OS.get_scancode_string(event.scancode)
+		if s == "BackSpace":
+			inputstr = ""
+			$Button.visible = false
+			$Click.visible = false
+		elif s == "Space":
+			inputstr = inputstr + " "
+		elif !["Left", "Up", "Right", "Down", "Enter"].has(s):
+			inputstr = inputstr + s
+			$Button.visible = true
+			$Click.visible = true
+		$Name.set_text(inputstr)
+
 func jump():
 	pass
 
@@ -97,3 +118,17 @@ func _on_Start_body_entered(_body):
 	
 func _on_AudioStreamEnding_finished():
 	$AudioStreamEnding.play()
+
+func _on_Button_pressed():
+	send = true
+	$Name.visible = false
+	$NameTitle.visible = false
+	$Button.visible = false
+	$Click.visible = false
+	$Sent.visible = true
+	$HTTPRequest.request("https://futbolenvivo.herokuapp.com/game?name=" + inputstr)
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	pass
+#	var json = JSON.parse(body.get_string_from_utf8())
+#	print(json.result)
